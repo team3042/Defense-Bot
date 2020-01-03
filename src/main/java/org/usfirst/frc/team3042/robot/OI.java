@@ -4,9 +4,6 @@ import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
 //import org.usfirst.frc.team3042.lib.Path;
-import org.usfirst.frc.team3042.robot.commands.LightRing_On;
-import org.usfirst.frc.team3042.robot.commands.Spinner_SetSpeed;
-import org.usfirst.frc.team3042.robot.subsystems.Spinner;
 
 /** OI ************************************************************************
  * This class is the glue that binds the controls on the physical operator
@@ -28,14 +25,12 @@ public class OI {
 	private static final int JOYSTICK_Y_AXIS = Gamepad.JOY_Y_AXIS;
 	private static final int GAMEPAD_LEFT_TRIGGER = Gamepad.LEFT_TRIGGER;
 	private static final int GAMEPAD_RIGHT_TRIGGER = Gamepad.RIGHT_TRIGGER;
-	private static final double SPINNER_SPEED = RobotMap.SPINNER_DEFAULT_SPEED;
 	//private static final double ROBOT_WIDTH = RobotMap.ROBOT_WIDTH;
 	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(RobotMap.LOG_OI, "OI");
 	Gamepad gamepad, joyLeft, joyRight;
 	int driveAxisLeft, driveAxisRight;
-	Spinner spinner = Robot.spinner;
 
 	/** OI ********************************************************************
 	 * Assign commands to the buttons and triggers
@@ -71,11 +66,6 @@ public class OI {
 		/** PBOT Controls *****************************************************/
 		if (IS_PBOT) {
 
-			gamepad.A.toggleWhenPressed(new LightRing_On());
-
-			gamepad.LB.whenPressed(new Spinner_SetSpeed(-1*SPINNER_SPEED));
-			gamepad.RB.whenPressed(new Spinner_SetSpeed(0));
-
 			/*Big gyroscope (ADIS16448 IMU) isn't working properly*/
 			gamepad.X.whenPressed(new Drivetrain_GyroStraight(12.0, 24.0));
 			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
@@ -97,8 +87,6 @@ public class OI {
 			//testPath2.addRightTurn(420.0, turnInPlace, 21.0);
 		
 			/*OLD OR UNUSED CONTROLS*/
-
-			//gamepad.LB.toggleWhenPressed(new Spinner_SetPosition());
 			
 			//gamepad.X.whenPressed(new Gyroscope_Dashboard());
 

@@ -38,11 +38,8 @@ public class RobotMap {
 													IS_ARTEMIS 	? 0 : 0;
 	public static final int CAN_LEFT_FOLLOWER = 	IS_ARTEMIS 	? 0 : 0;
 	public static final int CAN_RIGHT_FOLLOWER = 	IS_ARTEMIS 	? 0 : 0;
-	public static final int CAN_SPINNER 	= 		IS_PBOT		? 10 :
-													IS_ARTEMIS 	? 0 : 0;
 	
 	/** PCM channels **********************************************************/
-	public static final int LIGHT_RING_CHANNEL = 1;
 	
 	/** SPI ports *************************************************************/
 	//note that the Gyroscope uses the myRIO Expansion Port (MXP) and is defined in the SPI class (edu.wpi.first.wpilibj.SPI)
@@ -114,48 +111,9 @@ public class RobotMap {
 	public static final double MAX_SPEED_GYRO = 0.4;
 	public static final double kI_GYRO_INTERVAL = 0.0;
 	
-	/** Spinner Settings ******************************************************/
-	public static final boolean HAS_SPINNER = IS_PBOT;
-	public static final NeutralMode SPINNER_BRAKE_MODE = NeutralMode.Brake;
-	public static final boolean REVERSE_SPINNER = false;
-	
-	/** Spinner Encoder Settings **********************************************/
-	public static final boolean HAS_SPINNER_ENCODER = HAS_SPINNER;
-	public static final int SPINNER_ENCODER_FRAME_RATE = 10;
-	public static final int SPINNER_ENCODER_COUNTS_PER_REV = 4096;
-	public static final boolean REVERSE_SPINNER_ENCODER = false;
-	public static final boolean SPINNER_SENSOR_PHASE = false;
-	
-	/** Spinner Closed-Loop Settings ******************************************/
-	public static final boolean HAS_SPINNER_CLOSED_LOOP = HAS_SPINNER;
-	public static final int SPINNER_POSITION_PROFILE = 0;
-	public static final double kP_SPINNER_POSITION = 0.51;
-	public static final double kI_SPINNER_POSITION = 0.0;
-	public static final double kD_SPINNER_POSITION = 5.1;
-	public static final double kF_SPINNER_POSITION = 0.0; //Should be set to zero
-	public static final int I_ZONE_SPINNER_POSITION = 0;
-	public static final int SPINNER_SPEED_PROFILE = 1;
-	public static final double kP_SPINNER_SPEED = 0.05;
-	public static final double kI_SPINNER_SPEED = 0.0;
-	public static final double kD_SPINNER_SPEED = 0.5;
-	public static final double kF_SPINNER_SPEED = 0.036;
-	public static final int I_ZONE_SPINNER_SPEED = 0;
-	public static final double SPINNER_DEFAULT_POSITION = 1.0; //revolutions
-	public static final double SPINNER_DEFAULT_SPEED = 500; //RPM
-	public static final double SPINNER_CALIBRATE_POWER = 0.2;
-	public static final double SPINNER_CALIBRATE_TIME = 10.0; //seconds
-	public static final int SPINNER_COUNT_AVERAGE = 20;
-	public static final int SPINNER_TIMEOUT = 0; // timeout in ms; set to zero
-	public static final int SPINNER_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final int SPINNER_CRUISE = 500; //RPM
-	public static final int SPINNER_ACCEL = 500; //RPM per sec
-	
 	/** Gyroscope Settings ****************************************************/
 	public static final boolean HAS_GYROSCOPE = true;
 	public static final double GYROSCOPE_SCALE = 1.0;
-	
-	/** LEDRing Settings ******************************************************/
-	public static final boolean HAS_LIGHT_RING = true;
 	
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";
@@ -174,10 +132,6 @@ public class RobotMap {
 	public static final Log.Level	LOG_DRIVETRAIN_FOLLOWERS	= Log.Level.TRACE;
 	public static final Log.Level	LOG_DRIVETRAIN_ENCODERS 	= Log.Level.DEBUG;
 	public static final Log.Level	LOG_DRIVETRAIN_AUTON		= Log.Level.DEBUG;
-	public static final Log.Level	LOG_SPINNER					= Log.Level.TRACE;
-	public static final Log.Level	LOG_SPINNER_ENCODER			= Log.Level.TRACE;
-	public static final Log.Level	LOG_SPINNER_CLOSED_LOOP		= Log.Level.DEBUG;
 	public static final Log.Level	LOG_GYROSCOPE				= Log.Level.DEBUG;
-	public static final Log.Level	LOG_LIGHT_RING				= Log.Level.TRACE;
-	public static final Log.Level	LOG_EXAMPLE_SUBSYSTEM 		= Log.Level.TRACE;
+	public static final Log.Level	LOG_EXAMPLE_SUBSYSTEM		= Log.Level.DEBUG;
 }
