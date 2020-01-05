@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.DriverStation;
 
 /** Robot *********************************************************************
  * The VM is configured to automatically run this class, and to call the
@@ -103,7 +104,32 @@ public class Robot extends TimedRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-	}
+
+		String gameData;
+		gameData = DriverStation.getInstance().getGameSpecificMessage();
+		if(gameData.length() > 0) {
+			switch (gameData.charAt(0)) {
+				case 'B' :
+				SmartDashboard.putString("Color:", "Blue");
+				break;
+				case 'G' :
+				SmartDashboard.putString("Color:", "Green");
+				break;
+				case 'R' :
+				SmartDashboard.putString("Color:", "Red");
+				break;
+				case 'Y' :
+				SmartDashboard.putString("Color:", "Yellow");
+				break;
+				default :
+				SmartDashboard.putString("Color:", "ERROR");
+				break;
+			}
+		} 
+		else {
+			//Code for no data received yet
+		}
+	} 
 
 	/** testPeriodic **********************************************************
 	 * This function is called periodically during test mode
