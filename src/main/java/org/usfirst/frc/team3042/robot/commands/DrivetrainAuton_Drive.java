@@ -1,6 +1,7 @@
  package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.lib.MotionProfile;
@@ -23,9 +24,9 @@ public class DrivetrainAuton_Drive extends Command {
 		
 	
 	/** Instance Variables ****************************************************/
-	Log log = new Log(LOG_LEVEL, getName());
 	Drivetrain drivetrain = Robot.drivetrain;
 	DrivetrainAuton auton = Robot.drivetrain.getAuton();
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(auton));
 	MotionProfile leftMotionProfile, rightMotionProfile;
 	boolean isLast;
 	

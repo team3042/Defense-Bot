@@ -2,6 +2,7 @@
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
@@ -19,8 +20,8 @@ public class DrivetrainEncoders_Dashboard extends Command {
 
 	
 	/** Instance Variables ****************************************************/
-	Log log = new Log(LOG_LEVEL, getName());
 	DrivetrainEncoders encoders = Robot.drivetrain.getEncoders();
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(encoders));
 	
 	
 	/** DrivetrainEncoders_Dashboard ******************************************

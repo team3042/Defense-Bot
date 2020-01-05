@@ -2,6 +2,7 @@
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
@@ -22,8 +23,8 @@ public class Drivetrain_Calibrate extends Command {
 	
 	
 	/** Instance Variables ****************************************************/
-	Log log = new Log(LOG_LEVEL, getName());
 	Drivetrain drivetrain = Robot.drivetrain;
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(drivetrain));
 	DrivetrainEncoders encoders = Robot.drivetrain.getEncoders();
 	Timer timer = new Timer();
 	int count;

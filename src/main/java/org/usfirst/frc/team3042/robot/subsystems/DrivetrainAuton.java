@@ -12,6 +12,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 
 /** DrivetrainAuton ***********************************************************
@@ -46,7 +47,7 @@ public class DrivetrainAuton extends Subsystem {
     	
 	
 	/** Instance Variables ****************************************************/
-	Log log = new Log(LOG_LEVEL, getName());
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	TalonSRX leftMotor, rightMotor;
 	DrivetrainEncoders encoders;
 	Notifier notifier;

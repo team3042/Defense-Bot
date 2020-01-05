@@ -7,6 +7,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 
 /** DrivetrainFollowers **********************************************************
@@ -22,7 +23,7 @@ public class DrivetrainFollowers extends Subsystem {
 
 	
 	/** Instance Variables ****************************************************/
-	Log log = new Log(LOG_LEVEL, getName());
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	TalonSRX leftFollower = new TalonSRX(CAN_LEFT_FOLLOWER);
 	TalonSRX rightFollower = new TalonSRX(CAN_RIGHT_FOLLOWER);	
 	

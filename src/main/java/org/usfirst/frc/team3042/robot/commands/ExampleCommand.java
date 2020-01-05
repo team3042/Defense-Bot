@@ -1,6 +1,7 @@
  package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
@@ -17,8 +18,8 @@ public class ExampleCommand extends Command {
 	
 	
 	/** Instance Variables ****************************************************/
-	Log log = new Log(LOG_LEVEL, getName());
 	ExampleSubsystem exampleSubsystem = Robot.exampleSubsystem;
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(exampleSubsystem));
 	
 	
 	/** ExampleCommand ********************************************************
