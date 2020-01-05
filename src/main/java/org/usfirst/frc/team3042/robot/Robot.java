@@ -6,8 +6,6 @@ import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 
-import edu.wpi.cscore.UsbCamera;
-import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -37,25 +35,12 @@ public class Robot extends TimedRobot {
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<Command>();
 
-	UsbCamera camera1;
-	//UsbCamera camera2;
-
 	/** robotInit *************************************************************
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
 	 */
 	public void robotInit() {
 		log.add("Robot Init", Log.Level.TRACE);
-
-		/*Code For Cameras (Microsoft Lifecams)*/
-
-		camera1 = CameraServer.getInstance().startAutomaticCapture(0);
-		//camera2 = CameraServer.getInstance().startAutomaticCapture(1);
-
-		camera1.setResolution(320, 240);
-		camera1.setFPS(15);
-		//camera2.setResolution(1280, 720);
-		//camera2.setFPS(15);
 
 		oi = new OI();
 		chooser.setDefaultOption("Default Auto", new ExampleCommand());
