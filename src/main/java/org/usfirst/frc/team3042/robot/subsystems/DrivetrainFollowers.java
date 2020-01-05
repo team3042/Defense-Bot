@@ -20,6 +20,8 @@ public class DrivetrainFollowers extends Subsystem {
 	private static final int CAN_RIGHT_MOTOR = RobotMap.CAN_RIGHT_MOTOR;
 	private static final int CAN_LEFT_FOLLOWER = RobotMap.CAN_LEFT_FOLLOWER;
 	private static final int CAN_RIGHT_FOLLOWER = RobotMap.CAN_RIGHT_FOLLOWER;
+	private static final boolean REVERSE_LEFT_MOTOR = RobotMap.REVERSE_LEFT_MOTOR;
+	private static final boolean REVERSE_RIGHT_MOTOR = RobotMap.REVERSE_RIGHT_MOTOR;
 
 	
 	/** Instance Variables ****************************************************/
@@ -33,7 +35,9 @@ public class DrivetrainFollowers extends Subsystem {
 		log.add("Constructor", Log.Level.TRACE);
 		
 		leftFollower.set(ControlMode.Follower, CAN_LEFT_MOTOR);
+		leftFollower.setInverted(REVERSE_LEFT_MOTOR);
 		rightFollower.set(ControlMode.Follower, CAN_RIGHT_MOTOR);
+		rightFollower.setInverted(REVERSE_RIGHT_MOTOR);
 	}
 	
 	

@@ -29,21 +29,11 @@ public class OI {
 	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(RobotMap.LOG_OI, "OI");
-	Gamepad gamepad, joyLeft, joyRight;
+	public Gamepad gamepad, joyLeft, joyRight;
 	int driveAxisLeft, driveAxisRight;
 
 	/** OI ********************************************************************
-	 * Assign commands to the buttons and triggers
-	 * 
-	 * Example Commands:
-	 * gamepad.A.whenPressed(new ExampleCommand());
-	 * gamepad.B.toggleWhenPressed(new ExampleCommand());
-	 * gamepad.X.whileHeld(new ExampleCommand());
-	 * gamepad.Y.whenReleased(new ExampleCommand());
-	 * gamepad.LT.toggleWhenActive(new ExampleCommand());
-	 * gamepad.RT.whenActive(new ExampleCommand());
-	 * gamepad.POVUp.whileActive(new ExampleCommand());
-	 */
+	 * Assign commands to the buttons and triggers*/
 	public OI() {
 		log.add("OI Constructor", Log.Level.TRACE);
 		
