@@ -11,7 +11,6 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-
 /** DrivetrainEncoders ***********************************************************
  * The encoders for the drivetrain.
  */
@@ -25,12 +24,10 @@ public class DrivetrainEncoders extends Subsystem {
 	private static final boolean SENSOR_PHASE_LEFT = RobotMap.SENSOR_PHASE_LEFT;
 	private static final boolean SENSOR_PHASE_RIGHT = RobotMap.SENSOR_PHASE_RIGHT;
 
-	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	TalonSRX leftEncoder, rightEncoder;
 	double leftPositionZero, rightPositionZero;
-	
 	
 	/** DrivetrainEncoders ****************************************************/
 	public DrivetrainEncoders(TalonSRX leftMotor, TalonSRX rightMotor) {
@@ -52,7 +49,6 @@ public class DrivetrainEncoders extends Subsystem {
 		encoder.setSensorPhase(sensorPhase); 	// affects closed-loop mode
 	}
 	
-	
 	/** initDefaultCommand ****************************************************
 	 * Set the default command for the subsystem.
 	 */
@@ -60,7 +56,6 @@ public class DrivetrainEncoders extends Subsystem {
 		setDefaultCommand(new DrivetrainEncoders_Dashboard());
 	}
 
-	
 	/** reset *****************************************************************/
 	public void reset() {
 		int leftCounts = leftEncoder.getSelectedSensorPosition(PIDIDX);
@@ -73,7 +68,6 @@ public class DrivetrainEncoders extends Subsystem {
 		leftPositionZero = 0.0;
 		rightPositionZero = 0.0;
 	}
-	
 	
 	/** Get the encoder position or speed *************************************
 	 * Position is converted to revolutions
@@ -101,7 +95,6 @@ public class DrivetrainEncoders extends Subsystem {
 	private double cp100msToRPM(int cp100ms) {
 		return (double)cp100ms * 10.0 * 60.0 / COUNTS_PER_REVOLUTION;
 	}
-	
 	
 	/** rpmToF ****************************************************************
 	 * Convert RPM reading into an F-Gain

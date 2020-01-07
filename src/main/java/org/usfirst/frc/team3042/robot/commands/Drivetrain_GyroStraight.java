@@ -10,7 +10,6 @@ import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.DrivetrainEncoders;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 
-
 /** Drivetrain_GyroStraight ***************************************************
  * Command for driving straight using gyroscope feedback.
  */
@@ -24,7 +23,6 @@ public class Drivetrain_GyroStraight extends Command {
 	private static final double kF_RIGHT = RobotMap.kF_DRIVE_RIGHT;
 	private static final double CIRCUMFRENCE = RobotMap.WHEEL_DIAMETER * Math.PI;
 	private static final double MAX_CORRECTION = RobotMap.MAX_SPEED_GYRO;
-
 	
 	/** Instance Variables ****************************************************/
 	Drivetrain drivetrain = Robot.drivetrain;
@@ -33,7 +31,6 @@ public class Drivetrain_GyroStraight extends Command {
 	Gyroscope gyroscope = Robot.gyroscope;
 	double leftPower, rightPower, lastError, integralError;
 	double goalAngle, goalDistance;
-	
 	
 	/** Drivetrain_GyroStraight ***********************************************
 	 * Required subsystems will cancel commands when this command is run.
@@ -56,7 +53,6 @@ public class Drivetrain_GyroStraight extends Command {
 		rightPower = encoders.rpmToPower(rpm, kF_RIGHT);
 	}
 	
-	
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time
 	 */
@@ -70,7 +66,6 @@ public class Drivetrain_GyroStraight extends Command {
 		encoders.reset();
 	}
 
-	
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
@@ -92,7 +87,6 @@ public class Drivetrain_GyroStraight extends Command {
 		lastError = error;
 	}
 	
-	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
@@ -101,7 +95,6 @@ public class Drivetrain_GyroStraight extends Command {
 		boolean rightGoalReached = encoders.getRightPosition() > goalDistance;
 		return leftGoalReached || rightGoalReached;
 	}
-
 	
 	/** end *******************************************************************
 	 * Called once after isFinished returns true
@@ -110,7 +103,6 @@ public class Drivetrain_GyroStraight extends Command {
 		log.add("End", Log.Level.TRACE);
 		terminate();
 	}
-
 	
 	/** interrupted ***********************************************************
 	 * Called when another command which requires one or more of the same
@@ -120,7 +112,6 @@ public class Drivetrain_GyroStraight extends Command {
 		log.add("Interrupted", Log.Level.TRACE);
 		terminate();
 	}
-	
 	
 	/** Graceful End **********************************************************/
 	private void terminate() {

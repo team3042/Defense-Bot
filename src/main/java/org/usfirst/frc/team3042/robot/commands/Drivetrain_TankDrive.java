@@ -10,7 +10,6 @@ import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 
-
 /** Drivetrain_TankDrive ******************************************************
  * Using joystick input to drive the robot.
  */
@@ -19,14 +18,12 @@ public class Drivetrain_TankDrive extends Command {
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_DRIVETRAIN;
 	private static final double ACCELERATION_MAX = RobotMap.ACCELERATION_MAX;
 	
-	
 	/** Instance Variables ****************************************************/
 	Drivetrain drivetrain = Robot.drivetrain;
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(drivetrain));
 	OI oi = Robot.oi;
 	double leftPowerOld, rightPowerOld;
 	Timer timer = new Timer();
-	
 	
 	/** Drivetrain_TankDrive **************************************************
 	 * Required subsystems will cancel commands when this command is run.
@@ -37,7 +34,6 @@ public class Drivetrain_TankDrive extends Command {
 		requires(drivetrain);
 	}
 
-	
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time
 	 */
@@ -52,7 +48,6 @@ public class Drivetrain_TankDrive extends Command {
 		timer.reset();
 	}
 
-	
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
@@ -71,7 +66,6 @@ public class Drivetrain_TankDrive extends Command {
 		rightPowerOld = rightPower;
 	}
 	
-	
 	/** restrictAcceleration **************************************************/
 	private double restrictAcceleration(double goalPower, 
 			double currentPower, double dt) {
@@ -85,7 +79,6 @@ public class Drivetrain_TankDrive extends Command {
 		return goalPower;
 	}
 	
-	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
@@ -93,7 +86,6 @@ public class Drivetrain_TankDrive extends Command {
 		return false;
 	}
 
-	
 	/** end *******************************************************************
 	 * Called once after isFinished returns true
 	 */
@@ -102,7 +94,6 @@ public class Drivetrain_TankDrive extends Command {
 		terminate();
 	}
 
-	
 	/** interrupted ***********************************************************
 	 * Called when another command which requires one or more of the same
 	 * subsystems is scheduled to run
@@ -111,7 +102,6 @@ public class Drivetrain_TankDrive extends Command {
 		log.add("Interrupted", Log.Level.TRACE);
 		terminate();
 	}
-	
 	
 	/** Graceful End **********************************************************/
 	private void terminate() {

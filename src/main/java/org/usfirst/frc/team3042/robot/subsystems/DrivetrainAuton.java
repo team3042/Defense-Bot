@@ -14,7 +14,6 @@ import edu.wpi.first.wpilibj.Notifier;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-
 /** DrivetrainAuton ***********************************************************
  * The methods and information necessary for autonomous motion profile driving.
  */
@@ -34,7 +33,6 @@ public class DrivetrainAuton extends Subsystem {
 	private static final int TIMEOUT = RobotMap.AUTON_TIMEOUT;
 	private static final int PIDIDX = RobotMap.AUTON_PIDIDX;
 	
-	
 	/** Periodic Runnable *****************************************************
 	 * Create a separate thread to push motion profile points out to the Talon
 	 */
@@ -43,8 +41,7 @@ public class DrivetrainAuton extends Subsystem {
 			leftMotor.processMotionProfileBuffer();
 			rightMotor.processMotionProfileBuffer();
 		}
-	}
-    	
+	}	
 	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
@@ -52,7 +49,6 @@ public class DrivetrainAuton extends Subsystem {
 	DrivetrainEncoders encoders;
 	Notifier notifier;
 	
-
 	/** DrivetrainAuton *******************************************************/
 	public DrivetrainAuton(TalonSRX leftMotor, TalonSRX rightMotor, 
 			DrivetrainEncoders encoders) {
@@ -84,13 +80,11 @@ public class DrivetrainAuton extends Subsystem {
 		motor.config_IntegralZone(PROFILE, I_ZONE, TIMEOUT);
 	}
 	
-	
 	/** initDefaultCommand ****************************************************
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
 	}
-	
 
 	/** prepareMotionProfile *****************************************************
 	 * Clears out any old trajectories and prepares to receive new trajectory 
@@ -107,7 +101,6 @@ public class DrivetrainAuton extends Subsystem {
 		motor.clearMotionProfileTrajectories();
 		motor.selectProfileSlot(PROFILE, PIDIDX);
 	}
-	
 	
 	/** Motion Profile command methods ****************************************/
 	public void pushPoints(	TrajectoryPoint leftPoint, 

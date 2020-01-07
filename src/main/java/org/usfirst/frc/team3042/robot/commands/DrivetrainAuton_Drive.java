@@ -1,4 +1,4 @@
- package org.usfirst.frc.team3042.robot.commands;
+package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
@@ -13,7 +13,6 @@ import org.usfirst.frc.team3042.robot.subsystems.DrivetrainAuton;
 
 import com.ctre.phoenix.motion.MotionProfileStatus;
 
-
 /** DrivetrainAuton_Drive *****************************************************
  * Autonomous driving using motion profile.
  */
@@ -22,14 +21,12 @@ public class DrivetrainAuton_Drive extends Command {
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_DRIVETRAIN_AUTON;
 	private static final int BUFFER_TRIGGER = RobotMap.AUTON_BUFFER_TRIGGER;
 		
-	
 	/** Instance Variables ****************************************************/
 	Drivetrain drivetrain = Robot.drivetrain;
 	DrivetrainAuton auton = Robot.drivetrain.getAuton();
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(auton));
 	MotionProfile leftMotionProfile, rightMotionProfile;
 	boolean isLast;
-	
 	
 	/** Drivetrain_Auton ******************************************************/
 	public DrivetrainAuton_Drive(Path path) {
@@ -53,7 +50,6 @@ public class DrivetrainAuton_Drive extends Command {
 					rightMotionProfile.getPoint(n));
 		}
 	}
-
 	
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
@@ -78,7 +74,6 @@ public class DrivetrainAuton_Drive extends Command {
 		isLast = leftStatus.isLast || rightStatus.isLast;
 	}
 	
-	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
@@ -86,7 +81,6 @@ public class DrivetrainAuton_Drive extends Command {
 		return isLast;
 	}
 
-	
 	/** end *******************************************************************
 	 * Called once after isFinished returns true
 	 */
@@ -94,7 +88,6 @@ public class DrivetrainAuton_Drive extends Command {
 		log.add("End", Log.Level.TRACE);
 		terminate();
 	}
-
 	
 	/** interrupted ***********************************************************
 	 * Called when another command which requires one or more of the same
@@ -104,7 +97,6 @@ public class DrivetrainAuton_Drive extends Command {
 		log.add("Interrupted", Log.Level.TRACE);
 		terminate();
 	}
-	
 	
 	/** Graceful End **********************************************************/
 	private void terminate() {

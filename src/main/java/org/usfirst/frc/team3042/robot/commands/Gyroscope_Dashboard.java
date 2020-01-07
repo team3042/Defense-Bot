@@ -9,7 +9,6 @@ import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 
-
 /** Gyroscope_Dashboard *******************************************************
  * Display the gyroscope angle on the dashboard
  */
@@ -17,11 +16,9 @@ public class Gyroscope_Dashboard extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_GYROSCOPE;
 	
-	
 	/** Instance Variables ****************************************************/
 	Gyroscope gyroscope = Robot.gyroscope;
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(gyroscope));
-	
 	
 	/** Gyroscope_Dashboard ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
@@ -32,7 +29,6 @@ public class Gyroscope_Dashboard extends Command {
 		requires(gyroscope);
 	}
 
-	
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time
 	 */
@@ -41,7 +37,6 @@ public class Gyroscope_Dashboard extends Command {
 		gyroscope.reset();
 	}
 
-	
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
@@ -49,14 +44,12 @@ public class Gyroscope_Dashboard extends Command {
 		SmartDashboard.putNumber("Gyroscope (Degrees)", gyroscope.getAngle());
 	}
 	
-	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
 	protected boolean isFinished() {
 		return false;
 	}
-
 	
 	/** end *******************************************************************
 	 * Called once after isFinished returns true
@@ -65,7 +58,6 @@ public class Gyroscope_Dashboard extends Command {
 		log.add("End", Log.Level.TRACE);
 	}
 
-	
 	/** interrupted ***********************************************************
 	 * Called when another command which requires one or more of the same
 	 * subsystems is scheduled to run

@@ -9,7 +9,6 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-
 /** DrivetrainFollowers **********************************************************
  * Motor controllers for secondary drivetrain motors
  */
@@ -23,13 +22,11 @@ public class DrivetrainFollowers extends Subsystem {
 	private static final boolean REVERSE_LEFT_MOTOR = RobotMap.REVERSE_LEFT_MOTOR;
 	private static final boolean REVERSE_RIGHT_MOTOR = RobotMap.REVERSE_RIGHT_MOTOR;
 
-	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	TalonSRX leftFollower = new TalonSRX(CAN_LEFT_FOLLOWER);
 	TalonSRX rightFollower = new TalonSRX(CAN_RIGHT_FOLLOWER);	
 	
-
 	/** DrivetrainFollowers **************************************************/
 	public DrivetrainFollowers() {
 		log.add("Constructor", Log.Level.TRACE);
@@ -39,7 +36,6 @@ public class DrivetrainFollowers extends Subsystem {
 		rightFollower.set(ControlMode.Follower, CAN_RIGHT_MOTOR);
 		rightFollower.setInverted(REVERSE_RIGHT_MOTOR);
 	}
-	
 	
 	/** initDefaultCommand ****************************************************
 	 * Set the default command for the subsystem.

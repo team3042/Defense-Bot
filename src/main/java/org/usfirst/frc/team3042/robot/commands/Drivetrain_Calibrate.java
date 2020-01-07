@@ -10,7 +10,6 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.DrivetrainEncoders;
 
-
 /** Drivetrain_Calibrate ******************************************************
  * Determine the F-Gain for the left and right motors of the drivetrain.
  */
@@ -21,7 +20,6 @@ public class Drivetrain_Calibrate extends Command {
 	private static final double CALIBRATE_TIME = RobotMap.AUTON_CALIBRATE_TIME;
 	private static final int COUNT_AVERAGE = RobotMap.AUTON_COUNT_AVERAGE;
 	
-	
 	/** Instance Variables ****************************************************/
 	Drivetrain drivetrain = Robot.drivetrain;
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(drivetrain));
@@ -30,14 +28,12 @@ public class Drivetrain_Calibrate extends Command {
 	int count;
 	double leftSum, rightSum;
 	
-	
 	/** Drivetrain_Calibrate **************************************************/
 	public Drivetrain_Calibrate() {
 		log.add("Constructor", Log.Level.TRACE);
 		
 		requires(drivetrain);
 	}
-
 	
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time
@@ -53,7 +49,6 @@ public class Drivetrain_Calibrate extends Command {
 		rightSum = 0.0;
 	}
 
-	
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
@@ -65,7 +60,6 @@ public class Drivetrain_Calibrate extends Command {
 		}
 	}
 	
-	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
@@ -73,7 +67,6 @@ public class Drivetrain_Calibrate extends Command {
 		return count >= COUNT_AVERAGE;
 	}
 
-	
 	/** end *******************************************************************
 	 * Called once after isFinished returns true
 	 */
@@ -89,7 +82,6 @@ public class Drivetrain_Calibrate extends Command {
 		double kF = encoders.rpmToF(rpmAvg, CALIBRATE_POWER);
 		return kF;
 	}
-
 	
 	/** interrupted ***********************************************************
 	 * Called when another command which requires one or more of the same
@@ -99,7 +91,6 @@ public class Drivetrain_Calibrate extends Command {
 		log.add("Interrupted", Log.Level.TRACE);
 		terminate();
 	}
-	
 	
 	/** Graceful End **********************************************************/
 	private void terminate() {

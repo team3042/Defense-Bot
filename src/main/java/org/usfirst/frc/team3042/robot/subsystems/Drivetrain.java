@@ -11,7 +11,6 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-
 /** Drivetrain ****************************************************************
  * The drivetrain subsystem for the robot.
  */
@@ -27,7 +26,6 @@ public class Drivetrain extends Subsystem {
 	private static final boolean REVERSE_LEFT_MOTOR = RobotMap.REVERSE_LEFT_MOTOR;
 	private static final boolean REVERSE_RIGHT_MOTOR = RobotMap.REVERSE_RIGHT_MOTOR;	
 	
-	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	TalonSRX leftMotor = new TalonSRX(CAN_LEFT_MOTOR);
@@ -35,7 +33,6 @@ public class Drivetrain extends Subsystem {
 	DrivetrainFollowers followers;
 	DrivetrainEncoders encoders;
 	DrivetrainAuton auton;
-
 	
 	/** Drivetrain ************************************************************
 	 * Set up the talons for desired behavior.
@@ -59,14 +56,12 @@ public class Drivetrain extends Subsystem {
 		motor.setInverted(reverse); 	// affects percent Vbus mode
 	}
 	
-	
 	/** initDefaultCommand ****************************************************
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
 		setDefaultCommand(new Drivetrain_TankDrive());
 	}
-	
 	
 	/** Methods for setting the motors in Percent Vbus mode ********************/
 	public void setPower(double leftPower, double rightPower) {
@@ -84,7 +79,6 @@ public class Drivetrain extends Subsystem {
 		power = Math.max(-1.0, power);
 		return power;
 	}
-	
 	
 	/** Provide commands access to the encoders and autonomous ****************/
 	public DrivetrainEncoders getEncoders() {

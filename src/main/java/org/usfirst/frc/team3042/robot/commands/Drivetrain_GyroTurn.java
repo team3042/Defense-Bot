@@ -9,7 +9,6 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 
-
 /** Drivetrain_GyroTurn *******************************************************
  * Command for turning in place to a set angle.
  */
@@ -22,13 +21,11 @@ public class Drivetrain_GyroTurn extends Command {
 	private static final double ANGLE_TOLERANCE = RobotMap.ANGLE_TOLERANCE;
 	private static final double MAX_SPEED = RobotMap.MAX_SPEED_GYRO;
 	
-	
 	/** Instance Variables ****************************************************/
 	Drivetrain drivetrain = Robot.drivetrain;
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(drivetrain));
 	Gyroscope gyroscope = Robot.gyroscope;
 	double lastError, integralError, goalAngle;
-	
 	
 	/** Drivetrain_GyroTurn *************************************************** 
 	 * 
@@ -48,7 +45,6 @@ public class Drivetrain_GyroTurn extends Command {
 		goalAngle = angle;
 	}
 	
-	
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time
 	 */
@@ -60,7 +56,6 @@ public class Drivetrain_GyroTurn extends Command {
 		gyroscope.reset();
 	}
 
-	
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
@@ -85,14 +80,12 @@ public class Drivetrain_GyroTurn extends Command {
 		lastError = error;
 	}
 	
-	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
 	protected boolean isFinished() {
 		return Math.abs(lastError) < ANGLE_TOLERANCE;
 	}
-
 	
 	/** end *******************************************************************
 	 * Called once after isFinished returns true
@@ -101,7 +94,6 @@ public class Drivetrain_GyroTurn extends Command {
 		log.add("End", Log.Level.TRACE);
 		terminate();
 	}
-
 	
 	/** interrupted ***********************************************************
 	 * Called when another command which requires one or more of the same
@@ -111,7 +103,6 @@ public class Drivetrain_GyroTurn extends Command {
 		log.add("Interrupted", Log.Level.TRACE);
 		terminate();
 	}
-	
 	
 	/** Graceful End **********************************************************/
 	private void terminate() {

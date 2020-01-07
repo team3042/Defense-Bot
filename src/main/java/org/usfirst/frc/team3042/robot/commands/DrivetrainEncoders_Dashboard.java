@@ -1,4 +1,4 @@
- package org.usfirst.frc.team3042.robot.commands;
+package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -9,7 +9,6 @@ import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.DrivetrainEncoders;
 
-
 /** DrivetrainEncoders_Dashboard **********************************************
  * Output encoder values to the SmartDashboard
  */
@@ -17,12 +16,10 @@ public class DrivetrainEncoders_Dashboard extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_DRIVETRAIN_ENCODERS;
 	private static final double CIRCUMFRENCE = Math.PI * RobotMap.WHEEL_DIAMETER;
-
 	
 	/** Instance Variables ****************************************************/
 	DrivetrainEncoders encoders = Robot.drivetrain.getEncoders();
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(encoders));
-	
 	
 	/** DrivetrainEncoders_Dashboard ******************************************
 	 * Required subsystems will cancel commands when this command is run.
@@ -33,7 +30,6 @@ public class DrivetrainEncoders_Dashboard extends Command {
 		requires(encoders);
 	}
 
-	
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time
 	 */
@@ -43,7 +39,6 @@ public class DrivetrainEncoders_Dashboard extends Command {
 		encoders.reset();
 	}
 
-	
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
@@ -70,14 +65,12 @@ public class DrivetrainEncoders_Dashboard extends Command {
 		SmartDashboard.putNumber("Right Speed", rightSpeed);
 	}
 	
-	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
 	protected boolean isFinished() {
 		return false;
 	}
-
 	
 	/** end *******************************************************************
 	 * Called once after isFinished returns true
@@ -86,7 +79,6 @@ public class DrivetrainEncoders_Dashboard extends Command {
 		log.add("End", Log.Level.TRACE);
 	}
 
-	
 	/** interrupted ***********************************************************
 	 * Called when another command which requires one or more of the same
 	 * subsystems is scheduled to run
