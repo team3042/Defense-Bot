@@ -1,14 +1,18 @@
 package org.usfirst.frc.team3042.robot.commands;
 
+import org.usfirst.frc.team3042.lib.Path;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
+/** AutonomousMode ******************************************************
+ * Command Group for the 15 second autonomous period
+ */
 public class AutonomousMode extends CommandGroup {
-  /**
-   * Autonomous Mode
-   */
   public AutonomousMode() {
 
-    addSequential(new Drivetrain_GyroStraight(12.0, 24.0));
-    
+    Path driveStraight = new Path();
+    driveStraight.addStraight(24, 24);
+
+    addSequential(new DrivetrainAuton_Drive(driveStraight));
   }
 }

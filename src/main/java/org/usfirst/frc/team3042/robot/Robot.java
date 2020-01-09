@@ -36,6 +36,8 @@ public class Robot extends TimedRobot {
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<Command>();
 
+	String color;
+
 	/** robotInit *************************************************************
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -105,10 +107,9 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 
-		String gameData;
-		gameData = DriverStation.getInstance().getGameSpecificMessage();
-		if(gameData.length() > 0) {
-			switch (gameData.charAt(0)) {
+		color = DriverStation.getInstance().getGameSpecificMessage();
+		if(color.length() > 0) {
+			switch (color.charAt(0)) {
 				case 'B' :
 				SmartDashboard.putString("Color:", "Blue");
 				break;
@@ -125,7 +126,7 @@ public class Robot extends TimedRobot {
 				SmartDashboard.putString("Color:", "ERROR");
 				break;
 			}
-		} 
+		}
 		else {
 			//Code for no data received yet
 		}
