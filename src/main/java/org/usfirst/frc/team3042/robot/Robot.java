@@ -1,9 +1,7 @@
 package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
-import org.usfirst.frc.team3042.robot.commands.ExampleCommand;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
-import org.usfirst.frc.team3042.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -31,7 +29,6 @@ public class Robot extends TimedRobot {
 	private Log log = new Log(LOG_LEVEL, "Robot");
 	public static final Drivetrain 	drivetrain 	= (HAS_DRIVETRAIN) 	? new Drivetrain() 	: null;
 	public static final Gyroscope 	gyroscope 	= (HAS_GYROSCOPE) 	? new Gyroscope() 	: null;
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static final PowerDistributionPanel pdp = new PowerDistributionPanel();
 	public static OI oi;
 
@@ -46,8 +43,8 @@ public class Robot extends TimedRobot {
 		log.add("Robot Init", Log.Level.TRACE);
 
 		oi = new OI();
-		chooser.setDefaultOption("Default Auto", new ExampleCommand());
-		chooser.addOption("My Auto", new ExampleCommand());
+		//chooser.setDefaultOption("Default Auto", new ExampleCommand());
+		//chooser.addOption("My Auto", new ExampleCommand());
 		SmartDashboard.putData("Auto Mode", chooser);
 	}
 

@@ -23,7 +23,7 @@ public class Gyroscope extends Subsystem {
 	//ADIS16448_IMU gyroscope = new ADIS16448_IMU(); //Uncomment for ADIS16448 gyroscope (Big Boy)
 	ADXRS450_Gyro gyroscope = new ADXRS450_Gyro(); //Uncomment for ADXRS450 gyroscope (Small Boy)
 	
-	/** ExampleSubsystem ******************************************************/
+	/** Gyroscope ******************************************************/
 	public Gyroscope() {
 		log.add("Constructor", LOG_LEVEL);
 		reset();

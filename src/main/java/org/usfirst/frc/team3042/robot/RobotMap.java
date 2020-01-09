@@ -125,5 +125,4 @@ public class RobotMap {
 	public static final Log.Level	LOG_DRIVETRAIN_ENCODERS 	= Log.Level.DEBUG;
 	public static final Log.Level	LOG_DRIVETRAIN_AUTON		= Log.Level.DEBUG;
 	public static final Log.Level	LOG_GYROSCOPE				= Log.Level.DEBUG;
-	public static final Log.Level	LOG_EXAMPLE_SUBSYSTEM		= Log.Level.DEBUG;
 }
