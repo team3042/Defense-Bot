@@ -13,6 +13,9 @@ public class AutonomousMode extends CommandGroup {
     Path driveStraight = new Path();
     driveStraight.addStraight(24, 24);
 
+    //addSequential(new Shoot_PowerCell());
+    //addSequential(new Shoot_PowerCell());
+    //addSequential(new Shoot_PowerCell());
     addSequential(new DrivetrainAuton_Drive(driveStraight));
   }
 }
