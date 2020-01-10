@@ -55,7 +55,7 @@ public class OI {
 		if (IS_PBOT) {
 
 			/*Big gyroscope (ADIS16448 IMU) isn't working properly*/
-			gamepad.X.whenPressed(new Drivetrain_GyroStraight(12.0, 24.0));
+			gamepad.X.whenPressed(new Drivetrain_GyroStraight(24.0, 24.0));
 			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
 
 		}

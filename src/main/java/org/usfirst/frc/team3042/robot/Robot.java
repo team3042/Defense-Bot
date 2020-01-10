@@ -127,9 +127,6 @@ public class Robot extends TimedRobot {
 				break;
 			}
 		}
-		else {
-			//Code for no data received yet
-		}
 	} 
 
 	/** testPeriodic **********************************************************

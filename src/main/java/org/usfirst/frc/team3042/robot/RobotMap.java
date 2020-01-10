@@ -52,7 +52,7 @@ public class RobotMap {
 
 	/** Drivetrain Settings ***************************************************/
 	public static final boolean HAS_DRIVETRAIN = true;
-	public static final boolean HAS_FOLLOWERS = true;
+	public static final boolean HAS_FOLLOWERS = false;
 	public static final NeutralMode DRIVETRAIN_BRAKE_MODE = NeutralMode.Brake;
 	public static final boolean REVERSE_LEFT_MOTOR  = 	(IS_PBOT) ? true : true;
 	public static final boolean REVERSE_RIGHT_MOTOR = 	(IS_PBOT) ? false: false;

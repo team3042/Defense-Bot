@@ -1,7 +1,5 @@
 package org.usfirst.frc.team3042.robot.commands;
 
-import org.usfirst.frc.team3042.lib.Path;
-
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /** AutonomousMode ******************************************************
@@ -10,12 +8,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousMode extends CommandGroup {
   public AutonomousMode() {
 
-    Path driveStraight = new Path();
-    driveStraight.addStraight(24, 24);
-
-    //addSequential(new Shoot_PowerCell());
-    //addSequential(new Shoot_PowerCell());
-    //addSequential(new Shoot_PowerCell());
-    addSequential(new DrivetrainAuton_Drive(driveStraight));
+    addSequential(new Drivetrain_GyroStraight(24.0, 32.0));
   }
 }
