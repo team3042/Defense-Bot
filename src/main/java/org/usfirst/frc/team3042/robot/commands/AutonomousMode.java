@@ -8,6 +8,6 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousMode extends CommandGroup {
   public AutonomousMode() {
 
-    addSequential(new Drivetrain_GyroStraight(24.0, 32.0));
+    addSequential(new Drivetrain_GyroStraight(32.0, 32.0));
   }
 }

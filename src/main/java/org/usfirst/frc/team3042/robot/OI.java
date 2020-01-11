@@ -1,6 +1,7 @@
 package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
+import org.usfirst.frc.team3042.robot.commands.ControlPanelWheel_PositionControl;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
 
@@ -58,6 +59,7 @@ public class OI {
 			gamepad.X.whenPressed(new Drivetrain_GyroStraight(24.0, 24.0));
 			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
 
+			gamepad.A.whenPressed(new ControlPanelWheel_PositionControl());
 		}
 		
 		/** Artemis Controls **************************************************/

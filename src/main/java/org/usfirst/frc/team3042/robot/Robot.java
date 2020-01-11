@@ -2,6 +2,8 @@ package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.commands.AutonomousMode;
+import org.usfirst.frc.team3042.robot.subsystems.ColorSensor;
+import org.usfirst.frc.team3042.robot.subsystems.ControlPanelWheel;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 
@@ -25,18 +27,22 @@ public class Robot extends TimedRobot {
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_ROBOT;
 	private static final boolean HAS_DRIVETRAIN = RobotMap.HAS_DRIVETRAIN;
 	private static final boolean HAS_GYROSCOPE = RobotMap.HAS_GYROSCOPE;
-	
+	private static final boolean HAS_COLOR_SENSOR = RobotMap.HAS_COLOR_SENSOR;
+	private static final boolean HAS_CONTROL_PANEL_WHEEL = RobotMap.HAS_CONTROL_PANEL_WHEEL;
+
 	/** Create Subsystems *****************************************************/
 	private Log log = new Log(LOG_LEVEL, "Robot");
-	public static final Drivetrain 	drivetrain 	= (HAS_DRIVETRAIN) 	? new Drivetrain() 	: null;
-	public static final Gyroscope 	gyroscope 	= (HAS_GYROSCOPE) 	? new Gyroscope() 	: null;
+	public static final Drivetrain 	drivetrain 	= (HAS_DRIVETRAIN) 		? new Drivetrain() 	: null;
+	public static final Gyroscope 	gyroscope 	= (HAS_GYROSCOPE) 		? new Gyroscope() 	: null;
+	public static final ColorSensor colorsensor = (HAS_COLOR_SENSOR)    ? new ColorSensor() : null;
+	public static final ControlPanelWheel cpwheel = (HAS_CONTROL_PANEL_WHEEL)   ? new ControlPanelWheel() : null;
 	public static final PowerDistributionPanel pdp = new PowerDistributionPanel();
 	public static OI oi;
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<Command>();
 
-	String color;
+	public String color;
 
 	/** robotInit *************************************************************
 	 * This function is run when the robot is first started up and should be
