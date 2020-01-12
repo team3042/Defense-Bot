@@ -32,10 +32,10 @@ public class Robot extends TimedRobot {
 
 	/** Create Subsystems *****************************************************/
 	private Log log = new Log(LOG_LEVEL, "Robot");
-	public static final Drivetrain 	drivetrain 	= (HAS_DRIVETRAIN) 		? new Drivetrain() 	: null;
-	public static final Gyroscope 	gyroscope 	= (HAS_GYROSCOPE) 		? new Gyroscope() 	: null;
-	public static final ColorSensor colorsensor = (HAS_COLOR_SENSOR)    ? new ColorSensor() : null;
-	public static final ControlPanelWheel cpwheel = (HAS_CONTROL_PANEL_WHEEL)   ? new ControlPanelWheel() : null;
+	public static final Drivetrain 	drivetrain 	   = (HAS_DRIVETRAIN) 			 ? new Drivetrain() 	: null;
+	public static final Gyroscope 	gyroscope 	   = (HAS_GYROSCOPE) 			 ? new Gyroscope() 	: null;
+	public static final ColorSensor colorsensor    = (HAS_COLOR_SENSOR)          ? new ColorSensor() : null;
+	public static final ControlPanelWheel cpwheel  = (HAS_CONTROL_PANEL_WHEEL)   ? new ControlPanelWheel() : null;
 	public static final PowerDistributionPanel pdp = new PowerDistributionPanel();
 	public static OI oi;
 

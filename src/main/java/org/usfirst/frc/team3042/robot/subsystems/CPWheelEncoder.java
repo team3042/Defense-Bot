@@ -10,7 +10,9 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-/** Control Panel Wheel Encoder ************************************************************/
+/** Control Panel Wheel Encoder ****************************************************************
+ * Subsystem for the encoder on the control panel wheel
+ */
 public class CPWheelEncoder extends Subsystem {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_CONTROL_PANEL_WHEEL_ENCODER;
@@ -31,10 +33,8 @@ public class CPWheelEncoder extends Subsystem {
 
 		encoder = motor;
 		
-		encoder.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 
-				PIDIDX, TIMEOUT);
-		encoder.setStatusFramePeriod(StatusFrameEnhanced.Status_2_Feedback0, 
-				FRAME_RATE, TIMEOUT);
+		encoder.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, PIDIDX, TIMEOUT);
+		encoder.setStatusFramePeriod(StatusFrameEnhanced.Status_2_Feedback0, FRAME_RATE, TIMEOUT);
 		encoder.setSensorPhase(SENSOR_PHASE); 	// affects closed-loop mode
 		
 		reset();

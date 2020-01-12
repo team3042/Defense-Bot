@@ -44,7 +44,7 @@ public class ControlPanelWheel extends Subsystem {
 		motor.setInverted(reverse); 	// affects percent Vbus mode
   }
   
-  /** Methods for setting the motors in Percent Vbus mode ********************/
+  /** Methods for setting the motor in Percent Vbus mode ********************/
 	public void setPower(double Power) {
 		Power = safetyCheck(Power);
 				
