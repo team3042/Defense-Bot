@@ -6,30 +6,25 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
-import org.usfirst.frc.team3042.robot.subsystems.ColorSensor;
 import org.usfirst.frc.team3042.robot.subsystems.ControlPanelWheel;
 
-/** Control Panel Wheel Position Control *******************************************************
- * Command for rotating the control panel to the assigned color
+/** Control Panel Wheel Rotation Control *******************************************************
+ * Command for rotating the control panel 3-5 rotations
  */
-public class ControlPanelWheel_PositionControl extends Command {
+public class ControlPanelWheel_RotationControl extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_CONTROL_PANEL_WHEEL;
 	
 	/** Instance Variables ****************************************************/
   	ControlPanelWheel cpwheel = Robot.cpwheel;
-  	ColorSensor colorsensor = Robot.colorsensor;
   	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(cpwheel));
 
-  	Boolean done = false;
-
-  	String color;
-  	String targetColor;
+	Boolean done = false;
 	
-	/** Control Panel Wheel Position Control ***************************************************
+	/** Control Panel Wheel Rotation Control ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
-	public ControlPanelWheel_PositionControl() {
+	public ControlPanelWheel_RotationControl() {
 		log.add("Constructor", Log.Level.TRACE);
 		
 		requires(cpwheel);
@@ -41,15 +36,15 @@ public class ControlPanelWheel_PositionControl extends Command {
 	protected void initialize() {
 	log.add("Initialize", Log.Level.TRACE);
 	done = false;
-	targetColor = cpwheel.getTargetColor();
-    cpwheel.setPower(.2);
+	cpwheel.getEncoder().reset();
+    cpwheel.setPower(.4);
 	}
 
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-    if(colorsensor.returnColor().equals(targetColor)) {
+    if(cpwheel.getEncoder().getPosition() == 20) {
       cpwheel.stop();
       done = true;
     	}

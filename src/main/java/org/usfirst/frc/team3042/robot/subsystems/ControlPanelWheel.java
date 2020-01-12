@@ -24,15 +24,19 @@ public class ControlPanelWheel extends Subsystem {
 
 	/** Instance Variables ****************************************************/
   Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
-  TalonSRX wheelTalon = new TalonSRX(CAN_CPWHEEL);
+  TalonSRX motor = new TalonSRX(CAN_CPWHEEL);
   private String assignedColor;
   CPWheelEncoder encoder;
 
 	/** Contrtol Panel Wheel ******************************************************/
 	public ControlPanelWheel() {
     log.add("Constructor", LOG_LEVEL);
+
+    if (HAS_ENCODER) {
+			encoder = new CPWheelEncoder(motor);
+		}
     
-    initMotor(wheelTalon, REVERSE_MOTOR);
+    initMotor(motor, REVERSE_MOTOR);
   }
 
   private void initMotor(TalonSRX motor, boolean reverse) {
@@ -44,7 +48,7 @@ public class ControlPanelWheel extends Subsystem {
 	public void setPower(double Power) {
 		Power = safetyCheck(Power);
 				
-		wheelTalon.set(ControlMode.PercentOutput, Power);		
+		motor.set(ControlMode.PercentOutput, Power);		
 	}
 	public void stop() {
 		setPower(0.0);
@@ -81,4 +85,9 @@ public class ControlPanelWheel extends Subsystem {
       return "UNKNOWN COLOR";
     }
   }
+
+  /** Provide commands access to the encoder ********************************/
+	public CPWheelEncoder getEncoder() {
+		return encoder;
+	}
 }
