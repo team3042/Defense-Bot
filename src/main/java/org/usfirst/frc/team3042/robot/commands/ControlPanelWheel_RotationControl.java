@@ -19,8 +19,6 @@ public class ControlPanelWheel_RotationControl extends Command {
 	/** Instance Variables ****************************************************/
   	ControlPanelWheel cpwheel = Robot.cpwheel;
   	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(cpwheel));
-
-	Boolean done = false;
 	
 	/** Control Panel Wheel Rotation Control ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
@@ -36,7 +34,6 @@ public class ControlPanelWheel_RotationControl extends Command {
 	 */
 	protected void initialize() {
 	log.add("Initialize", Log.Level.TRACE);
-	done = false;
 	cpwheel.getEncoder().reset();
     cpwheel.setPower(.4);
 	}
@@ -45,17 +42,14 @@ public class ControlPanelWheel_RotationControl extends Command {
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-    if(cpwheel.getEncoder().getPosition() == REVOLUTIONS) {
-      cpwheel.stop();
-      done = true;
-    	}
+      
 	}
 	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
 	protected boolean isFinished() {
-		return done;
+		return cpwheel.getEncoder().getPosition() == REVOLUTIONS;
 	}
 	
 	/** end *******************************************************************
@@ -63,6 +57,7 @@ public class ControlPanelWheel_RotationControl extends Command {
 	 */
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
+		cpwheel.stop();
 	}
 
 	/** interrupted ***********************************************************

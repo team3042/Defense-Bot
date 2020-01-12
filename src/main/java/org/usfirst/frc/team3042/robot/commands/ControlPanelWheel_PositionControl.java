@@ -21,8 +21,6 @@ public class ControlPanelWheel_PositionControl extends Command {
   	ColorSensor colorsensor = Robot.colorsensor;
   	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(cpwheel));
 
-  	Boolean done = false;
-
   	String color;
   	String targetColor;
 	
@@ -40,7 +38,6 @@ public class ControlPanelWheel_PositionControl extends Command {
 	 */
 	protected void initialize() {
 	log.add("Initialize", Log.Level.TRACE);
-	done = false;
 	targetColor = cpwheel.getTargetColor();
     cpwheel.setPower(.2);
 	}
@@ -49,17 +46,14 @@ public class ControlPanelWheel_PositionControl extends Command {
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-    if(colorsensor.returnColor().equals(targetColor)) {
-      cpwheel.stop();
-      done = true;
-    	}
+      
 	}
 	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
 	protected boolean isFinished() {
-		return done;
+		return colorsensor.returnColor().equals(targetColor);
 	}
 	
 	/** end *******************************************************************
@@ -67,6 +61,7 @@ public class ControlPanelWheel_PositionControl extends Command {
 	 */
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
+		cpwheel.stop();
 	}
 
 	/** interrupted ***********************************************************
