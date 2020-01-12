@@ -14,6 +14,7 @@ import org.usfirst.frc.team3042.robot.subsystems.ControlPanelWheel;
 public class ControlPanelWheel_RotationControl extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_CONTROL_PANEL_WHEEL;
+	private static final int REVOLUTIONS = RobotMap.CPWHEEL_REVOLUTIONS;
 	
 	/** Instance Variables ****************************************************/
   	ControlPanelWheel cpwheel = Robot.cpwheel;
@@ -44,7 +45,7 @@ public class ControlPanelWheel_RotationControl extends Command {
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-    if(cpwheel.getEncoder().getPosition() == 20) {
+    if(cpwheel.getEncoder().getPosition() == REVOLUTIONS) {
       cpwheel.stop();
       done = true;
     	}
