@@ -67,6 +67,7 @@ public class ControlPanelWheel extends Subsystem {
 	}
 	
   /** Command Methods *******************************************************/
+  //Determines the target color for the color sensor based on the color recieved by the FMS and returns it as a string
   public String getTargetColor() {
     assignedColor = SmartDashboard.getString("Color:", "NO ASSIGNED COLOR");
     if(assignedColor.equals("Blue")) {

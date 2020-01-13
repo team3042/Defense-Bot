@@ -2,7 +2,6 @@ package org.usfirst.frc.team3042.robot.subsystems;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
-import org.usfirst.frc.team3042.robot.commands.DrivetrainEncoders_Dashboard;
 
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
@@ -53,7 +52,7 @@ public class DrivetrainEncoders extends Subsystem {
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
-		setDefaultCommand(new DrivetrainEncoders_Dashboard());
+		setDefaultCommand(null);
 	}
 
 	/** reset *****************************************************************/

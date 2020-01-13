@@ -10,7 +10,7 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.ColorSensor;
 
 /** ColorSensor_Dashboard *******************************************************
- * Display the gyroscope angle on the dashboard
+ * Display the detected color on the dashboard
  */
 public class ColorSensor_Dashboard extends Command {
 	/** Configuration Constants ***********************************************/

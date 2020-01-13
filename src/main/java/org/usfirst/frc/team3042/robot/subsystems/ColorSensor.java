@@ -43,7 +43,8 @@ public class ColorSensor extends Subsystem {
 	}
 	
   /** Command Methods *******************************************************/
-  public String returnColor() {
+  //Returns the color the sensor is currently detecting as a string
+  public String returnColor() { 
     colorMatcher.addColorMatch(kYellowTarget);
     colorMatcher.addColorMatch(kBlueTarget);
     colorMatcher.addColorMatch(kGreenTarget);

@@ -2,7 +2,6 @@ package org.usfirst.frc.team3042.robot.subsystems;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
-import org.usfirst.frc.team3042.robot.commands.Gyroscope_Dashboard;
 
 //import com.analog.adis16448.frc.ADIS16448_IMU; //Uncomment for ADIS16448 gyroscope (Big Boy)
 
@@ -34,7 +33,7 @@ public class Gyroscope extends Subsystem {
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
-		setDefaultCommand(new Gyroscope_Dashboard());
+		setDefaultCommand(null);
 	}
 	
 	/** Command Methods *******************************************************/
