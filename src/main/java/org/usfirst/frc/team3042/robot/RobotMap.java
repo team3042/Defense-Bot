@@ -117,7 +117,7 @@ public class RobotMap {
 	public static final NeutralMode CPWHEEL_BRAKE_MODE = NeutralMode.Brake;
 	public static final int CPWHEEL_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int CPWHEEL_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final int CPWHEEL_REVOLUTIONS = 20; //Number of revolutions for wheel to spin when performing rotation control
+	public static final int CPWHEEL_REVOLUTIONS = 25; //Number of revolutions for wheel to spin when performing rotation control
 
 	/** Control Panel Wheel Encoder Settings **********************************************/
 	public static final boolean HAS_CONTROL_PANEL_WHEEL_ENCODER = HAS_CONTROL_PANEL_WHEEL;

@@ -9,10 +9,10 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.ColorSensor;
 import org.usfirst.frc.team3042.robot.subsystems.ControlPanelWheel;
 
-/** Control Panel Wheel Position Control *******************************************************
+/** Position Control *******************************************************
  * Command for rotating the control panel to the assigned color
  */
-public class ControlPanelWheel_PositionControl extends Command {
+public class PositionControl extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_CONTROL_PANEL_WHEEL;
 	
@@ -24,10 +24,10 @@ public class ControlPanelWheel_PositionControl extends Command {
   	String color;
   	String targetColor;
 	
-	/** Control Panel Wheel Position Control ***************************************************
+	/** Position Control ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
-	public ControlPanelWheel_PositionControl() {
+	public PositionControl() {
 		log.add("Constructor", Log.Level.TRACE);
 		
 		requires(cpwheel);
@@ -37,9 +37,9 @@ public class ControlPanelWheel_PositionControl extends Command {
 	 * Called just before this Command runs the first time
 	 */
 	protected void initialize() {
-	log.add("Initialize", Log.Level.TRACE);
-	targetColor = cpwheel.getTargetColor();
-    cpwheel.setPower(.2);
+		log.add("Initialize", Log.Level.TRACE);
+		targetColor = cpwheel.getTargetColor();
+    	cpwheel.setPower(.2);
 	}
 
 	/** execute ***************************************************************

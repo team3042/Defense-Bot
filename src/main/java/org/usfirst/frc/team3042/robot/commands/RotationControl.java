@@ -9,10 +9,10 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.CPWheelEncoder;
 import org.usfirst.frc.team3042.robot.subsystems.ControlPanelWheel;
 
-/** Control Panel Wheel Rotation Control *******************************************************
+/** Rotation Control *******************************************************
  * Command for rotating the control panel 3-5 rotations
  */
-public class ControlPanelWheel_RotationControl extends Command {
+public class RotationControl extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_CONTROL_PANEL_WHEEL;
 	private static final int REVOLUTIONS = RobotMap.CPWHEEL_REVOLUTIONS;
@@ -22,23 +22,22 @@ public class ControlPanelWheel_RotationControl extends Command {
 	CPWheelEncoder encoder = cpwheel.getEncoder();  
   	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(cpwheel));
 	
-	/** Control Panel Wheel Rotation Control ***************************************************
+	/** Rotation Control ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
-	public ControlPanelWheel_RotationControl() {
+	public RotationControl() {
 		log.add("Constructor", Log.Level.TRACE);
 		
 		requires(cpwheel);
-		requires(encoder);
 	}
 
 	/** initialize ************************************************************
 	 * Called just before this Command runs the first time
 	 */
 	protected void initialize() {
-	log.add("Initialize", Log.Level.TRACE);
-	encoder.reset();
-    cpwheel.setPower(.4);
+		log.add("Initialize", Log.Level.TRACE);
+		encoder.reset();
+    	cpwheel.setPower(.4);
 	}
 
 	/** execute ***************************************************************
