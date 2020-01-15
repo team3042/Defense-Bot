@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
+import org.usfirst.frc.team3042.robot.subsystems.CPWheelEncoder;
 import org.usfirst.frc.team3042.robot.subsystems.ControlPanelWheel;
 
 /** Control Panel Wheel Rotation Control *******************************************************
@@ -17,7 +18,8 @@ public class ControlPanelWheel_RotationControl extends Command {
 	private static final int REVOLUTIONS = RobotMap.CPWHEEL_REVOLUTIONS;
 	
 	/** Instance Variables ****************************************************/
-  	ControlPanelWheel cpwheel = Robot.cpwheel;
+	ControlPanelWheel cpwheel = Robot.cpwheel;
+	CPWheelEncoder encoder = cpwheel.getEncoder();  
   	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(cpwheel));
 	
 	/** Control Panel Wheel Rotation Control ***************************************************
@@ -27,6 +29,7 @@ public class ControlPanelWheel_RotationControl extends Command {
 		log.add("Constructor", Log.Level.TRACE);
 		
 		requires(cpwheel);
+		requires(encoder);
 	}
 
 	/** initialize ************************************************************
@@ -34,7 +37,7 @@ public class ControlPanelWheel_RotationControl extends Command {
 	 */
 	protected void initialize() {
 	log.add("Initialize", Log.Level.TRACE);
-	cpwheel.getEncoder().reset();
+	encoder.reset();
     cpwheel.setPower(.4);
 	}
 
@@ -42,14 +45,13 @@ public class ControlPanelWheel_RotationControl extends Command {
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-      
 	}
 	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
 	protected boolean isFinished() {
-		return cpwheel.getEncoder().getPosition() == REVOLUTIONS;
+		return encoder.getPosition() >= REVOLUTIONS;
 	}
 	
 	/** end *******************************************************************
