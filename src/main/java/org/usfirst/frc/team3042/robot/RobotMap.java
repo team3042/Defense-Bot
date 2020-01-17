@@ -111,6 +111,9 @@ public class RobotMap {
 	/** Color Sensor Settings ****************************************************/
 	public static final boolean HAS_COLOR_SENSOR = true;
 
+	/** Limelight Settings ****************************************************/
+	public static final boolean HAS_LIMELIGHT = true;
+
 	/** Control Panel Wheel Settings ****************************************************/
 	public static final boolean HAS_CONTROL_PANEL_WHEEL = true;
 	public static final boolean REVERSE_CONTROL_PANEL_WHEEL  = 	(IS_PBOT) ? false : false;
@@ -147,4 +150,5 @@ public class RobotMap {
 	public static final Log.Level	LOG_COLOR_SENSOR					= Log.Level.DEBUG;
 	public static final Log.Level	LOG_CONTROL_PANEL_WHEEL				= Log.Level.DEBUG;
 	public static final Log.Level	LOG_CONTROL_PANEL_WHEEL_ENCODER		= Log.Level.DEBUG;
+	public static final Log.Level	LOG_LIMELIGHT						= Log.Level.DEBUG;
 }

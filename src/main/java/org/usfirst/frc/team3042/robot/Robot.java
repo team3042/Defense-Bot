@@ -6,6 +6,7 @@ import org.usfirst.frc.team3042.robot.subsystems.ColorSensor;
 import org.usfirst.frc.team3042.robot.subsystems.ControlPanelWheel;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
+import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -28,6 +29,7 @@ public class Robot extends TimedRobot {
 	private static final boolean HAS_DRIVETRAIN = RobotMap.HAS_DRIVETRAIN;
 	private static final boolean HAS_GYROSCOPE = RobotMap.HAS_GYROSCOPE;
 	private static final boolean HAS_COLOR_SENSOR = RobotMap.HAS_COLOR_SENSOR;
+	private static final boolean HAS_LIMELIGHT = RobotMap.HAS_LIMELIGHT;
 	private static final boolean HAS_CONTROL_PANEL_WHEEL = RobotMap.HAS_CONTROL_PANEL_WHEEL;
 
 	/** Create Subsystems *****************************************************/
@@ -36,6 +38,7 @@ public class Robot extends TimedRobot {
 	public static final Gyroscope 	gyroscope 	   = (HAS_GYROSCOPE) 			 ? new Gyroscope() 	: null;
 	public static final ColorSensor colorsensor    = (HAS_COLOR_SENSOR)          ? new ColorSensor() : null;
 	public static final ControlPanelWheel cpwheel  = (HAS_CONTROL_PANEL_WHEEL)   ? new ControlPanelWheel() : null;
+	public static final Limelight limelight  = (HAS_LIMELIGHT)   ? new Limelight() : null;
 	public static final PowerDistributionPanel pdp = new PowerDistributionPanel();
 	public static OI oi;
 
