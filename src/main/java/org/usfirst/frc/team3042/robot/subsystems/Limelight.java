@@ -7,14 +7,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 /** Limelight ****************************************************************
- * Subsystem for the Limelight
+ * Subsystem for the Limelight camera
  */
 public class Limelight extends Subsystem {
 	/** Configuration Constants ***********************************************/
-  private static final Log.Level LOG_LEVEL = RobotMap.LOG_LIMELIGHT;
+  	private static final Log.Level LOG_LEVEL = RobotMap.LOG_LIMELIGHT;
 	
 	/** Instance Variables ****************************************************/
-  Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
+  	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	
 	/** Limelight ******************************************************/
 	public Limelight() {
@@ -28,5 +28,5 @@ public class Limelight extends Subsystem {
 		setDefaultCommand(null);
 	}
 	
-  /** Command Methods *******************************************************/
+  	/** Command Methods *******************************************************/
 }

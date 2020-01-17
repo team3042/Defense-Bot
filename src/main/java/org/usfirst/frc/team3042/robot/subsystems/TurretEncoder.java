@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 /** Turret Encoder ****************************************************************
- * Subsystem for the Turret encoder
+ * Subsystem for the encoder on the turret
  */
 public class TurretEncoder extends Subsystem {
 	/** Configuration Constants ***********************************************/

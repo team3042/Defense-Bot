@@ -40,7 +40,7 @@ public class Robot extends TimedRobot {
 	public static final Gyroscope 	gyroscope 	   = (HAS_GYROSCOPE) 			 ? new Gyroscope() 	: null;
 	public static final ColorSensor colorsensor    = (HAS_COLOR_SENSOR)          ? new ColorSensor() : null;
 	public static final ControlPanelWheel cpwheel  = (HAS_CONTROL_PANEL_WHEEL)   ? new ControlPanelWheel() : null;
-	public static final Limelight limelight  = (HAS_LIMELIGHT)   ? new Limelight() : null;
+	public static final Limelight limelight        = (HAS_LIMELIGHT)             ? new Limelight() : null;
 	public static final Turret turret 			   = (HAS_TURRET)				 ? new Turret()	: null;
 	public static final PowerDistributionPanel pdp = new PowerDistributionPanel();
 	public static OI oi;
