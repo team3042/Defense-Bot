@@ -37,6 +37,8 @@ public class RobotMap {
 	public static final int CAN_LEFT_FOLLOWER = 		IS_PBOT 	? 3 : 0;
 	public static final int CAN_RIGHT_FOLLOWER = 		IS_PBOT 	? 9 : 0;
 	public static final int CAN_CONTROL_PANEL_WHEEL = 	IS_PBOT 	? 10 : 10;
+	public static final int CAN_TURRET = 				IS_PBOT		? 5 : 5;
+	//The can ID is temporary for now
 	
 	/** PCM channels **********************************************************/
 	
@@ -126,6 +128,13 @@ public class RobotMap {
 	public static final boolean REVERSE_CPWHEEL_ENCODER = false;
 	public static final boolean CPWHEEL_SENSOR_PHASE = false;
 
+	/** Turret Settings ****************************************************/
+	public static final boolean HAS_TURRET = true;
+	public static final boolean REVERSE_TURRET  = 	(IS_PBOT) ? false : false;
+	public static final NeutralMode TURRET_BRAKE_MODE = NeutralMode.Brake;
+	public static final int TURRET_TIMEOUT = 0; // timeout in ms; set to zero
+	public static final int TURRET_PIDIDX = 0; // used for cascading PID; set to zero
+
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";
 	public static final String 		LOG_TIME_FORMAT = "hh:mm:ss:SSS";
@@ -147,4 +156,5 @@ public class RobotMap {
 	public static final Log.Level	LOG_COLOR_SENSOR					= Log.Level.DEBUG;
 	public static final Log.Level	LOG_CONTROL_PANEL_WHEEL				= Log.Level.DEBUG;
 	public static final Log.Level	LOG_CONTROL_PANEL_WHEEL_ENCODER		= Log.Level.DEBUG;
+	public static final Log.Level	LOG_TURRET							= Log.Level.DEBUG;
 }
