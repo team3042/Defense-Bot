@@ -9,13 +9,12 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /** Turret ****************************************************************
  * Subsystem for the turret
  */
 public class Turret extends Subsystem {
-	/** Configuration Constants ***********************************************/
+  /** Configuration Constants ***********************************************/
   private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;
   private static final int CAN_TURRET = RobotMap.CAN_TURRET;
   private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_TURRET;
@@ -39,8 +38,8 @@ public class Turret extends Subsystem {
   }
 
   private void initMotor(TalonSRX motor, boolean reverse) {
-		motor.setNeutralMode(BRAKE_MODE);
-		motor.setInverted(reverse); 	// affects percent Vbus mode
+	motor.setNeutralMode(BRAKE_MODE);
+	motor.setInverted(reverse); 	// affects percent Vbus mode
   }
   
   /** Methods for setting the motor in Percent Vbus mode ********************/
