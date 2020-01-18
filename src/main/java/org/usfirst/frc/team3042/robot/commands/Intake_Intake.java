@@ -57,6 +57,7 @@ public class Intake_Intake extends Command {
 	 */
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
+		intake.stop();
 	}
 
 	/** interrupted ***********************************************************
@@ -65,5 +66,6 @@ public class Intake_Intake extends Command {
 	 */
 	protected void interrupted() {
 		log.add("Interrupted", Log.Level.TRACE);
+		intake.stop();
 	}
 }
