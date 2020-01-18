@@ -18,6 +18,7 @@ import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
 public class Turret_Slow extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;
+	private static final double SPEED = RobotMap.TURRET_SPEED;
 
 	/** Instance Variables ****************************************************/
 	Turret turret = Robot.turret;
@@ -41,7 +42,7 @@ public class Turret_Slow extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
-		turret.setPower(0.1);
+		turret.setPower(SPEED);
 	}
 
 	/** execute ***************************************************************

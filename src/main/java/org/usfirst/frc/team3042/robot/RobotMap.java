@@ -123,6 +123,8 @@ public class RobotMap {
 	public static final int CPWHEEL_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int CPWHEEL_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final int CPWHEEL_REVOLUTIONS = 25; //Number of revolutions for wheel to spin when performing rotation control
+	public static final double POSITION_CONTROL_SPEED = .2;
+	public static final double ROTATION_CONTROL_SPEED = .4;
 
 	/** Control Panel Wheel Encoder Settings **********************************************/
 	public static final boolean HAS_CONTROL_PANEL_WHEEL_ENCODER = HAS_CONTROL_PANEL_WHEEL;
@@ -137,6 +139,7 @@ public class RobotMap {
 	public static final NeutralMode TURRET_BRAKE_MODE = NeutralMode.Brake;
 	public static final int TURRET_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int TURRET_PIDIDX = 0; // used for cascading PID; set to zero
+	public static final double TURRET_SPEED = 0.1;
 
 	/** Turret Encoder Settings **********************************************/
 	public static final boolean HAS_TURRET_ENCODER = HAS_TURRET;

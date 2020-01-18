@@ -15,6 +15,7 @@ import org.usfirst.frc.team3042.robot.subsystems.ControlPanelWheel;
 public class PositionControl extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_CONTROL_PANEL_WHEEL;
+	private static final double SPEED = RobotMap.POSITION_CONTROL_SPEED;
 	
 	/** Instance Variables ****************************************************/
   	ControlPanelWheel cpwheel = Robot.cpwheel;
@@ -39,7 +40,7 @@ public class PositionControl extends Command {
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 		targetColor = cpwheel.getTargetColor();
-    	cpwheel.setPower(.2);
+    	cpwheel.setPower(SPEED);
 	}
 
 	/** execute ***************************************************************

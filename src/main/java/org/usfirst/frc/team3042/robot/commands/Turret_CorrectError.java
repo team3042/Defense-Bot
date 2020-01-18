@@ -17,6 +17,7 @@ import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
 public class Turret_CorrectError extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;
+	private static final double SPEED = RobotMap.TURRET_SPEED;
 
 	/** Instance Variables ****************************************************/
 	Turret turret = Robot.turret;
@@ -43,10 +44,10 @@ public class Turret_CorrectError extends Command {
 		encoder.reset();
 		error = encoder.degreesToCounts(limelight.returnHorizontalError());
 		if(error > 0) {
-			turret.setPower(0.1);
+			turret.setPower(SPEED);
 		}
 		else if (error < 0) {
-			turret.setPower(-0.1);
+			turret.setPower(-1 * SPEED);
 		}
 	}
 
