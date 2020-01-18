@@ -37,7 +37,8 @@ public class RobotMap {
 	public static final int CAN_LEFT_FOLLOWER = 		IS_PBOT 	? 3 : 0;
 	public static final int CAN_RIGHT_FOLLOWER = 		IS_PBOT 	? 9 : 0;
 	public static final int CAN_CONTROL_PANEL_WHEEL = 	IS_PBOT 	? 10 : 10;
-	public static final int CAN_TURRET = 				IS_PBOT		? 10 : 5; //The CAN ID for the turret is temporary for now
+	public static final int CAN_TURRET = 		IS_PBOT		? 10 : 10; 
+	public static final int CAN_INTAKE = 		IS_PBOT 	? 10 : 10;
 	
 	/** PCM channels **********************************************************/
 	
@@ -56,7 +57,7 @@ public class RobotMap {
 	public static final boolean HAS_DRIVETRAIN = true;
 	public static final boolean HAS_FOLLOWERS = false;
 	public static final NeutralMode DRIVETRAIN_BRAKE_MODE = NeutralMode.Brake;
-	public static final boolean REVERSE_LEFT_MOTOR  = 	(IS_PBOT) ? true : true;
+	public static final boolean REVERSE_LEFT_MOTOR  = 	(IS_PBOT) ? true : false;
 	public static final boolean REVERSE_RIGHT_MOTOR = 	(IS_PBOT) ? false: false;
 	// Maximum Acceleration given in power per second
 	public static final double ACCELERATION_MAX = 1.5;
@@ -144,6 +145,14 @@ public class RobotMap {
 	public static final boolean REVERSE_TURRET_ENCODER = false;
 	public static final boolean TURRET_SENSOR_PHASE = false;
 
+	/** Intake Settings ****************************************************/
+	public static final boolean HAS_INTAKE = true;
+	public static final boolean REVERSE_INTAKE  = 	(IS_PBOT) ? false : false;
+	public static final NeutralMode INTAKE_BRAKE_MODE = NeutralMode.Brake;
+	public static final int INTAKE_TIMEOUT = 0; // timeout in ms; set to zero
+	public static final int INTAKE_PIDIDX = 0; // used for cascading PID; set to zero
+	public static final double INTAKE_POWER = 0.33;
+	
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";
 	public static final String 		LOG_TIME_FORMAT = "hh:mm:ss:SSS";
@@ -168,4 +177,5 @@ public class RobotMap {
 	public static final Log.Level	LOG_LIMELIGHT						= Log.Level.DEBUG;
 	public static final Log.Level	LOG_TURRET							= Log.Level.DEBUG;
 	public static final Log.Level	LOG_TURRET_ENCODER					= Log.Level.DEBUG;
+	public static final Log.Level	LOG_INTAKE							= Log.Level.DEBUG;
 }
