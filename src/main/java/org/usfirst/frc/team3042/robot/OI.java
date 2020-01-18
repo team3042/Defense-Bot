@@ -5,6 +5,7 @@ import org.usfirst.frc.team3042.robot.commands.PositionControl;
 import org.usfirst.frc.team3042.robot.commands.RotationControl;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
+import org.usfirst.frc.team3042.robot.commands.Intake_Intake;
 
 /** OI ************************************************************************
  * This class is the glue that binds the controls on the physical operator
@@ -62,6 +63,7 @@ public class OI {
 
 			gamepad.A.whenPressed(new PositionControl());
 			gamepad.B.whenPressed(new RotationControl());
+			gamepad.LB.whileHeld(new Intake_Intake());
 		}
 		
 		/** Artemis Controls **************************************************/

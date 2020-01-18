@@ -6,6 +6,7 @@ import org.usfirst.frc.team3042.robot.subsystems.ColorSensor;
 import org.usfirst.frc.team3042.robot.subsystems.ControlPanelWheel;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
+import org.usfirst.frc.team3042.robot.subsystems.Intake;
 import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 import org.usfirst.frc.team3042.robot.subsystems.Turret;
 
@@ -33,6 +34,7 @@ public class Robot extends TimedRobot {
 	private static final boolean HAS_LIMELIGHT = RobotMap.HAS_LIMELIGHT;
 	private static final boolean HAS_CONTROL_PANEL_WHEEL = RobotMap.HAS_CONTROL_PANEL_WHEEL;
 	private static final boolean HAS_TURRET = RobotMap.HAS_TURRET;
+	private static final boolean HAS_INTAKE = RobotMap.HAS_INTAKE;
 
 	/** Create Subsystems *****************************************************/
 	private Log log = new Log(LOG_LEVEL, "Robot");
@@ -42,6 +44,7 @@ public class Robot extends TimedRobot {
 	public static final ControlPanelWheel cpwheel  = (HAS_CONTROL_PANEL_WHEEL)   ? new ControlPanelWheel() : null;
 	public static final Limelight limelight        = (HAS_LIMELIGHT)             ? new Limelight() : null;
 	public static final Turret turret 			   = (HAS_TURRET)				 ? new Turret()	: null;
+	public static final Intake intake 			   = (HAS_INTAKE)				 ? new Intake()	: null;
 	public static final PowerDistributionPanel pdp = new PowerDistributionPanel();
 	public static OI oi;
 
