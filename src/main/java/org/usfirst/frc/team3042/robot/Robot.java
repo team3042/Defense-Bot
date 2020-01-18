@@ -70,6 +70,7 @@ public class Robot extends TimedRobot {
 	 */
 	public void disabledInit() {
 		log.add("Disabled Init", Log.Level.TRACE);
+		limelight.led.setNumber(1);
 	}
 
 	/** disabledPeriodic ******************************************************
@@ -83,6 +84,8 @@ public class Robot extends TimedRobot {
 	 * Run once at the start of autonomous mode.
 	 */
 	public void autonomousInit() {
+		limelight.led.setNumber(3);
+
 		log.add("Autonomous Init", Log.Level.TRACE);
 		
 		autonomousCommand = chooser.getSelected();
@@ -103,6 +106,7 @@ public class Robot extends TimedRobot {
 	 * This function is called when first entering teleop mode.
 	 */
 	public void teleopInit() {
+		limelight.led.setNumber(3);
 		log.add("Teleop Init", Log.Level.TRACE);
 		
 		// This makes sure that the autonomous stops running when

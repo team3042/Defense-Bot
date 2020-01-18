@@ -23,6 +23,7 @@ public class Limelight extends Subsystem {
 	NetworkTableEntry tx = table.getEntry("tx");
 	NetworkTableEntry ty = table.getEntry("ty");
 	NetworkTableEntry ta = table.getEntry("ta");  
+	public NetworkTableEntry led = table.getEntry("ledMode");
 	
 	/** Limelight ******************************************************/
 	public Limelight() {

@@ -37,7 +37,7 @@ public class RobotMap {
 	public static final int CAN_LEFT_FOLLOWER = 		IS_PBOT 	? 3 : 0;
 	public static final int CAN_RIGHT_FOLLOWER = 		IS_PBOT 	? 9 : 0;
 	public static final int CAN_CONTROL_PANEL_WHEEL = 	IS_PBOT 	? 10 : 10;
-	public static final int CAN_TURRET = 				IS_PBOT		? 5 : 5; //The CAN ID for the turret is temporary for now
+	public static final int CAN_TURRET = 				IS_PBOT		? 10 : 5; //The CAN ID for the turret is temporary for now
 	
 	/** PCM channels **********************************************************/
 	
