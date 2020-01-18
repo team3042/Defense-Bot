@@ -17,6 +17,7 @@ public class Intake extends Subsystem {
 	/** Configuration Constants ***********************************************/
   private static final Log.Level LOG_LEVEL = RobotMap.LOG_INTAKE;
   private static final int CAN_INTAKE = RobotMap.CAN_INTAKE;
+  private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_INTAKE;
   private static final NeutralMode BRAKE_MODE = RobotMap.INTAKE_BRAKE_MODE;
 
 	/** Instance Variables ****************************************************/
