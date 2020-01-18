@@ -1,10 +1,11 @@
 package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
+
 import org.usfirst.frc.team3042.robot.commands.PositionControl;
 import org.usfirst.frc.team3042.robot.commands.RotationControl;
-import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
-import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
+import org.usfirst.frc.team3042.robot.commands.Turret_CorrectError;
+import org.usfirst.frc.team3042.robot.commands.Turret_Slow;
 import org.usfirst.frc.team3042.robot.commands.Intake_Intake;
 
 /** OI ************************************************************************
@@ -56,10 +57,8 @@ public class OI {
 		
 		/** PBOT Controls *****************************************************/
 		if (IS_PBOT) {
-
-			/*Big gyroscope (ADIS16448 IMU) isn't working properly*/
-			gamepad.X.whenPressed(new Drivetrain_GyroStraight(24.0, 24.0));
-			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90.0));
+			gamepad.X.whenPressed(new Turret_CorrectError());
+			gamepad.Y.whenPressed(new Turret_Slow());
 
 			gamepad.A.whenPressed(new PositionControl());
 			gamepad.B.whenPressed(new RotationControl());

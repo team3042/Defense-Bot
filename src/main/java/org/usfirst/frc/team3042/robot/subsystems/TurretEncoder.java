@@ -57,6 +57,9 @@ public class TurretEncoder extends Subsystem {
 	 * Encoder position returns counts, convert to revolutions for output
 	 * Encoder speed returns counts per 100 ms, convert to RPM for output
 	 */
+	public double getRawPosition() {
+		return encoder.getSelectedSensorPosition(PIDIDX);
+	}
 	public double getPosition() {
 		int counts = encoder.getSelectedSensorPosition(PIDIDX);
 		return countsToRev(counts) - positionZero;
@@ -87,5 +90,10 @@ public class TurretEncoder extends Subsystem {
 		double kF = power * 1023.0 / speed;
 		
 		return kF;
+	}
+
+	public double degreesToCounts(double degrees) {
+		double counts = degrees/360.0 * COUNTS_PER_REV;
+		return counts;
 	}
 }
