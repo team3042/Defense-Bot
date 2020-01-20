@@ -43,6 +43,7 @@ public class Turret_Slow extends Command {
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 		turret.setPower(SPEED);
+		SmartDashboard.putNumber("Turret Position", encoder.getRawPosition());
 	}
 
 	/** execute ***************************************************************
