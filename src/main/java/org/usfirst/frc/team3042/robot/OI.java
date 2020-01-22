@@ -65,9 +65,9 @@ public class OI {
 			gamepad.X.whenPressed(new Drivetrain_GyroStraight(24.0, 24.0));
 			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90));
 
-			gamepad.A.whenPressed(new PositionControl());
-			gamepad.B.whenPressed(new RotationControl());
-			gamepad.LB.whileHeld(new Intake_Intake());
+			//gamepad.A.whenPressed(new PositionControl());
+			//gamepad.B.whenPressed(new RotationControl());
+			//gamepad.LB.whileHeld(new Intake_Intake());
 		}
 		
 		/** Artemis Controls **************************************************/
