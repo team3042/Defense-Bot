@@ -37,8 +37,9 @@ public class RobotMap {
 	public static final int CAN_LEFT_FOLLOWER = 		IS_PBOT 	? 3 : 0;
 	public static final int CAN_RIGHT_FOLLOWER = 		IS_PBOT 	? 9 : 0;
 	public static final int CAN_CONTROL_PANEL_WHEEL = 	IS_PBOT 	? 10 : 10;
-	public static final int CAN_TURRET = 		IS_PBOT		? 10 : 10; 
-	public static final int CAN_INTAKE = 		IS_PBOT 	? 10 : 10;
+	public static final int CAN_TURRET = 				IS_PBOT		? 10 : 10; 
+	public static final int CAN_INTAKE = 				IS_PBOT 	? 10 : 10;
+	public static final int CAN_SHOOTER = 				IS_PBOT 	? 10 : 10;
 	
 	/** PCM channels **********************************************************/
 	
@@ -155,6 +156,14 @@ public class RobotMap {
 	public static final int INTAKE_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int INTAKE_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final double INTAKE_POWER = 0.33;
+
+	/** Shooter Settings ****************************************************/
+	public static final boolean HAS_SHOOTER = true;
+	public static final boolean REVERSE_SHOOTER  = 	(IS_PBOT) ? false : false;
+	public static final NeutralMode SHOOTER_BRAKE_MODE = NeutralMode.Brake;
+	public static final int SHOOTER_TIMEOUT = 0; // timeout in ms; set to zero
+	public static final int SHOOTER_PIDIDX = 0; // used for cascading PID; set to zero
+	public static final double SHOOTER_POWER = 0.33;
 	
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";
@@ -181,4 +190,5 @@ public class RobotMap {
 	public static final Log.Level	LOG_TURRET							= Log.Level.DEBUG;
 	public static final Log.Level	LOG_TURRET_ENCODER					= Log.Level.DEBUG;
 	public static final Log.Level	LOG_INTAKE							= Log.Level.DEBUG;
+	public static final Log.Level	LOG_SHOOTER							= Log.Level.DEBUG;
 }

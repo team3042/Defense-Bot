@@ -10,22 +10,22 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-/** Intake ****************************************************************
- * Subsystem for the Intake
+/** Shooter ****************************************************************
+ * Subsystem for the Shooter
  */
-public class Intake extends Subsystem {
+public class Shooter extends Subsystem {
 	/** Configuration Constants ***********************************************/
-  private static final Log.Level LOG_LEVEL = RobotMap.LOG_INTAKE;
-  private static final int CAN_INTAKE = RobotMap.CAN_INTAKE;
-  private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_INTAKE;
-  private static final NeutralMode BRAKE_MODE = RobotMap.INTAKE_BRAKE_MODE;
+  private static final Log.Level LOG_LEVEL = RobotMap.LOG_SHOOTER;
+  private static final int CAN_SHOOTER = RobotMap.CAN_SHOOTER;
+  private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_SHOOTER;
+  private static final NeutralMode BRAKE_MODE = RobotMap.SHOOTER_BRAKE_MODE;
 
 	/** Instance Variables ****************************************************/
   Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
-  TalonSRX motor = new TalonSRX(CAN_INTAKE);
+  TalonSRX motor = new TalonSRX(CAN_SHOOTER);
 
-	/** Intake ******************************************************/
-	public Intake() {
+	/** Shooter ******************************************************/
+	public Shooter() {
     log.add("Constructor", LOG_LEVEL);
     
     initMotor(motor, REVERSE_MOTOR);

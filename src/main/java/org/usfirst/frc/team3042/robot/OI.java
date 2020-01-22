@@ -4,6 +4,7 @@ import org.usfirst.frc.team3042.lib.Log;
 
 import org.usfirst.frc.team3042.robot.commands.PositionControl;
 import org.usfirst.frc.team3042.robot.commands.RotationControl;
+import org.usfirst.frc.team3042.robot.commands.Shooter_Toggle;
 import org.usfirst.frc.team3042.robot.commands.Turret_CorrectError;
 import org.usfirst.frc.team3042.robot.commands.Turret_Slow;
 import org.usfirst.frc.team3042.robot.commands.Intake_Intake;
@@ -63,6 +64,7 @@ public class OI {
 			gamepad.A.whenPressed(new PositionControl());
 			gamepad.B.whenPressed(new RotationControl());
 			gamepad.LB.whileHeld(new Intake_Intake());
+			gamepad.RB.toggleWhenPressed(new Shooter_Toggle());
 		}
 		
 		/** Artemis Controls **************************************************/
