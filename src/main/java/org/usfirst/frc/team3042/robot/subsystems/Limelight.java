@@ -52,8 +52,8 @@ public class Limelight extends Subsystem {
 		double area = ta.getDouble(0.0);
 		return area;
 	}
-	public double returnValidTargets() {
-		double targets = tv.getDouble(0.0);
-		return targets;
+	public double returnValidTarget() {
+		double target = tv.getDouble(0.0);
+		return target;
 	}
 }

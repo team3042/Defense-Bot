@@ -43,6 +43,7 @@ public class Limelight_Dashboard extends Command {
 		SmartDashboard.putNumber("Horizontal Error:", limelight.returnHorizontalError());
 		SmartDashboard.putNumber("Vertical Error:", limelight.returnVerticalError());
 		SmartDashboard.putNumber("Target Area:", limelight.returnTargetArea());
+		SmartDashboard.putNumber("Valid Target?", limelight.returnValidTarget());
 	}
 	
 	/** isFinished ************************************************************	
