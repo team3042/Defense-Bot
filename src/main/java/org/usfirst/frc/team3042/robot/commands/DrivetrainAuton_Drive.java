@@ -13,7 +13,7 @@ import org.usfirst.frc.team3042.robot.subsystems.DrivetrainAuton;
 
 import com.ctre.phoenix.motion.MotionProfileStatus;
 
-/** DrivetrainAuton_Drive *****************************************************
+/** Drivetrain Auton Drive *****************************************************
  * Autonomous driving using motion profile.
  */
 public class DrivetrainAuton_Drive extends Command {
@@ -28,7 +28,7 @@ public class DrivetrainAuton_Drive extends Command {
 	MotionProfile leftMotionProfile, rightMotionProfile;
 	boolean isLast;
 	
-	/** Drivetrain_Auton ******************************************************/
+	/** Drivetrain Auton Drive ******************************************************/
 	public DrivetrainAuton_Drive(Path path) {
 		log.add("Constructor", Log.Level.TRACE);
 		requires(drivetrain);

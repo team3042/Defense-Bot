@@ -10,7 +10,7 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.DrivetrainEncoders;
 
-/** Drivetrain_Calibrate ******************************************************
+/** Drivetrain Calibrate ******************************************************
  * Determine the F-Gain for the left and right motors of the drivetrain.
  */
 public class Drivetrain_Calibrate extends Command {
@@ -28,7 +28,7 @@ public class Drivetrain_Calibrate extends Command {
 	int count;
 	double leftSum, rightSum;
 	
-	/** Drivetrain_Calibrate **************************************************/
+	/** Drivetrain Calibrate **************************************************/
 	public Drivetrain_Calibrate() {
 		log.add("Constructor", Log.Level.TRACE);
 		

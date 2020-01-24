@@ -9,7 +9,7 @@ import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 
-/** Gyroscope_Dashboard *******************************************************
+/** Gyroscope Dashboard *******************************************************
  * Display the gyroscope angle on the dashboard
  */
 public class Gyroscope_Dashboard extends Command {
@@ -20,7 +20,7 @@ public class Gyroscope_Dashboard extends Command {
 	Gyroscope gyroscope = Robot.gyroscope;
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(gyroscope));
 	
-	/** Gyroscope_Dashboard ***************************************************
+	/** Gyroscope Dashboard ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
 	public Gyroscope_Dashboard() {

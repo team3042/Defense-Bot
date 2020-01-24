@@ -9,7 +9,7 @@ import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.DrivetrainEncoders;
 
-/** DrivetrainEncoders_Dashboard **********************************************
+/** Drivetrain Encoders Dashboard **********************************************
  * Output encoder values to the SmartDashboard
  */
 public class DrivetrainEncoders_Dashboard extends Command {
@@ -21,7 +21,7 @@ public class DrivetrainEncoders_Dashboard extends Command {
 	DrivetrainEncoders encoders = Robot.drivetrain.getEncoders();
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(encoders));
 	
-	/** DrivetrainEncoders_Dashboard ******************************************
+	/** Drivetrain Encoders Dashboard ******************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
 	public DrivetrainEncoders_Dashboard() {

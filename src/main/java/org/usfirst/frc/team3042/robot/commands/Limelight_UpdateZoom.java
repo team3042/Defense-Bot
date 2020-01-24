@@ -8,8 +8,8 @@ import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 
-/** Limelight_UpdateZoom *******************************************************
- * Display the detected color on the dashboard
+/** Limelight Update Zoom *******************************************************
+ * Zooms in or out based on how far we are from the vision target
  */
 public class Limelight_UpdateZoom extends Command {
 	/** Configuration Constants ***********************************************/
@@ -21,7 +21,7 @@ public class Limelight_UpdateZoom extends Command {
 	double area;
 	Boolean zoom = false;
 	
-	/** ColorSensor_Dashboard ***************************************************
+	/** Limelight Update Zoom ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
 	public Limelight_UpdateZoom() {

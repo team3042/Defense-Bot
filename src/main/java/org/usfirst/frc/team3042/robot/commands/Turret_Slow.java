@@ -7,11 +7,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
-import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 import org.usfirst.frc.team3042.robot.subsystems.Turret;
 import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
 
-/** Turret Correct Error *******************************************************
+/** Turret Slow *******************************************************
  * Command for correcting the angle of error with the turret
  */
 
@@ -22,13 +21,10 @@ public class Turret_Slow extends Command {
 
 	/** Instance Variables ****************************************************/
 	Turret turret = Robot.turret;
-	Limelight limelight = Robot.limelight;
 	TurretEncoder encoder = turret.getEncoder();  
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(turret));
-	  
-	double error;
 	
-	/** Turret Correct Error ***************************************************
+	/** Turret Slow ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
 	public Turret_Slow() {
@@ -43,14 +39,14 @@ public class Turret_Slow extends Command {
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 		turret.setPower(SPEED);
-		SmartDashboard.putNumber("Turret Position", encoder.getRawPosition());
+		SmartDashboard.putNumber("Turret Position:", encoder.getRawPosition());
 	}
 
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		SmartDashboard.putNumber("Turret Position", encoder.getRawPosition());
+		SmartDashboard.putNumber("Turret Position:", encoder.getRawPosition());
 	}
 	
 	/** isFinished ************************************************************	

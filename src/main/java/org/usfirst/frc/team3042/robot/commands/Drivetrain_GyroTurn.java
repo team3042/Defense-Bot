@@ -9,7 +9,7 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 
-/** Drivetrain_GyroTurn *******************************************************
+/** Drivetrain Gyro Turn *******************************************************
  * Command for turning in place to a set angle.
  */
 public class Drivetrain_GyroTurn extends Command {
@@ -27,7 +27,7 @@ public class Drivetrain_GyroTurn extends Command {
 	Gyroscope gyroscope = Robot.gyroscope;
 	double lastError, integralError, goalAngle;
 	
-	/** Drivetrain_GyroTurn *************************************************** 
+	/** Drivetrain Gyro Turn *************************************************** 
 	 * 
 	 * Required subsystems will cancel commands when this command is run.
 	 * 

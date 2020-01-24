@@ -9,7 +9,7 @@ import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.ColorSensor;
 
-/** ColorSensor_Dashboard *******************************************************
+/** Color Sensor Dashboard *******************************************************
  * Display the detected color on the dashboard
  */
 public class ColorSensor_Dashboard extends Command {
@@ -20,7 +20,7 @@ public class ColorSensor_Dashboard extends Command {
 	ColorSensor colorsensor = Robot.colorsensor;
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(colorsensor));
 	
-	/** ColorSensor_Dashboard ***************************************************
+	/** Color Sensor Dashboard ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
 	public ColorSensor_Dashboard() {

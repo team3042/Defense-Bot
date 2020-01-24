@@ -9,7 +9,7 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Shooter;
 
 /** Shooter Toggle *******************************************************
- * Toggles the shooter
+ * Toggles the shooter flywheel on and off
  */
 public class Shooter_Toggle extends Command {
 	/** Configuration Constants ***********************************************/

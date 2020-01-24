@@ -10,8 +10,8 @@ import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 
-/** Drivetrain_TankDrive ******************************************************
- * Using joystick input to drive the robot.
+/** Drivetrain Tank Drive ******************************************************
+ * Use joystick input to drive the robot.
  */
 public class Drivetrain_TankDrive extends Command {
 	/** Configuration Constants ***********************************************/
@@ -25,7 +25,7 @@ public class Drivetrain_TankDrive extends Command {
 	double leftPowerOld, rightPowerOld;
 	Timer timer = new Timer();
 	
-	/** Drivetrain_TankDrive **************************************************
+	/** Drivetrain Tank Drive **************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
 	public Drivetrain_TankDrive() {

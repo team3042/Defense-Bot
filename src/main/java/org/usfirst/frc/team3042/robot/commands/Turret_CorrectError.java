@@ -11,7 +11,7 @@ import org.usfirst.frc.team3042.robot.subsystems.Turret;
 import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
 
 /** Turret Correct Error *******************************************************
- * Command for correcting the angle of error with the turret
+ * Command for correcting the reported angle of error with the turret
  */
 
 public class Turret_CorrectError extends Command {
