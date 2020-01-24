@@ -1,32 +1,33 @@
 package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
-import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
+import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 
-/** Gyroscope_Dashboard *******************************************************
- * Display the gyroscope angle on the dashboard
+/** Limelight_UpdateZoom *******************************************************
+ * Display the detected color on the dashboard
  */
-public class Gyroscope_Dashboard extends Command {
+public class Limelight_UpdateZoom extends Command {
 	/** Configuration Constants ***********************************************/
-	private static final Log.Level LOG_LEVEL = RobotMap.LOG_GYROSCOPE;
+	private static final Log.Level LOG_LEVEL = RobotMap.LOG_LIMELIGHT;
 	
 	/** Instance Variables ****************************************************/
-	Gyroscope gyroscope = Robot.gyroscope;
-	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(gyroscope));
+	Limelight limelight = Robot.limelight;
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(limelight));
+	double area;
+	Boolean zoom = false;
 	
-	/** Gyroscope_Dashboard ***************************************************
+	/** ColorSensor_Dashboard ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
-	public Gyroscope_Dashboard() {
+	public Limelight_UpdateZoom() {
 		log.add("Constructor", Log.Level.TRACE);
 		
-		requires(gyroscope);
+		requires(limelight);
 	}
 
 	/** initialize ************************************************************
@@ -34,14 +35,22 @@ public class Gyroscope_Dashboard extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
-		gyroscope.reset();
 	}
 
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		SmartDashboard.putNumber("Gyroscope Degrees", gyroscope.getAngle());
+		area = limelight.returnTargetArea();
+
+		if (area <= 0.723 && !zoom && limelight.tv.getDouble(0) == 1.0) {
+			limelight.pipeline.setNumber(1);
+			zoom = true;
+		}		
+		else if (area > 4.43 && zoom && limelight.tv.getDouble(0) == 1.0) {
+			limelight.pipeline.setNumber(0);
+			zoom = false;
+		}	
 	}
 	
 	/** isFinished ************************************************************	

@@ -67,6 +67,8 @@ public class Robot extends TimedRobot {
 		chooser.setDefaultOption("Default Auto", new AutonomousMode());
 		//chooser.addOption("My Auto", new ExampleCommand());
 		SmartDashboard.putData("Auto Mode", chooser);
+
+		limelight.pipeline.setNumber(0);
 	}
 
 	/** disabledInit **********************************************************

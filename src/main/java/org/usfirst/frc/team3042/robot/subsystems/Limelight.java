@@ -3,6 +3,7 @@ package org.usfirst.frc.team3042.robot.subsystems;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.commands.Limelight_Dashboard;
+import org.usfirst.frc.team3042.robot.commands.Limelight_UpdateZoom;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
@@ -22,7 +23,9 @@ public class Limelight extends Subsystem {
 	NetworkTable table = NetworkTableInstance.getDefault().getTable("limelight");
 	NetworkTableEntry tx = table.getEntry("tx");
 	NetworkTableEntry ty = table.getEntry("ty");
-	NetworkTableEntry ta = table.getEntry("ta");  
+	NetworkTableEntry ta = table.getEntry("ta");
+	public NetworkTableEntry tv = table.getEntry("tv");  
+	public NetworkTableEntry pipeline = table.getEntry("pipeline");  
 	public NetworkTableEntry led = table.getEntry("ledMode");
 	
 	/** Limelight ******************************************************/
@@ -34,7 +37,7 @@ public class Limelight extends Subsystem {
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
-		setDefaultCommand(new Limelight_Dashboard());
+		setDefaultCommand(new Limelight_UpdateZoom());
 	}
 	
 	/** Command Methods *******************************************************/
