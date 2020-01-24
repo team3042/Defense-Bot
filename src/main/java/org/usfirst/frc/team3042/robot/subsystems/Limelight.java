@@ -23,7 +23,7 @@ public class Limelight extends Subsystem {
 	NetworkTableEntry tx = table.getEntry("tx");
 	NetworkTableEntry ty = table.getEntry("ty");
 	NetworkTableEntry ta = table.getEntry("ta");
-	public NetworkTableEntry tv = table.getEntry("tv");  
+	NetworkTableEntry tv = table.getEntry("tv");  
 	public NetworkTableEntry pipeline = table.getEntry("pipeline");  
 	public NetworkTableEntry led = table.getEntry("ledMode");
 	
@@ -51,5 +51,9 @@ public class Limelight extends Subsystem {
 	public double returnTargetArea() {
 		double area = ta.getDouble(0.0);
 		return area;
+	}
+	public double returnValidTargets() {
+		double targets = tv.getDouble(0.0);
+		return targets;
 	}
 }

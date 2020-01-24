@@ -43,11 +43,11 @@ public class Limelight_UpdateZoom extends Command {
 	protected void execute() {
 		area = limelight.returnTargetArea();
 
-		if (area <= 0.723 && !zoom && limelight.tv.getDouble(0) == 1.0) {
+		if (area <= 0.723 && !zoom && limelight.returnValidTargets() == 1.0) {
 			limelight.pipeline.setNumber(1);
 			zoom = true;
 		}		
-		else if (area > 4.43 && zoom && limelight.tv.getDouble(0) == 1.0) {
+		else if (area > 4.43 && zoom && limelight.returnValidTargets() == 1.0) {
 			limelight.pipeline.setNumber(0);
 			zoom = false;
 		}	
