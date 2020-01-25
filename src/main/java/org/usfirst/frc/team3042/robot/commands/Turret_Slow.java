@@ -11,7 +11,7 @@ import org.usfirst.frc.team3042.robot.subsystems.Turret;
 import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
 
 /** Turret Slow *******************************************************
- * Command for correcting the angle of error with the turret
+ * Manually move the turret
  */
 
 public class Turret_Slow extends Command {

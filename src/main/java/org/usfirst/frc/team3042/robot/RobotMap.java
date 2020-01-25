@@ -34,12 +34,12 @@ public class RobotMap {
 	/** CAN ID numbers ********************************************************/
 	public static final int CAN_LEFT_MOTOR 	= 			IS_PBOT 	? 3 : 3;
 	public static final int CAN_RIGHT_MOTOR = 			IS_PBOT 	? 9 : 9;
-	public static final int CAN_LEFT_FOLLOWER = 		IS_PBOT 	? 3 : 0;
-	public static final int CAN_RIGHT_FOLLOWER = 		IS_PBOT 	? 9 : 0;
-	public static final int CAN_CONTROL_PANEL_WHEEL = 	IS_PBOT 	? 11 : 10;
+	public static final int CAN_LEFT_FOLLOWER = 		IS_PBOT 	? 3 : 3;
+	public static final int CAN_RIGHT_FOLLOWER = 		IS_PBOT 	? 9 : 9;
+	public static final int CAN_CONTROL_PANEL_WHEEL = 	IS_PBOT 	? 11 : 11;
 	public static final int CAN_TURRET = 				IS_PBOT		? 10 : 10; 
-	public static final int CAN_INTAKE = 				IS_PBOT 	? 11 : 10;
-	public static final int CAN_SHOOTER = 				IS_PBOT 	? 11 : 10;
+	public static final int CAN_INTAKE = 				IS_PBOT 	? 11 : 11;
+	public static final int CAN_SHOOTER = 				IS_PBOT 	? 11 : 11;
 	
 	/** PCM channels **********************************************************/
 	
