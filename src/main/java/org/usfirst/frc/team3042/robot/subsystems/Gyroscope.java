@@ -4,8 +4,7 @@ import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.commands.Gyroscope_Dashboard;
 
-import com.analog.adis16448.frc.ADIS16448_IMU; 
-
+import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
@@ -19,7 +18,7 @@ public class Gyroscope extends Subsystem {
 	
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
-	ADIS16448_IMU gyroscope = new ADIS16448_IMU(); 
+	ADXRS450_Gyro gyroscope = new ADXRS450_Gyro(); 
 	
 	/** Gyroscope ******************************************************/
 	public Gyroscope() {
