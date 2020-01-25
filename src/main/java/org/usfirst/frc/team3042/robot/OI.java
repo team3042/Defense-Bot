@@ -5,6 +5,7 @@ import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.commands.PositionControl;
 import org.usfirst.frc.team3042.robot.commands.RotationControl;
 import org.usfirst.frc.team3042.robot.commands.Shooter_Toggle;
+import org.usfirst.frc.team3042.robot.commands.Turret_Continous;
 import org.usfirst.frc.team3042.robot.commands.Turret_CorrectError;
 import org.usfirst.frc.team3042.robot.commands.Turret_Slow;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
@@ -61,16 +62,17 @@ public class OI {
 		/** PBOT Controls *****************************************************/
 		if (IS_PBOT) {
 			gamepad.Start.whenPressed(new Turret_CorrectError());
+			gamepad.Back.whenPressed(new Turret_Continous());
 			gamepad.RB.whileHeld(new Turret_Slow());
 
-			//gamepad.RB.toggleWhenPressed(new Shooter_Toggle());
+			gamepad.RB.toggleWhenPressed(new Shooter_Toggle());
       
 			gamepad.X.whenPressed(new Drivetrain_GyroStraight(24.0, 24.0));
 			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90));
 
-			//gamepad.A.whenPressed(new PositionControl());
-			//gamepad.B.whenPressed(new RotationControl());
-			//gamepad.LB.whileHeld(new Intake_Intake());
+			gamepad.A.whenPressed(new PositionControl());
+			gamepad.B.whenPressed(new RotationControl());
+			gamepad.LB.whileHeld(new Intake_Intake());
 		}
 		
 		/** Artemis Controls **************************************************/

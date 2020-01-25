@@ -36,10 +36,10 @@ public class RobotMap {
 	public static final int CAN_RIGHT_MOTOR = 			IS_PBOT 	? 9 : 9;
 	public static final int CAN_LEFT_FOLLOWER = 		IS_PBOT 	? 3 : 0;
 	public static final int CAN_RIGHT_FOLLOWER = 		IS_PBOT 	? 9 : 0;
-	public static final int CAN_CONTROL_PANEL_WHEEL = 	IS_PBOT 	? 10 : 10;
+	public static final int CAN_CONTROL_PANEL_WHEEL = 	IS_PBOT 	? 11 : 10;
 	public static final int CAN_TURRET = 				IS_PBOT		? 10 : 10; 
-	public static final int CAN_INTAKE = 				IS_PBOT 	? 10 : 10;
-	public static final int CAN_SHOOTER = 				IS_PBOT 	? 10 : 10;
+	public static final int CAN_INTAKE = 				IS_PBOT 	? 11 : 10;
+	public static final int CAN_SHOOTER = 				IS_PBOT 	? 11 : 10;
 	
 	/** PCM channels **********************************************************/
 	
@@ -142,7 +142,7 @@ public class RobotMap {
 	public static final NeutralMode TURRET_BRAKE_MODE = NeutralMode.Brake;
 	public static final int TURRET_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int TURRET_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final double TURRET_SPEED = 0.1;
+	public static final double TURRET_SPEED = 0.4;
 
 	/** Turret Encoder Settings **********************************************/
 	public static final boolean HAS_TURRET_ENCODER = HAS_TURRET;
