@@ -38,15 +38,15 @@ public class Turret_Slow extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
-		turret.setPower(SPEED);
-		SmartDashboard.putNumber("Turret Position:", encoder.getRawPosition());
+		turret.setPower(-1 * SPEED);
+		SmartDashboard.putNumber("Turret Position:", encoder.getPosition());
 	}
 
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		SmartDashboard.putNumber("Turret Position:", encoder.getRawPosition());
+		SmartDashboard.putNumber("Turret Position:", encoder.getPosition());
 	}
 	
 	/** isFinished ************************************************************	

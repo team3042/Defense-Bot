@@ -116,6 +116,8 @@ public class RobotMap {
 
 	/** Limelight Settings ****************************************************/
 	public static final boolean HAS_LIMELIGHT = true;
+	public static final double ZOOM_IN_AREA = 0.834;
+	public static final double ZOOM_OUT_AREA = 3.7;
 
 	/** Control Panel Wheel Settings ****************************************************/
 	public static final boolean HAS_CONTROL_PANEL_WHEEL = true;
@@ -130,7 +132,7 @@ public class RobotMap {
 	/** Control Panel Wheel Encoder Settings **********************************************/
 	public static final boolean HAS_CONTROL_PANEL_WHEEL_ENCODER = HAS_CONTROL_PANEL_WHEEL;
 	public static final int CPWHEEL_ENCODER_FRAME_RATE = 10;
-	public static final int CPWHEEL_ENCODER_COUNTS_PER_REV = 4096;
+	public static final int CPWHEEL_ENCODER_COUNTS_PER_REV = 1440;
 	public static final boolean REVERSE_CPWHEEL_ENCODER = false;
 	public static final boolean CPWHEEL_SENSOR_PHASE = false;
 
@@ -145,7 +147,7 @@ public class RobotMap {
 	/** Turret Encoder Settings **********************************************/
 	public static final boolean HAS_TURRET_ENCODER = HAS_TURRET;
 	public static final int TURRET_ENCODER_FRAME_RATE = 10;
-	public static final int TURRET_ENCODER_COUNTS_PER_REV = 4096;
+	public static final int TURRET_ENCODER_COUNTS_PER_REV = 1440;
 	public static final boolean REVERSE_TURRET_ENCODER = false;
 	public static final boolean TURRET_SENSOR_PHASE = false;
 

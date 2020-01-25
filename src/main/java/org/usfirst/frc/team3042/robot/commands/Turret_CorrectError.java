@@ -2,6 +2,7 @@ package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
@@ -43,6 +44,7 @@ public class Turret_CorrectError extends Command {
 		log.add("Initialize", Log.Level.TRACE);
 		encoder.reset();
 		error = encoder.degreesToCounts(limelight.returnHorizontalError());
+		SmartDashboard.putNumber("error", error);
 		if(error > 0) {
 			turret.setPower(SPEED);
 		}
@@ -55,6 +57,7 @@ public class Turret_CorrectError extends Command {
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
+		SmartDashboard.putNumber("position", encoder.getPosition());
 	}
 	
 	/** isFinished ************************************************************	
@@ -62,10 +65,10 @@ public class Turret_CorrectError extends Command {
 	 */
 	protected boolean isFinished() {
 		if(error > 0) {
-			return encoder.getRawPosition() >= error;
+			return encoder.getPosition() <= error * -1;
 		}
 		else {
-			return encoder.getRawPosition() <= error;
+			return encoder.getPosition() >= error * -1;
 		}
 	}
 	

@@ -14,6 +14,8 @@ import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 public class Limelight_UpdateZoom extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_LIMELIGHT;
+	private static final double AREA_ZOOM_IN = RobotMap.ZOOM_IN_AREA;
+	private static final double AREA_ZOOM_OUT = RobotMap.ZOOM_OUT_AREA;
 	
 	/** Instance Variables ****************************************************/
 	Limelight limelight = Robot.limelight;
@@ -43,11 +45,11 @@ public class Limelight_UpdateZoom extends Command {
 	protected void execute() {
 		area = limelight.returnTargetArea();
 
-		if (area <= 0.723 && !zoom && limelight.returnValidTarget() == 1.0) {
+		if (area <= AREA_ZOOM_IN && !zoom && limelight.returnValidTarget() == 1.0) {
 			limelight.pipeline.setNumber(1);
 			zoom = true;
 		}		
-		else if (area > 4.43 && zoom && limelight.returnValidTarget() == 1.0) {
+		else if (area > AREA_ZOOM_OUT && zoom && limelight.returnValidTarget() == 1.0) {
 			limelight.pipeline.setNumber(0);
 			zoom = false;
 		}	

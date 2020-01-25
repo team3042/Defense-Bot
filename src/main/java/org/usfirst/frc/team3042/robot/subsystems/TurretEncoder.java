@@ -49,23 +49,15 @@ public class TurretEncoder extends Subsystem {
 	
 	/** Reset the encoder zero position ****************************************/
 	public void reset() {
-		int counts = encoder.getSelectedSensorPosition(PIDIDX);
-		positionZero = countsToRev(counts);
+		positionZero = encoder.getSelectedSensorPosition(PIDIDX);
 	}
 	
 	/** Get the encoder position and velocity *********************************
 	 * Encoder position returns counts, convert to revolutions for output
 	 * Encoder speed returns counts per 100 ms, convert to RPM for output
 	 */
-	public double getRawPosition() {
-		return encoder.getSelectedSensorPosition(PIDIDX);
-	}
 	public double getPosition() {
-		int counts = encoder.getSelectedSensorPosition(PIDIDX);
-		return countsToRev(counts) - positionZero;
-	}
-	private double countsToRev(int counts) {
-		return (double)counts / COUNTS_PER_REV;
+		return encoder.getSelectedSensorPosition(PIDIDX) - positionZero;
 	}
 	public double getSpeed() {
 		int cp100ms = encoder.getSelectedSensorVelocity(PIDIDX);
