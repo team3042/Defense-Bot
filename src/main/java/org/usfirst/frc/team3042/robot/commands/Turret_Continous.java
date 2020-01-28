@@ -16,7 +16,9 @@ import org.usfirst.frc.team3042.robot.subsystems.Turret;
 public class Turret_Continous extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;
-	private static final double SPEED = RobotMap.TURRET_SPEED;
+	private static final double kP = RobotMap.kP_TURRET;
+	private static final double kI = RobotMap.kI_TURRET;
+	private static final double kD = RobotMap.kD_TURRET;
 
 	/** Instance Variables ****************************************************/
 	Turret turret = Robot.turret;
@@ -24,8 +26,8 @@ public class Turret_Continous extends Command {
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(turret));
 	  
 	double error;
-	double derivative;
-	double integral = 0;
+	double derivative; //Derivative is the difference of the current error and the previous error
+	double integral = 0; //Integral is the sum of all errors
 	double previousError;
 	
 	/** Turret Continous ***************************************************
@@ -48,11 +50,11 @@ public class Turret_Continous extends Command {
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		error = limelight.returnHorizontalError() / 25;
-		integral += error * 0.2;
+		error = limelight.returnHorizontalError();
+		integral += error * 0.2; //Add the current error to the integral
 		derivative = (error - previousError) / .02;
-		turret.setPower((SPEED * error) + (.1 * integral) + (.1 *derivative));
-		previousError = error;
+		turret.setPower((kP * error) + (kI * integral) + (kD * derivative));
+		previousError = error; //set the previous error equal to the current error before starting the loop over and getting a new current error
 	}
 	
 	/** isFinished ************************************************************	

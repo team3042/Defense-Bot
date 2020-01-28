@@ -143,6 +143,9 @@ public class RobotMap {
 	public static final int TURRET_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int TURRET_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final double TURRET_SPEED = 0.4;
+	public static final double kP_TURRET = 0.016;
+	public static final double kI_TURRET = 0.1;
+	public static final double kD_TURRET = 0;
 
 	/** Turret Encoder Settings **********************************************/
 	public static final boolean HAS_TURRET_ENCODER = HAS_TURRET;
