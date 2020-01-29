@@ -45,9 +45,11 @@ public class Shooter_Spin extends Command {
 	 */
 	protected void execute() {
 		
-		if (limelight.returnValidTarget() == 1) {
-
+		if (limelight.returnValidTarget() == 1.0) {
 			shooter.setPower(POWER);
+		}
+		else if (limelight.returnValidTarget() == 0) {
+			shooter.stop();
 		}
 	}
 
@@ -63,7 +65,6 @@ public class Shooter_Spin extends Command {
 	 */
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
-		shooter.stop();
 	}
 
 	/** interrupted ***********************************************************
@@ -72,6 +73,5 @@ public class Shooter_Spin extends Command {
 	 */
 	protected void interrupted() {
 		log.add("Interrupted", Log.Level.TRACE);
-		shooter.stop();
 	}
 }
