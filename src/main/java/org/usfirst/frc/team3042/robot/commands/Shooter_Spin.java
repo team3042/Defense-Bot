@@ -6,24 +6,26 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
+import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 import org.usfirst.frc.team3042.robot.subsystems.Shooter;
 
-/** Shooter Toggle *******************************************************
- * Toggles the shooter flywheel on and off
+/** Shooter *******************************************************
+ * Sets power for the shooter spinner
  */
-public class Shooter_Toggle extends Command {
+public class Shooter_Spin extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_SHOOTER;
 	private static final double POWER = RobotMap.SHOOTER_POWER;
 	
 	/** Instance Variables ****************************************************/
 	Shooter shooter = Robot.shooter;
+	Limelight limelight = Robot.limelight;
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(shooter));
 	
-	/** Shooter_Toggle***************************************************
+	/** Shooter ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
-	public Shooter_Toggle() {
+	public Shooter_Spin() {
 		log.add("Constructor", Log.Level.TRACE);
 		
 		requires(shooter);
@@ -35,7 +37,7 @@ public class Shooter_Toggle extends Command {
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 
-		shooter.setPower(POWER);
+	
 	}
 
 	/** execute ***************************************************************
@@ -43,8 +45,12 @@ public class Shooter_Toggle extends Command {
 	 */
 	protected void execute() {
 		
+		if (limelight.returnValidTarget() == 1) {
+
+			shooter.setPower(POWER);
+		}
 	}
-	
+
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
