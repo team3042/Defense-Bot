@@ -10,25 +10,25 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-/** Intake ****************************************************************
- * Subsystem for the Intake
+/** Upper Conveyor ****************************************************************
+ * Subsystem for the Upper Conveyor
  */
-public class Intake extends Subsystem {
+public class UpperConveyor extends Subsystem {
 	/** Configuration Constants ***********************************************/
-  private static final Log.Level LOG_LEVEL = RobotMap.LOG_INTAKE;
-  private static final int CAN_INTAKE = RobotMap.CAN_INTAKE;
-  private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_INTAKE;
-  private static final NeutralMode BRAKE_MODE = RobotMap.INTAKE_BRAKE_MODE;
+  private static final Log.Level LOG_LEVEL = RobotMap.LOG_UPPERCONVEYOR;
+  private static final int CAN_UPPERCONVEYOR = RobotMap.CAN_UPPER_CONVEYOR;
+  private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_UPPER_CONVEYOR;
+  private static final NeutralMode BRAKE_MODE = RobotMap.UPPER_CONVEYOR_BRAKE_MODE;
 
 	/** Instance Variables ****************************************************/
   Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
-  TalonSRX motor = new TalonSRX(CAN_INTAKE);
+  TalonSRX motor = new TalonSRX(CAN_UPPERCONVEYOR);
 
-	/** Intake ******************************************************/
-	public Intake() {
-    log.add("Constructor", LOG_LEVEL);
-    
-    initMotor(motor, REVERSE_MOTOR);
+	/** Upper Conveyor ******************************************************/
+	public UpperConveyor() {
+		log.add("Constructor", LOG_LEVEL);
+		
+		initMotor(motor, REVERSE_MOTOR);    
   }
 
   private void initMotor(TalonSRX motor, boolean reverse) {
