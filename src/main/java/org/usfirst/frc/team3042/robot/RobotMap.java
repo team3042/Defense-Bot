@@ -40,6 +40,7 @@ public class RobotMap {
 	public static final int CAN_TURRET = 				IS_PBOT		? 10 : 10; 
 	public static final int CAN_INTAKE = 				IS_PBOT 	? 11 : 11;
 	public static final int CAN_SHOOTER = 				IS_PBOT 	? 11 : 11;
+	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 11 : 11;
 	
 	/** PCM channels **********************************************************/
 	
@@ -162,6 +163,14 @@ public class RobotMap {
 	public static final int INTAKE_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final double INTAKE_POWER = 0.33;
 
+	/** Lower Conveyer Settings ****************************************************/
+	public static final boolean HAS_LOWER_CONVEYOR = true;
+	public static final boolean REVERSE_LOWER_CONVEYOR  = 	(IS_PBOT) ? false : false;
+	public static final NeutralMode LOWER_CONVEYOR_BRAKE_MODE = NeutralMode.Brake;
+	public static final int LOWER_CONVEYOR_TIMEOUT = 0; // timeout in ms; set to zero
+	public static final int LOWER_CONVEYOR_PIDIDX = 0; // used for cascading PID; set to zero
+	public static final double LOWER_CONVEYOR_POWER = 0.2;
+
 	/** Shooter Settings ****************************************************/
 	public static final boolean HAS_SHOOTER = true;
 	public static final boolean REVERSE_SHOOTER  = 	(IS_PBOT) ? false : false;
@@ -196,4 +205,5 @@ public class RobotMap {
 	public static final Log.Level	LOG_TURRET_ENCODER					= Log.Level.DEBUG;
 	public static final Log.Level	LOG_INTAKE							= Log.Level.DEBUG;
 	public static final Log.Level	LOG_SHOOTER							= Log.Level.DEBUG;
+	public static final Log.Level	LOG_LOWER_CONVEYOR					= Log.Level.DEBUG;
 }
