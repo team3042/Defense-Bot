@@ -8,6 +8,7 @@ import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 import org.usfirst.frc.team3042.robot.subsystems.Intake;
 import org.usfirst.frc.team3042.robot.subsystems.Limelight;
+import org.usfirst.frc.team3042.robot.subsystems.LowerConveyor;
 import org.usfirst.frc.team3042.robot.subsystems.Shooter;
 import org.usfirst.frc.team3042.robot.subsystems.Turret;
 import org.usfirst.frc.team3042.robot.subsystems.UpperConveyor;
@@ -38,19 +39,21 @@ public class Robot extends TimedRobot {
 	private static final boolean HAS_TURRET = RobotMap.HAS_TURRET;
 	private static final boolean HAS_INTAKE = RobotMap.HAS_INTAKE;
 	private static final boolean HAS_SHOOTER = RobotMap.HAS_SHOOTER;
-	private static final boolean HAS_UPPER_CONVEYOR = RobotMap.HAS_UPPER_CONVEYOR;
+	private static final boolean HAS_LOWER_CONVEYOR = RobotMap.HAS_LOWER_CONVEYOR;
+  private static final boolean HAS_UPPER_CONVEYOR = RobotMap.HAS_UPPER_CONVEYOR;
 
 	/** Create Subsystems *****************************************************/
 	private Log log = new Log(LOG_LEVEL, "Robot");
-	public static final Drivetrain 	drivetrain 				   = (HAS_DRIVETRAIN) 			 ? new Drivetrain() 	: null;
-	public static final Gyroscope 	gyroscope 				   = (HAS_GYROSCOPE) 			 ? new Gyroscope() 	: null;
-	public static final ColorSensor colorsensor   		  	   = (HAS_COLOR_SENSOR)          ? new ColorSensor() : null;
-	public static final ControlPanelWheel cpwheel 			   = (HAS_CONTROL_PANEL_WHEEL)   ? new ControlPanelWheel() : null;
-	public static final Limelight limelight      			   = (HAS_LIMELIGHT)             ? new Limelight() : null;
-	public static final Turret turret 						   = (HAS_TURRET)				 ? new Turret()	: null;
-	public static final Intake intake 						   = (HAS_INTAKE)				 ? new Intake()	: null;
-	public static final Shooter shooter						   = (HAS_SHOOTER)				 ? new Shooter()	: null;
-	public static final UpperConveyor upperconveyor			   = (HAS_UPPER_CONVEYOR)				 ? new UpperConveyor()	: null;
+	public static final Drivetrain 	drivetrain 	   = (HAS_DRIVETRAIN) 			 ? new Drivetrain() 	: null;
+	public static final Gyroscope 	gyroscope 	   = (HAS_GYROSCOPE) 			 ? new Gyroscope() 	: null;
+	public static final ColorSensor colorsensor    = (HAS_COLOR_SENSOR)          ? new ColorSensor() : null;
+	public static final ControlPanelWheel cpwheel  = (HAS_CONTROL_PANEL_WHEEL)   ? new ControlPanelWheel() : null;
+	public static final Limelight limelight        = (HAS_LIMELIGHT)             ? new Limelight() : null;
+	public static final Turret turret 			   = (HAS_TURRET)				 ? new Turret()	: null;
+	public static final Intake intake 			   = (HAS_INTAKE)				 ? new Intake()	: null;
+	public static final Shooter shooter			   = (HAS_SHOOTER)				 ? new Shooter()	: null;
+	public static final LowerConveyor lowerconveyor = (HAS_LOWER_CONVEYOR)		 ? new LowerConveyor()	: null;
+  public static final UpperConveyor upperconveyor			   = (HAS_UPPER_CONVEYOR)				 ? new UpperConveyor()	: null;
 	public static final PowerDistributionPanel pdp = new PowerDistributionPanel();
 	public static OI oi;
 
