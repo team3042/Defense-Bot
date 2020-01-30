@@ -41,6 +41,7 @@ public class RobotMap {
 	public static final int CAN_INTAKE = 				IS_PBOT 	? 11 : 11;
 	public static final int CAN_SHOOTER = 				IS_PBOT 	? 11 : 11;
 	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 11 : 11;
+	public static final int CAN_UPPER_CONVEYOR = 		IS_PBOT 	? 11 : 11;
 	
 	/** PCM channels **********************************************************/
 	
@@ -145,7 +146,7 @@ public class RobotMap {
 	public static final int TURRET_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final double TURRET_SPEED = 0.4;
 	public static final double kP_TURRET = 0.016;
-	public static final double kI_TURRET = 0.1;
+	public static final double kI_TURRET = 0.004;
 	public static final double kD_TURRET = 0;
 
 	/** Turret Encoder Settings **********************************************/
@@ -178,6 +179,14 @@ public class RobotMap {
 	public static final int SHOOTER_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int SHOOTER_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final double SHOOTER_POWER = 0.33;
+
+	/** Upper Conveyor Settings ****************************************************/
+	public static final boolean HAS_UPPER_CONVEYOR = true;
+	public static final boolean REVERSE_UPPER_CONVEYOR  = 	(IS_PBOT) ? false : false;
+	public static final NeutralMode UPPER_CONVEYOR_BRAKE_MODE = NeutralMode.Brake;
+	public static final int UPPER_CONVEYOR_TIMEOUT = 0; // timeout in ms; set to zero
+	public static final int UPPER_CONVEYOR_PIDIDX = 0; // used for cascading PID; set to zero
+	public static final double UPPER_CONVEYOR_POWER = 0.2;
 	
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";
@@ -206,4 +215,5 @@ public class RobotMap {
 	public static final Log.Level	LOG_INTAKE							= Log.Level.DEBUG;
 	public static final Log.Level	LOG_SHOOTER							= Log.Level.DEBUG;
 	public static final Log.Level	LOG_LOWER_CONVEYOR					= Log.Level.DEBUG;
+	public static final Log.Level	LOG_UPPER_CONVEYOR					= Log.Level.DEBUG;
 }

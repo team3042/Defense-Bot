@@ -6,30 +6,29 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
-import org.usfirst.frc.team3042.robot.commands.Shooter_Spin;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-/** Shooter ****************************************************************
- * Subsystem for the Shooter
+/** Upper Conveyor ****************************************************************
+ * Subsystem for the Upper Conveyor
  */
-public class Shooter extends Subsystem {
+public class UpperConveyor extends Subsystem {
 	/** Configuration Constants ***********************************************/
-  private static final Log.Level LOG_LEVEL = RobotMap.LOG_SHOOTER;
-  private static final int CAN_SHOOTER = RobotMap.CAN_SHOOTER;
-  private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_SHOOTER;
-  private static final NeutralMode BRAKE_MODE = RobotMap.SHOOTER_BRAKE_MODE;
+  private static final Log.Level LOG_LEVEL = RobotMap.LOG_UPPERCONVEYOR;
+  private static final int CAN_UPPERCONVEYOR = RobotMap.CAN_UPPER_CONVEYOR;
+  private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_UPPER_CONVEYOR;
+  private static final NeutralMode BRAKE_MODE = RobotMap.UPPER_CONVEYOR_BRAKE_MODE;
 
 	/** Instance Variables ****************************************************/
   Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
-  TalonSRX motor = new TalonSRX(CAN_SHOOTER);
+  TalonSRX motor = new TalonSRX(CAN_UPPERCONVEYOR);
 
-	/** Shooter ******************************************************/
-	public Shooter() {
-    log.add("Constructor", LOG_LEVEL);
-    
-    initMotor(motor, REVERSE_MOTOR);
+	/** Upper Conveyor ******************************************************/
+	public UpperConveyor() {
+		log.add("Constructor", LOG_LEVEL);
+		
+		initMotor(motor, REVERSE_MOTOR);    
   }
 
   private void initMotor(TalonSRX motor, boolean reverse) {
@@ -56,6 +55,6 @@ public class Shooter extends Subsystem {
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
-		setDefaultCommand(new Shooter_Spin());
+		setDefaultCommand(null);
 	}
 }
