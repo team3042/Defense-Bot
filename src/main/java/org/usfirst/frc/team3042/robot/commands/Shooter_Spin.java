@@ -36,15 +36,12 @@ public class Shooter_Spin extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
-
-	
 	}
 
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		
 		if (limelight.returnValidTarget() == 1.0) {
 			shooter.setPower(POWER);
 		}
@@ -65,6 +62,7 @@ public class Shooter_Spin extends Command {
 	 */
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
+		shooter.stop();
 	}
 
 	/** interrupted ***********************************************************
@@ -73,5 +71,6 @@ public class Shooter_Spin extends Command {
 	 */
 	protected void interrupted() {
 		log.add("Interrupted", Log.Level.TRACE);
+		shooter.stop();
 	}
 }

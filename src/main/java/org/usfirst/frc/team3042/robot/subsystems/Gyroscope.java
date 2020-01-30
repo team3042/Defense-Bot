@@ -2,7 +2,6 @@ package org.usfirst.frc.team3042.robot.subsystems;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
-import org.usfirst.frc.team3042.robot.commands.Gyroscope_Dashboard;
 
 import edu.wpi.first.wpilibj.ADXRS450_Gyro;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -31,7 +30,7 @@ public class Gyroscope extends Subsystem {
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
-		setDefaultCommand(new Gyroscope_Dashboard());
+		setDefaultCommand(null); //new Gyroscope_Dashboard()
 	}
 	
 	/** Command Methods *******************************************************/

@@ -41,5 +41,6 @@ public class DrivetrainFollowers extends Subsystem {
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
+		setDefaultCommand(null);
 	}
 }

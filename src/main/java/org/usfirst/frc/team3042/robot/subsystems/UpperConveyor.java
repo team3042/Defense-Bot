@@ -15,28 +15,28 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
  */
 public class UpperConveyor extends Subsystem {
 	/** Configuration Constants ***********************************************/
-  private static final Log.Level LOG_LEVEL = RobotMap.LOG_UPPERCONVEYOR;
-  private static final int CAN_UPPERCONVEYOR = RobotMap.CAN_UPPER_CONVEYOR;
-  private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_UPPER_CONVEYOR;
-  private static final NeutralMode BRAKE_MODE = RobotMap.UPPER_CONVEYOR_BRAKE_MODE;
+  	private static final Log.Level LOG_LEVEL = RobotMap.LOG_UPPER_CONVEYOR;
+  	private static final int CAN_UPPERCONVEYOR = RobotMap.CAN_UPPER_CONVEYOR;
+  	private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_UPPER_CONVEYOR;
+  	private static final NeutralMode BRAKE_MODE = RobotMap.UPPER_CONVEYOR_BRAKE_MODE;
 
 	/** Instance Variables ****************************************************/
-  Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
-  TalonSRX motor = new TalonSRX(CAN_UPPERCONVEYOR);
+  	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
+  	TalonSRX motor = new TalonSRX(CAN_UPPERCONVEYOR);
 
 	/** Upper Conveyor ******************************************************/
 	public UpperConveyor() {
 		log.add("Constructor", LOG_LEVEL);
 		
 		initMotor(motor, REVERSE_MOTOR);    
-  }
+  	}
 
-  private void initMotor(TalonSRX motor, boolean reverse) {
+  	private void initMotor(TalonSRX motor, boolean reverse) {
 		motor.setNeutralMode(BRAKE_MODE);
 		motor.setInverted(reverse); 	// affects percent Vbus mode
-  }
+  	}
   
-  /** Methods for setting the motor in Percent Vbus mode ********************/
+ 	/** Methods for setting the motor in Percent Vbus mode ********************/
 	public void setPower(double Power) {
 		Power = safetyCheck(Power);
 				

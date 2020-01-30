@@ -53,8 +53,8 @@ public class Turret_Continous extends Command {
 		error = limelight.returnHorizontalError();
 		integral += error * 0.2; //Add the current error to the integral
 		//derivative = (error - previousError) / .02;
-		turret.setPower((kP * error) + (kI * integral) /*+ (kD * derivative)*/);
-		previousError = error; //set the previous error equal to the current error before starting the loop over and getting a new current error
+		turret.setPower((kP * error) + (kI * integral)); //+ (kD * derivative)
+		//previousError = error; //set the previous error equal to the current error before starting the loop over and getting a new current error
 	}
 	
 	/** isFinished ************************************************************	
