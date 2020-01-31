@@ -11,12 +11,12 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 /** Climbing Hook ****************************************************************
- * Subsystem for the Intake
+ * Subsystem for the Climbing Hook
  */
 public class ClimbingHook extends Subsystem {
 	/** Configuration Constants ***********************************************/
   private static final Log.Level LOG_LEVEL = RobotMap.LOG_CLIMBING_HOOK;
-  private static final int CAN_INTAKE = RobotMap.CAN_CLIMBING_HOOK;
+  private static final int CAN_CLIMBING_HOOK = RobotMap.CAN_CLIMBING_HOOK;
   private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_CLIMBING_HOOK;
   private static final NeutralMode BRAKE_MODE = RobotMap.CLIMBING_HOOK_BRAKE_MODE;
 
@@ -24,7 +24,7 @@ public class ClimbingHook extends Subsystem {
   Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
   TalonSRX motor = new TalonSRX(CAN_CLIMBING_HOOK);
 
-	/** Intake ******************************************************/
+	/** Climbing Hook ******************************************************/
 	public ClimbingHook() {
     log.add("Constructor", LOG_LEVEL);
     
