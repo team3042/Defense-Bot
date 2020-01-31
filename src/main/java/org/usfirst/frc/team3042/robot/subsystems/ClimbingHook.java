@@ -11,32 +11,32 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 /** Climbing Hook ****************************************************************
- * Subsystem for the Climbing Hook
+ * Subsystem for raising the hook used for climbing
  */
 public class ClimbingHook extends Subsystem {
 	/** Configuration Constants ***********************************************/
-  private static final Log.Level LOG_LEVEL = RobotMap.LOG_CLIMBING_HOOK;
-  private static final int CAN_CLIMBING_HOOK = RobotMap.CAN_CLIMBING_HOOK;
-  private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_CLIMBING_HOOK;
-  private static final NeutralMode BRAKE_MODE = RobotMap.CLIMBING_HOOK_BRAKE_MODE;
+  	private static final Log.Level LOG_LEVEL = RobotMap.LOG_CLIMBING_HOOK;
+  	private static final int CAN_CLIMBING_HOOK = RobotMap.CAN_CLIMBING_HOOK;
+  	private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_CLIMBING_HOOK;
+  	private static final NeutralMode BRAKE_MODE = RobotMap.CLIMBING_HOOK_BRAKE_MODE;
 
 	/** Instance Variables ****************************************************/
-  Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
-  TalonSRX motor = new TalonSRX(CAN_CLIMBING_HOOK);
+  	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
+  	TalonSRX motor = new TalonSRX(CAN_CLIMBING_HOOK);
 
 	/** Climbing Hook ******************************************************/
 	public ClimbingHook() {
     log.add("Constructor", LOG_LEVEL);
     
     initMotor(motor, REVERSE_MOTOR);
-  }
+  	}
 
-  private void initMotor(TalonSRX motor, boolean reverse) {
+  	private void initMotor(TalonSRX motor, boolean reverse) {
 		motor.setNeutralMode(BRAKE_MODE);
 		motor.setInverted(reverse); 	// affects percent Vbus mode
-  }
+  	}
   
-  /** Methods for setting the motor in Percent Vbus mode ********************/
+  	/** Methods for setting the motor in Percent Vbus mode ********************/
 	public void setPower(double Power) {
 		Power = safetyCheck(Power);
 				

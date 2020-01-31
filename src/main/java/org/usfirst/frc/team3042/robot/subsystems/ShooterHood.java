@@ -11,15 +11,15 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
  */
 public class ShooterHood extends Subsystem {
 	/** Configuration Constants ***********************************************/
-  private static final Log.Level LOG_LEVEL = RobotMap.LOG_SHOOTER_HOOD;
+  	private static final Log.Level LOG_LEVEL = RobotMap.LOG_SHOOTER_HOOD;
 
 	/** Instance Variables ****************************************************/
-  Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
+  	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 
 	/** Intake ******************************************************/
 	public ShooterHood() {
     log.add("Constructor", LOG_LEVEL);
-  }
+  	}
   
 	/** initDefaultCommand ****************************************************
 	 * Set the default command for the subsystem.
