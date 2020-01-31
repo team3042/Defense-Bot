@@ -43,7 +43,7 @@ public class RobotMap {
 	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 11 : 11;
 	public static final int CAN_UPPER_CONVEYOR = 		IS_PBOT 	? 11 : 11;
 	public static final int CAN_CLIMBING_WINCH = 		IS_PBOT 	? 11 : 11;
-	public static final int CAN_CLIMBING_HOOK =			IS_PBOT 	? 11 : 11;
+	public static final int CAN_CLIMBING_HOOK = 		IS_PBOT 	? 11 : 11;
 	
 	/** PCM channels **********************************************************/
 	
