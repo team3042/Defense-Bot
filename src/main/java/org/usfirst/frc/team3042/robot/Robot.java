@@ -2,15 +2,20 @@ package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.commands.AutonomousMode;
+import org.usfirst.frc.team3042.robot.subsystems.ClimbingHook;
+import org.usfirst.frc.team3042.robot.subsystems.ClimbingWinch;
 import org.usfirst.frc.team3042.robot.subsystems.ColorSensor;
 import org.usfirst.frc.team3042.robot.subsystems.ControlPanelWheel;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 import org.usfirst.frc.team3042.robot.subsystems.Intake;
+import org.usfirst.frc.team3042.robot.subsystems.IntakeDeploy;
 import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 import org.usfirst.frc.team3042.robot.subsystems.LowerConveyor;
 import org.usfirst.frc.team3042.robot.subsystems.Shooter;
+import org.usfirst.frc.team3042.robot.subsystems.ShooterHood;
 import org.usfirst.frc.team3042.robot.subsystems.Turret;
+import org.usfirst.frc.team3042.robot.subsystems.UltrasonicSensor;
 import org.usfirst.frc.team3042.robot.subsystems.UpperConveyor;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -40,7 +45,12 @@ public class Robot extends TimedRobot {
 	private static final boolean HAS_INTAKE = RobotMap.HAS_INTAKE;
 	private static final boolean HAS_SHOOTER = RobotMap.HAS_SHOOTER;
 	private static final boolean HAS_LOWER_CONVEYOR = RobotMap.HAS_LOWER_CONVEYOR;
-  private static final boolean HAS_UPPER_CONVEYOR = RobotMap.HAS_UPPER_CONVEYOR;
+	private static final boolean HAS_UPPER_CONVEYOR = RobotMap.HAS_UPPER_CONVEYOR;
+	private static final boolean HAS_CLIMBING_WINCH = RobotMap.HAS_CLIMBING_WINCH;
+	private static final boolean HAS_CLIMBING_HOOK = RobotMap.HAS_CLIMBING_HOOK;
+	private static final boolean HAS_INTAKE_DEPLOY = RobotMap.HAS_INTAKE_DEPLOY;
+	private static final boolean HAS_SHOOTER_HOOD = RobotMap.HAS_SHOOTER_HOOD;
+	private static final boolean HAS_ULTRASONIC_SENSOR = RobotMap.HAS_ULTRASONIC_SENSOR;
 
 	/** Create Subsystems *****************************************************/
 	private Log log = new Log(LOG_LEVEL, "Robot");
@@ -53,10 +63,14 @@ public class Robot extends TimedRobot {
 	public static final Intake intake 			   = (HAS_INTAKE)				 ? new Intake()	: null;
 	public static final Shooter shooter			   = (HAS_SHOOTER)				 ? new Shooter()	: null;
 	public static final LowerConveyor lowerconveyor = (HAS_LOWER_CONVEYOR)		 ? new LowerConveyor()	: null;
-  public static final UpperConveyor upperconveyor			   = (HAS_UPPER_CONVEYOR)				 ? new UpperConveyor()	: null;
-	public static final PowerDistributionPanel pdp = new PowerDistributionPanel();
+  	public static final UpperConveyor upperconveyor = (HAS_UPPER_CONVEYOR)		 ? new UpperConveyor()	: null;
+	public static final PowerDistributionPanel pdp	= new PowerDistributionPanel();
+	public static final ClimbingWinch climbingwinch = (HAS_CLIMBING_WINCH)		 ? new ClimbingWinch()	: null;
+	public static final ClimbingHook climbinghook	= (HAS_CLIMBING_HOOK)		 ? new ClimbingHook()	: null;
+	public static final IntakeDeploy intakedeploy	= (HAS_INTAKE_DEPLOY)		 ? new IntakeDeploy()	: null;
+	public static final ShooterHood shooterhood  	= (HAS_SHOOTER_HOOD)		 ? new ShooterHood()	: null;
+	public static final UltrasonicSensor ultrasonicsensor = (HAS_ULTRASONIC_SENSOR)	 ? new UltrasonicSensor()	: null;
 	public static OI oi;
-
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<Command>();
 
