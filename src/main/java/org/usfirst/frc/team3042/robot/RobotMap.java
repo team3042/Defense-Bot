@@ -42,6 +42,8 @@ public class RobotMap {
 	public static final int CAN_SHOOTER = 				IS_PBOT 	? 11 : 11;
 	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 11 : 11;
 	public static final int CAN_UPPER_CONVEYOR = 		IS_PBOT 	? 11 : 11;
+	public static final int CAN_CLIMBING_WINCH = 		IS_PBOT 	? 11 : 11;
+	public static final int CAN_CLIMBING_HOOK =			IS_PBOT 	? 11 : 11;
 	
 	/** PCM channels **********************************************************/
 	
@@ -187,6 +189,31 @@ public class RobotMap {
 	public static final int UPPER_CONVEYOR_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int UPPER_CONVEYOR_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final double UPPER_CONVEYOR_POWER = 0.2;
+
+	/** Climbing Winch Settings ****************************************************/
+	public static final boolean HAS_CLIMBING_WINCH = true;
+	public static final boolean REVERSE_CLIMBING_WINCH  = 	(IS_PBOT) ? false : false;
+	public static final NeutralMode CLIMBING_WINCH_BRAKE_MODE = NeutralMode.Brake;
+	public static final int CLIMBING_WINCH_TIMEOUT = 0; // timeout in ms; set to zero
+	public static final int CLIMBING_WINCH_PIDIDX = 0; // used for cascading PID; set to zero
+	public static final double CLIMBING_WINCH_POWER = 0.33;
+
+	/** Climbing Hook Settings ****************************************************/
+	public static final boolean HAS_CLIMBING_HOOK = true;
+	public static final boolean REVERSE_CLIMBING_HOOK  = 	(IS_PBOT) ? false : false;
+	public static final NeutralMode CLIMBING_HOOK_BRAKE_MODE = NeutralMode.Brake;
+	public static final int CLIMBING_HOOK_TIMEOUT = 0; // timeout in ms; set to zero
+	public static final int CLIMBING_HOOK_PIDIDX = 0; // used for cascading PID; set to zero
+	public static final double CLIMBING_HOOK_POWER = 0.33;
+
+	/** Turret Encoder Settings **********************************************/
+	public static final boolean HAS_SHOOTER_HOOD = true;
+
+	/** Intake Deploy Settings ****************************************************/
+	public static final boolean HAS_INTAKE_DEPLOY = true;
+
+	/** Intake Deploy Settings ****************************************************/
+	public static final boolean HAS_ULTRASONIC_SENSOR = true;
 	
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";
@@ -216,4 +243,9 @@ public class RobotMap {
 	public static final Log.Level	LOG_SHOOTER							= Log.Level.DEBUG;
 	public static final Log.Level	LOG_LOWER_CONVEYOR					= Log.Level.DEBUG;
 	public static final Log.Level	LOG_UPPER_CONVEYOR					= Log.Level.DEBUG;
+	public static final Log.Level	LOG_CLIMBING_WINCH					= Log.Level.DEBUG;
+	public static final Log.Level	LOG_CLIMBING_HOOK					= Log.Level.DEBUG;
+	public static final Log.Level	LOG_INTAKE_DEPLOY					= Log.Level.DEBUG;
+	public static final Log.Level	LOG_SHOOTER_HOOD					= Log.Level.DEBUG;
+	public static final Log.Level	LOG_ULTRASONIC_SENSOR				= Log.Level.DEBUG;
 }
