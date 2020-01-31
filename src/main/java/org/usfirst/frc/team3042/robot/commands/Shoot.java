@@ -6,30 +6,25 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
-import org.usfirst.frc.team3042.robot.subsystems.Limelight;
-import org.usfirst.frc.team3042.robot.subsystems.Turret;
+import org.usfirst.frc.team3042.robot.subsystems.LowerConveyor;
+import org.usfirst.frc.team3042.robot.subsystems.UpperConveyor;
 
-/** Shoot_Conveyor *******************************************************
- * Command for correcting the reported angle of error with the turret
+/** Shoot *******************************************************
+ * Command for pushing power cells into the shooter
  */
-public class Shoot_Conveyor extends Command {
+public class Shoot extends Command {
     /** Configuration Constants ***********************************************/
-
+    private static final Log.Level LOG_LEVEL = RobotMap.LOG_UPPER_CONVEYOR;
 
     /** Instance Variables ****************************************************/
-    UpperConveyor upperconveyor = Robot.uppperconveyor;
+    UpperConveyor upperconveyor = Robot.upperconveyor;
     LowerConveyor lowerconveyor = Robot.lowerconveyor;
-    Log log = new Log(LOG_LEVEL, SendableRegistry.getName(conveyor));
-      
-    double error;
-    //double derivative; //Derivative is the difference of the current error and the previous error
-    double integral = 0; //Integral is the sum of all errors
-    double previousError;
+    Log log = new Log(LOG_LEVEL, SendableRegistry.getName(upperconveyor));
     
-    /** Turret Continous ***************************************************
+    /** Shoot ***************************************************
      * Required subsystems will cancel commands when this command is run.
      */
-    public Shoot_Conveyor() {
+    public Shoot() {
       log.add("Constructor", Log.Level.TRACE);
       
       requires(upperconveyor);
@@ -62,7 +57,8 @@ public class Shoot_Conveyor extends Command {
      */
     protected void end() {
       log.add("End", Log.Level.TRACE);
-      conveyor.stop();
+      upperconveyor.stop();
+      lowerconveyor.stop();
     }
 
     /** interrupted ***********************************************************
@@ -71,6 +67,7 @@ public class Shoot_Conveyor extends Command {
      */
     protected void interrupted() {
       log.add("Interrupted", Log.Level.TRACE);
-      conveyor.stop();
+      upperconveyor.stop();
+      lowerconveyor.stop();
     }
 }
