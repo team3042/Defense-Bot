@@ -37,11 +37,11 @@ public class RobotMap {
 	public static final int CAN_LEFT_FOLLOWER = 		IS_PBOT 	? 3 : 3;
 	public static final int CAN_RIGHT_FOLLOWER = 		IS_PBOT 	? 9 : 9;
 	public static final int CAN_CONTROL_PANEL_WHEEL = 	IS_PBOT 	? 11 : 11;
-	public static final int CAN_TURRET = 				IS_PBOT		? 10 : 10; 
+	public static final int CAN_TURRET = 				IS_PBOT		? 11 : 11; 
 	public static final int CAN_INTAKE = 				IS_PBOT 	? 11 : 11;
 	public static final int CAN_SHOOTER = 				IS_PBOT 	? 11 : 11;
-	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 11 : 11;
-	public static final int CAN_UPPER_CONVEYOR = 		IS_PBOT 	? 11 : 11;
+	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 10 : 11;
+	public static final int CAN_UPPER_CONVEYOR = 		IS_PBOT 	? 10 : 11;
 	public static final int CAN_CLIMBING_WINCH = 		IS_PBOT 	? 11 : 11;
 	public static final int CAN_CLIMBING_HOOK = 		IS_PBOT 	? 11 : 11;
 	

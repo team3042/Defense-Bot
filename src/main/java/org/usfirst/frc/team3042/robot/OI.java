@@ -7,7 +7,6 @@ import org.usfirst.frc.team3042.robot.commands.RotationControl;
 import org.usfirst.frc.team3042.robot.commands.Shoot_Conveyor;
 import org.usfirst.frc.team3042.robot.commands.Turret_Continous;
 import org.usfirst.frc.team3042.robot.commands.Turret_CorrectError;
-import org.usfirst.frc.team3042.robot.commands.Turret_Slow;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
 import org.usfirst.frc.team3042.robot.commands.Intake_Intake;
