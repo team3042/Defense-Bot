@@ -56,4 +56,8 @@ public class Limelight extends Subsystem {
 		double target = tv.getDouble(0.0);
 		return target;
 	}
+	public double returnCurrentPipeline() {
+		double pipe = pipeline.getDouble(0.0);
+		return pipe;
+	}
 }

@@ -2,6 +2,7 @@ package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
@@ -16,12 +17,13 @@ public class Limelight_UpdateZoom extends Command {
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_LIMELIGHT;
 	private static final double AREA_ZOOM_IN = RobotMap.ZOOM_IN_AREA;
 	private static final double AREA_ZOOM_OUT = RobotMap.ZOOM_OUT_AREA;
+	private static final double AREA_ZOOM_ZOOM_IN = RobotMap.ZOOM_ZOOM_IN_AREA;
+	private static final double AREA_ZOOM_ZOOM_OUT = RobotMap.ZOOM_ZOOM_OUT_AREA;
 	
 	/** Instance Variables ****************************************************/
 	Limelight limelight = Robot.limelight;
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(limelight));
 	double area;
-	Boolean zoom = false;
 	
 	/** Limelight Update Zoom ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
@@ -44,14 +46,18 @@ public class Limelight_UpdateZoom extends Command {
 	 */
 	protected void execute() {
 		area = limelight.returnTargetArea();
-
-		if (area <= AREA_ZOOM_IN && !zoom && limelight.returnValidTarget() == 1.0) {
+		SmartDashboard.putNumber("pipeline", limelight.returnCurrentPipeline());
+		if (area <= AREA_ZOOM_IN && limelight.returnCurrentPipeline() == 0 && limelight.returnValidTarget() == 1.0) {
 			limelight.pipeline.setNumber(1);
-			zoom = true;
 		}		
-		else if (area > AREA_ZOOM_OUT && zoom && limelight.returnValidTarget() == 1.0) {
+		else if (area > AREA_ZOOM_OUT && limelight.returnCurrentPipeline() == 1 && limelight.returnValidTarget() == 1.0) {
 			limelight.pipeline.setNumber(0);
-			zoom = false;
+		}	
+		else if (area <= AREA_ZOOM_ZOOM_IN && limelight.returnCurrentPipeline() == 1 && limelight.returnValidTarget() == 1.0) {
+			limelight.pipeline.setNumber(2);
+		}		
+		else if (area > AREA_ZOOM_ZOOM_OUT && limelight.returnCurrentPipeline() == 2 && limelight.returnValidTarget() == 1.0) {
+			limelight.pipeline.setNumber(1);
 		}	
 	}
 	
