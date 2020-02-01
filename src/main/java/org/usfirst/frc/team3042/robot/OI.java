@@ -70,6 +70,7 @@ public class OI {
 			gamepad.A.whenPressed(new PositionControl());
 			gamepad.B.whenPressed(new RotationControl());
 			gamepad.LB.whileHeld(new Intake_Intake());
+			
 			gamepad.RB.whileHeld(new Shoot());
 		}
 		

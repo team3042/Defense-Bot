@@ -13,14 +13,14 @@ import org.usfirst.frc.team3042.robot.subsystems.ShooterEncoder;
 import org.usfirst.frc.team3042.robot.subsystems.UpperConveyor;
 
 /** Shoot *******************************************************
- * Command for correcting the reported angle of error with the turret
+ * Command for pushing power cells into the shooter using the conveyor
  */
 public class Shoot extends Command {
     /** Configuration Constants ***********************************************/
     private static final Log.Level LOG_LEVEL = RobotMap.LOG_UPPER_CONVEYOR;
     private static final double LPOWER = RobotMap.LOWER_CONVEYOR_POWER;
     private static final double UPOWER = RobotMap.UPPER_CONVEYOR_POWER;
-    private static final int SPEED = RobotMap.ENCODER_SPEED;
+    private static final int SPEED = RobotMap.MIN_SHOOTER_SPEED;
 
     /** Instance Variables ****************************************************/
     UpperConveyor upperconveyor = Robot.upperconveyor;
@@ -51,7 +51,7 @@ public class Shoot extends Command {
      * Called repeatedly when this Command is scheduled to run
      */
     protected void execute() {
-      if (limelight.returnValidTarget() == 1.0 && Math.abs(limelight.returnHorizontalError()) <= 0.5 && encoder.getSpeed() == SPEED) {
+      if (limelight.returnValidTarget() == 1.0 && Math.abs(limelight.returnHorizontalError()) <= 0.5 && encoder.getSpeed() >= SPEED) {
         lowerconveyor.setPower(LPOWER);
         upperconveyor.setPower(UPOWER);
       }

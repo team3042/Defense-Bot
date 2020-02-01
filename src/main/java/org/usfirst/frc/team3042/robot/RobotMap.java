@@ -39,7 +39,7 @@ public class RobotMap {
 	public static final int CAN_CONTROL_PANEL_WHEEL = 	IS_PBOT 	? 11 : 11;
 	public static final int CAN_TURRET = 				IS_PBOT		? 11 : 11; 
 	public static final int CAN_INTAKE = 				IS_PBOT 	? 11 : 11;
-	public static final int CAN_SHOOTER = 				IS_PBOT 	? 11 : 11;
+	public static final int CAN_SHOOTER = 				IS_PBOT 	? 10 : 11;
 	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 10 : 11;
 	public static final int CAN_UPPER_CONVEYOR = 		IS_PBOT 	? 10 : 11;
 	public static final int CAN_CLIMBING_WINCH = 		IS_PBOT 	? 11 : 11;
@@ -182,7 +182,7 @@ public class RobotMap {
 	public static final int SHOOTER_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int SHOOTER_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final double SHOOTER_POWER = 0.33;
-	public static final int ENCODER_SPEED = 3000;
+	public static final int MIN_SHOOTER_SPEED = 3000;
 
 	/** Upper Conveyor Settings ****************************************************/
 	public static final boolean HAS_UPPER_CONVEYOR = true;
