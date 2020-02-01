@@ -12,10 +12,10 @@ import org.usfirst.frc.team3042.robot.subsystems.Shooter;
 import org.usfirst.frc.team3042.robot.subsystems.ShooterEncoder;
 import org.usfirst.frc.team3042.robot.subsystems.UpperConveyor;
 
-/** Conveyor_Shoot *******************************************************
+/** Shoot *******************************************************
  * Command for correcting the reported angle of error with the turret
  */
-public class Conveyor_Shoot extends Command {
+public class Shoot extends Command {
     /** Configuration Constants ***********************************************/
     private static final Log.Level LOG_LEVEL = RobotMap.LOG_UPPER_CONVEYOR;
     private static final double LPOWER = RobotMap.LOWER_CONVEYOR_POWER;
@@ -30,10 +30,10 @@ public class Conveyor_Shoot extends Command {
     Limelight limelight = Robot.limelight;
     Log log = new Log(LOG_LEVEL, SendableRegistry.getName(upperconveyor));
 
-    /** Conveyor_Shoot ***************************************************
+    /** Shoot ***************************************************
      * Required subsystems will cancel commands when this command is run.
      */
-    public Conveyor_Shoot() {
+    public Shoot() {
       log.add("Constructor", Log.Level.TRACE);
       
       requires(upperconveyor);
