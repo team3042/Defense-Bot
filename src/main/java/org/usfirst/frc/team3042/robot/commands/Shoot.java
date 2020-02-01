@@ -11,9 +11,10 @@ import org.usfirst.frc.team3042.robot.subsystems.LowerConveyor;
 import org.usfirst.frc.team3042.robot.subsystems.Shooter;
 import org.usfirst.frc.team3042.robot.subsystems.ShooterEncoder;
 import org.usfirst.frc.team3042.robot.subsystems.UpperConveyor;
+import org.usfirst.frc.team3042.robot.subsystems.LowerConveyor;
 
 /** Shoot *******************************************************
- * Command for pushing power cells into the shooter using the conveyor
+ * Command for pushing power cells into the shooter
  */
 public class Shoot extends Command {
     /** Configuration Constants ***********************************************/

@@ -7,17 +7,18 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 /** Intake Deploy ****************************************************************
- * Subsystem for 
+ * Subsystem for deploying the intake
  */
 public class IntakeDeploy extends Subsystem {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_INTAKE_DEPLOY;
-	/** Instance Variables ****************************************************/
-  Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 
-	/** Climbing Winch ******************************************************/
+	/** Instance Variables ****************************************************/
+  	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
+
+	/** Intake Deploy ******************************************************/
 	public IntakeDeploy() {
-    log.add("Constructor", LOG_LEVEL);
+    	log.add("Constructor", LOG_LEVEL);
 	}
 	
 	/** initDefaultCommand ****************************************************

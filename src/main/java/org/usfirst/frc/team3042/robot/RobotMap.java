@@ -54,7 +54,8 @@ public class RobotMap {
 	
 	/** OI Settings ***********************************************************/
 	public static final boolean USE_JOYSTICKS = true;
-	public static final double JOYSTICK_DRIVE_SCALE = 0.5;
+	public static final double JOYSTICK_DRIVE_SCALE = 0.6;
+	public static final double JOYSTICK_DRIVE_SCALE_LOW = 0.2;
 	public static final double TRIGGER_SPINNER_SCALE = 0.1;
 	public static final double JOYSTICK_DEAD_ZONE = 0.0;
 
@@ -148,7 +149,7 @@ public class RobotMap {
 	public static final int TURRET_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final double TURRET_SPEED = 0.4;
 	public static final double kP_TURRET = 0.016;
-	public static final double kI_TURRET = 0.004;
+	public static final double kI_TURRET = 0.004; 
 	public static final double kD_TURRET = 0;
 
 	/** Turret Encoder Settings **********************************************/
