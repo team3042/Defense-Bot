@@ -8,6 +8,7 @@ import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 import org.usfirst.frc.team3042.robot.subsystems.Turret;
+import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
 
 /** Turret Continous *******************************************************
  * Command for correcting the reported angle of error with the turret
@@ -24,6 +25,7 @@ public class Turret_Continous extends Command {
 	Turret turret = Robot.turret;
 	Limelight limelight = Robot.limelight; 
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(turret));
+	TurretEncoder encoder = turret.getEncoder();
 	  
 	double error;
 	double correction;
@@ -45,6 +47,7 @@ public class Turret_Continous extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
+		encoder.reset();
 	}
 
 	/** execute ***************************************************************
@@ -52,7 +55,13 @@ public class Turret_Continous extends Command {
 	 */
 	protected void execute() {
 		error = limelight.returnHorizontalError();
-		if(Math.abs(error) >= 0.25) {
+		if(encoder.countsToDegrees(encoder.getPosition()) + error > 180) {
+			turret.setPower(-.6);
+		}
+		else if(encoder.countsToDegrees(encoder.getPosition()) + error < -180) {
+			turret.setPower(.6);
+		}
+		else if(Math.abs(error) >= 0.25) {
 			integral += error * 0.2; //Add the current error to the integral
 			derivative = (error - previousError) / .02;
 
