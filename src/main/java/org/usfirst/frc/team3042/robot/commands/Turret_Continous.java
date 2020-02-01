@@ -18,7 +18,7 @@ public class Turret_Continous extends Command {
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;
 	private static final double kP = RobotMap.kP_TURRET;
 	private static final double kI = RobotMap.kI_TURRET;
-	//private static final double kD = RobotMap.kD_TURRET;
+	private static final double kD = RobotMap.kD_TURRET;
 
 	/** Instance Variables ****************************************************/
 	Turret turret = Robot.turret;
@@ -26,7 +26,8 @@ public class Turret_Continous extends Command {
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(turret));
 	  
 	double error;
-	//double derivative; //Derivative is the difference of the current error and the previous error
+	double correction;
+	double derivative; //Derivative is the difference of the current error and the previous error
 	double integral = 0; //Integral is the sum of all errors
 	double previousError;
 	
@@ -51,10 +52,17 @@ public class Turret_Continous extends Command {
 	 */
 	protected void execute() {
 		error = limelight.returnHorizontalError();
-		integral += error * 0.2; //Add the current error to the integral
-		//derivative = (error - previousError) / .02;
-		turret.setPower((kP * error) + (kI * integral)); //+ (kD * derivative)
-		//previousError = error; //set the previous error equal to the current error before starting the loop over and getting a new current error
+		if(Math.abs(error) >= 0.25) {
+			integral += error * 0.2; //Add the current error to the integral
+			derivative = (error - previousError) / .02;
+
+			correction = (kP * error) + (kI * integral) + (kD * derivative);
+			correction = Math.min(0.4, correction);
+			correction = Math.max(-0.4, correction);
+
+			turret.setPower(correction); 
+			previousError = error; //set the previous error equal to the current error before starting the loop over and getting a new current error
+		}
 	}
 	
 	/** isFinished ************************************************************	
