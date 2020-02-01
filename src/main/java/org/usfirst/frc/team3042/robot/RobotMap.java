@@ -9,12 +9,12 @@ import com.ctre.phoenix.motorcontrol.NeutralMode;
  */
 public class RobotMap {
 	/** Robot selector ********************************************************/
-	public static enum Bot {PBOT, ARTEMIS;}
+	public static enum Bot {PBOT, DEFENSEBOT;}
 	// Set the bot to which you intend to push code.
 	private static Bot currentBot = Bot.PBOT;
 
 	public static final boolean IS_PBOT 	= (currentBot == Bot.PBOT);
-	public static final boolean IS_ARTEMIS = (currentBot == Bot.ARTEMIS);
+	public static final boolean IS_DEFENSEBOT = (currentBot == Bot.DEFENSEBOT);
 	
 	/** Robot Size Parameters *************************************************
 	 * The units of the wheel diameter determine the units of the position 

@@ -2,7 +2,6 @@ package org.usfirst.frc.team3042.robot.subsystems;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
-import org.usfirst.frc.team3042.robot.commands.Limelight_UpdateZoom;
 
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
@@ -30,13 +29,14 @@ public class Limelight extends Subsystem {
 	/** Limelight ******************************************************/
 	public Limelight() {
 		log.add("Constructor", LOG_LEVEL);
+		pipeline.setNumber(0);
 	}
 	
 	/** initDefaultCommand ****************************************************
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
-		setDefaultCommand(new Limelight_UpdateZoom());
+		setDefaultCommand(null); //new Limelight_UpdateZoom()
 	}
 	
 	/** Command Methods *******************************************************/

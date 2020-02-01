@@ -110,7 +110,6 @@ public class Robot extends TimedRobot {
 	 * Run once at the start of autonomous mode.
 	 */
 	public void autonomousInit() {
-		limelight.pipeline.setNumber(0);
 		limelight.led.setNumber(3);
 
 		log.add("Autonomous Init", Log.Level.TRACE);
@@ -133,7 +132,6 @@ public class Robot extends TimedRobot {
 	 * This function is called when first entering teleop mode.
 	 */
 	public void teleopInit() {
-		limelight.pipeline.setNumber(0);
 		limelight.led.setNumber(3);
 		log.add("Teleop Init", Log.Level.TRACE);
 		

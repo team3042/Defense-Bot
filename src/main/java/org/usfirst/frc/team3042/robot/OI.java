@@ -18,7 +18,7 @@ import org.usfirst.frc.team3042.robot.commands.Intake_Intake;
 public class OI {	
 	/** Configuration Constants ***********************************************/
 	private static final boolean IS_PBOT = RobotMap.IS_PBOT;
-	private static final boolean IS_ARTEMIS = RobotMap.IS_ARTEMIS;
+	private static final boolean IS_DEFENSEBOT = RobotMap.IS_DEFENSEBOT;
 	private static final int USB_GAMEPAD = RobotMap.USB_GAMEPAD;
 	private static final int USB_JOY_LEFT = RobotMap.USB_JOYSTICK_LEFT;
 	private static final int USB_JOY_RIGHT = RobotMap.USB_JOYSTICK_RIGHT;
@@ -79,8 +79,8 @@ public class OI {
 			joyLeft.button1.whenReleased(new Drivetrain_Scale_Toggle());
 		}
 		
-		/** Artemis Controls **************************************************/
-		if (IS_ARTEMIS) {
+		/** Defense Bot Controls **************************************************/
+		if (IS_DEFENSEBOT) {
 			joyLeft.button1.whenPressed(new Drivetrain_Scale_Toggle());
 			joyLeft.button1.whenReleased(new Drivetrain_Scale_Toggle());
 

@@ -47,16 +47,16 @@ public class Limelight_UpdateZoom extends Command {
 	protected void execute() {
 		area = limelight.returnTargetArea();
 		SmartDashboard.putNumber("pipeline", limelight.returnCurrentPipeline());
-		if (area <= AREA_ZOOM_IN && limelight.returnCurrentPipeline() == 0 && limelight.returnValidTarget() == 1.0) {
+		if (area <= AREA_ZOOM_IN && limelight.returnCurrentPipeline() == 0.0 && limelight.returnValidTarget() == 1.0) {
 			limelight.pipeline.setNumber(1);
 		}		
-		else if (area > AREA_ZOOM_OUT && limelight.returnCurrentPipeline() == 1 && limelight.returnValidTarget() == 1.0) {
+		else if (area > AREA_ZOOM_OUT && limelight.returnCurrentPipeline() == 1.0 && limelight.returnValidTarget() == 1.0) {
 			limelight.pipeline.setNumber(0);
 		}	
-		else if (area <= AREA_ZOOM_ZOOM_IN && limelight.returnCurrentPipeline() == 1 && limelight.returnValidTarget() == 1.0) {
+		else if (area <= AREA_ZOOM_ZOOM_IN && limelight.returnCurrentPipeline() == 1.0 && limelight.returnValidTarget() == 1.0) {
 			limelight.pipeline.setNumber(2);
 		}		
-		else if (area > AREA_ZOOM_ZOOM_OUT && limelight.returnCurrentPipeline() == 2 && limelight.returnValidTarget() == 1.0) {
+		else if (area > AREA_ZOOM_ZOOM_OUT && limelight.returnCurrentPipeline() == 2.0 && limelight.returnValidTarget() == 1.0) {
 			limelight.pipeline.setNumber(1);
 		}	
 	}
