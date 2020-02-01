@@ -37,11 +37,11 @@ public class RobotMap {
 	public static final int CAN_LEFT_FOLLOWER = 		IS_PBOT 	? 3 : 3;
 	public static final int CAN_RIGHT_FOLLOWER = 		IS_PBOT 	? 9 : 9;
 	public static final int CAN_CONTROL_PANEL_WHEEL = 	IS_PBOT 	? 11 : 11;
-	public static final int CAN_TURRET = 				IS_PBOT		? 10 : 10; 
+	public static final int CAN_TURRET = 				IS_PBOT		? 11 : 11; 
 	public static final int CAN_INTAKE = 				IS_PBOT 	? 11 : 11;
-	public static final int CAN_SHOOTER = 				IS_PBOT 	? 11 : 11;
-	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 11 : 11;
-	public static final int CAN_UPPER_CONVEYOR = 		IS_PBOT 	? 11 : 11;
+	public static final int CAN_SHOOTER = 				IS_PBOT 	? 10 : 11;
+	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 10 : 11;
+	public static final int CAN_UPPER_CONVEYOR = 		IS_PBOT 	? 10 : 11;
 	public static final int CAN_CLIMBING_WINCH = 		IS_PBOT 	? 11 : 11;
 	public static final int CAN_CLIMBING_HOOK = 		IS_PBOT 	? 11 : 11;
 	
@@ -177,11 +177,13 @@ public class RobotMap {
 
 	/** Shooter Settings ****************************************************/
 	public static final boolean HAS_SHOOTER = true;
+	public static final boolean HAS_SHOOTER_ENCODER = HAS_SHOOTER;
 	public static final boolean REVERSE_SHOOTER  = 	(IS_PBOT) ? false : false;
 	public static final NeutralMode SHOOTER_BRAKE_MODE = NeutralMode.Brake;
 	public static final int SHOOTER_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int SHOOTER_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final double SHOOTER_POWER = 0.33;
+	public static final double SHOOTER_POWER = 0.4;
+	public static final int MIN_SHOOTER_SPEED = 5000;
 
 	/** Upper Conveyor Settings ****************************************************/
 	public static final boolean HAS_UPPER_CONVEYOR = true;

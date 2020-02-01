@@ -19,15 +19,20 @@ public class Shooter extends Subsystem {
   private static final int CAN_SHOOTER = RobotMap.CAN_SHOOTER;
   private static final boolean REVERSE_MOTOR = RobotMap.REVERSE_SHOOTER;
   private static final NeutralMode BRAKE_MODE = RobotMap.SHOOTER_BRAKE_MODE;
-
+  private static final boolean HAS_ENCODER = RobotMap.HAS_SHOOTER_ENCODER;
 	/** Instance Variables ****************************************************/
   Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
   TalonSRX motor = new TalonSRX(CAN_SHOOTER);
+  ShooterEncoder encoder;
 
 	/** Shooter ******************************************************/
 	public Shooter() {
-    log.add("Constructor", LOG_LEVEL);
-    
+	log.add("Constructor", LOG_LEVEL);
+	
+    if (HAS_ENCODER) {
+		encoder = new ShooterEncoder(motor);
+	}
+
     initMotor(motor, REVERSE_MOTOR);
   }
 
@@ -55,6 +60,12 @@ public class Shooter extends Subsystem {
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
-		setDefaultCommand(null); //new Shooter_Spin()
+		setDefaultCommand(null); //new Turret_Continious()
+	}
+	
+  	/** Command Methods *******************************************************/
+  	/** Provide commands access to the encoder ********************************/
+	public ShooterEncoder getEncoder() {
+		return encoder;
 	}
 }

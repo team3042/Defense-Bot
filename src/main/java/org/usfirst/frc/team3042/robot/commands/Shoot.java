@@ -6,8 +6,12 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
+import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 import org.usfirst.frc.team3042.robot.subsystems.LowerConveyor;
+import org.usfirst.frc.team3042.robot.subsystems.Shooter;
+import org.usfirst.frc.team3042.robot.subsystems.ShooterEncoder;
 import org.usfirst.frc.team3042.robot.subsystems.UpperConveyor;
+import org.usfirst.frc.team3042.robot.subsystems.LowerConveyor;
 
 /** Shoot *******************************************************
  * Command for pushing power cells into the shooter
@@ -15,12 +19,18 @@ import org.usfirst.frc.team3042.robot.subsystems.UpperConveyor;
 public class Shoot extends Command {
     /** Configuration Constants ***********************************************/
     private static final Log.Level LOG_LEVEL = RobotMap.LOG_UPPER_CONVEYOR;
+    private static final double LPOWER = RobotMap.LOWER_CONVEYOR_POWER;
+    private static final double UPOWER = RobotMap.UPPER_CONVEYOR_POWER;
+    private static final int SPEED = RobotMap.MIN_SHOOTER_SPEED;
 
     /** Instance Variables ****************************************************/
     UpperConveyor upperconveyor = Robot.upperconveyor;
     LowerConveyor lowerconveyor = Robot.lowerconveyor;
+    Shooter shooter = Robot.shooter;
+    ShooterEncoder encoder = shooter.getEncoder();
+    Limelight limelight = Robot.limelight;
     Log log = new Log(LOG_LEVEL, SendableRegistry.getName(upperconveyor));
-    
+
     /** Shoot ***************************************************
      * Required subsystems will cancel commands when this command is run.
      */
@@ -42,7 +52,14 @@ public class Shoot extends Command {
      * Called repeatedly when this Command is scheduled to run
      */
     protected void execute() {
-
+      if (limelight.returnValidTarget() == 1.0 && Math.abs(limelight.returnHorizontalError()) <= 0.5 && encoder.getSpeed() >= SPEED) {
+        lowerconveyor.setPower(LPOWER);
+        upperconveyor.setPower(UPOWER);
+      }
+      else {
+        upperconveyor.stop();
+        lowerconveyor.stop();
+      }
     }
     
     /** isFinished ************************************************************	
