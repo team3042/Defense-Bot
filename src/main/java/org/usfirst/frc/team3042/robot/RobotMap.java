@@ -181,8 +181,8 @@ public class RobotMap {
 	public static final NeutralMode SHOOTER_BRAKE_MODE = NeutralMode.Brake;
 	public static final int SHOOTER_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int SHOOTER_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final double SHOOTER_POWER = 0.33;
-	public static final int MIN_SHOOTER_SPEED = 3000;
+	public static final double SHOOTER_POWER = 0.4;
+	public static final int MIN_SHOOTER_SPEED = 5000;
 
 	/** Upper Conveyor Settings ****************************************************/
 	public static final boolean HAS_UPPER_CONVEYOR = true;
