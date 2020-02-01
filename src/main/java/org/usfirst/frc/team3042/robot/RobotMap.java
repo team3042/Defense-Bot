@@ -176,6 +176,7 @@ public class RobotMap {
 
 	/** Shooter Settings ****************************************************/
 	public static final boolean HAS_SHOOTER = true;
+	public static final boolean HAS_SHOOTER_ENCODER = HAS_SHOOTER;
 	public static final boolean REVERSE_SHOOTER  = 	(IS_PBOT) ? false : false;
 	public static final NeutralMode SHOOTER_BRAKE_MODE = NeutralMode.Brake;
 	public static final int SHOOTER_TIMEOUT = 0; // timeout in ms; set to zero

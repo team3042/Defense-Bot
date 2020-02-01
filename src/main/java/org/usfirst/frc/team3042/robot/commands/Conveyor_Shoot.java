@@ -8,12 +8,14 @@ import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 import org.usfirst.frc.team3042.robot.subsystems.LowerConveyor;
+import org.usfirst.frc.team3042.robot.subsystems.Shooter;
+import org.usfirst.frc.team3042.robot.subsystems.ShooterEncoder;
 import org.usfirst.frc.team3042.robot.subsystems.UpperConveyor;
 
-/** Shoot_Conveyor *******************************************************
+/** Conveyor_Shoot *******************************************************
  * Command for correcting the reported angle of error with the turret
  */
-public class Shoot_Conveyor extends Command {
+public class Conveyor_Shoot extends Command {
     /** Configuration Constants ***********************************************/
     private static final Log.Level LOG_LEVEL = RobotMap.LOG_UPPER_CONVEYOR;
     private static final double LPOWER = RobotMap.LOWER_CONVEYOR_POWER;
@@ -22,13 +24,15 @@ public class Shoot_Conveyor extends Command {
     /** Instance Variables ****************************************************/
     UpperConveyor upperconveyor = Robot.upperconveyor;
     LowerConveyor lowerconveyor = Robot.lowerconveyor;
+    Shooter shooter = Robot.shooter;
+    ShooterEncoder encoder = shooter.getEncoder();
     Limelight limelight = Robot.limelight;
     Log log = new Log(LOG_LEVEL, SendableRegistry.getName(upperconveyor));
 
-    /** Shoot_Conveyor ***************************************************
+    /** Conveyor_Shoot ***************************************************
      * Required subsystems will cancel commands when this command is run.
      */
-    public Shoot_Conveyor() {
+    public Conveyor_Shoot() {
       log.add("Constructor", Log.Level.TRACE);
       
       requires(upperconveyor);
@@ -46,7 +50,7 @@ public class Shoot_Conveyor extends Command {
      * Called repeatedly when this Command is scheduled to run
      */
     protected void execute() {
-      if (limelight.returnValidTarget() == 1.0 && Math.abs(limelight.returnHorizontalError()) <= 0.5) {
+      if (limelight.returnValidTarget() == 1.0 && Math.abs(limelight.returnHorizontalError()) <= 0.5 && encoder.getSpeed() == 3000) {
         lowerconveyor.setPower(LPOWER);
         upperconveyor.setPower(UPOWER);
       }

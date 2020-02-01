@@ -4,7 +4,7 @@ import org.usfirst.frc.team3042.lib.Log;
 
 import org.usfirst.frc.team3042.robot.commands.PositionControl;
 import org.usfirst.frc.team3042.robot.commands.RotationControl;
-import org.usfirst.frc.team3042.robot.commands.Shoot_Conveyor;
+import org.usfirst.frc.team3042.robot.commands.Conveyor_Shoot;
 import org.usfirst.frc.team3042.robot.commands.Turret_Continous;
 import org.usfirst.frc.team3042.robot.commands.Turret_CorrectError;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
@@ -70,7 +70,7 @@ public class OI {
 			gamepad.A.whenPressed(new PositionControl());
 			gamepad.B.whenPressed(new RotationControl());
 			gamepad.LB.whileHeld(new Intake_Intake());
-			gamepad.RB.whileHeld(new Shoot_Conveyor());
+			gamepad.RB.whileHeld(new Conveyor_Shoot());
 		}
 		
 		/** Artemis Controls **************************************************/
