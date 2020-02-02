@@ -40,8 +40,10 @@ public class RobotMap {
 	public static final int CAN_TURRET = 				IS_PBOT		? 10 : 0; 
 	public static final int CAN_INTAKE = 				IS_PBOT 	? 0 : 0;
 	public static final int CAN_SHOOTER = 				IS_PBOT 	? 0 : 0;
-	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 0 : 0;
 	public static final int CAN_UPPER_CONVEYOR = 		IS_PBOT 	? 0 : 0;
+	public static final int CAN_UPPER_CONVEYOR2 = 		IS_PBOT 	? 0 : 0;
+	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 0 : 0;
+	public static final int CAN_LOWER_CONVEYOR2 = 		IS_PBOT 	? 0 : 0;
 	public static final int CAN_CLIMBING_WINCH = 		IS_PBOT 	? 0 : 0;
 	public static final int CAN_CLIMBING_HOOK = 		IS_PBOT 	? 0 : 0;
 	
@@ -169,9 +171,19 @@ public class RobotMap {
 	public static final int INTAKE_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final double INTAKE_POWER = 0.33;
 
+	/** Upper Conveyor Settings ****************************************************/
+	public static final boolean HAS_UPPER_CONVEYOR = IS_PBOT;
+	public static final boolean REVERSE_UPPER_CONVEYOR  = 	(IS_PBOT) ? false : false;
+	public static final boolean REVERSE_UPPER_CONVEYOR2  = 	(IS_PBOT) ? false : false;
+	public static final NeutralMode UPPER_CONVEYOR_BRAKE_MODE = NeutralMode.Brake;
+	public static final int UPPER_CONVEYOR_TIMEOUT = 0; // timeout in ms; set to zero
+	public static final int UPPER_CONVEYOR_PIDIDX = 0; // used for cascading PID; set to zero
+	public static final double UPPER_CONVEYOR_POWER = 0.2;
+
 	/** Lower Conveyer Settings ****************************************************/
 	public static final boolean HAS_LOWER_CONVEYOR = IS_PBOT;
 	public static final boolean REVERSE_LOWER_CONVEYOR  = 	(IS_PBOT) ? false : false;
+	public static final boolean REVERSE_LOWER_CONVEYOR2  = 	(IS_PBOT) ? false : false;
 	public static final NeutralMode LOWER_CONVEYOR_BRAKE_MODE = NeutralMode.Brake;
 	public static final int LOWER_CONVEYOR_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int LOWER_CONVEYOR_PIDIDX = 0; // used for cascading PID; set to zero
@@ -186,14 +198,6 @@ public class RobotMap {
 	public static final int SHOOTER_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final double SHOOTER_POWER = 0.4;
 	public static final int MIN_SHOOTER_SPEED = 5000;
-
-	/** Upper Conveyor Settings ****************************************************/
-	public static final boolean HAS_UPPER_CONVEYOR = IS_PBOT;
-	public static final boolean REVERSE_UPPER_CONVEYOR  = 	(IS_PBOT) ? false : false;
-	public static final NeutralMode UPPER_CONVEYOR_BRAKE_MODE = NeutralMode.Brake;
-	public static final int UPPER_CONVEYOR_TIMEOUT = 0; // timeout in ms; set to zero
-	public static final int UPPER_CONVEYOR_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final double UPPER_CONVEYOR_POWER = 0.2;
 
 	/** Climbing Winch Settings ****************************************************/
 	public static final boolean HAS_CLIMBING_WINCH = IS_PBOT;
