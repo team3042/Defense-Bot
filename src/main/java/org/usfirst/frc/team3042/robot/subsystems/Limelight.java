@@ -23,20 +23,18 @@ public class Limelight extends Subsystem {
 	NetworkTableEntry ty = table.getEntry("ty");
 	NetworkTableEntry ta = table.getEntry("ta");
 	NetworkTableEntry tv = table.getEntry("tv");  
-	public NetworkTableEntry pipeline = table.getEntry("pipeline");  
 	public NetworkTableEntry led = table.getEntry("ledMode");
 	
 	/** Limelight ******************************************************/
 	public Limelight() {
 		log.add("Constructor", LOG_LEVEL);
-		pipeline.setNumber(0);
 	}
 	
 	/** initDefaultCommand ****************************************************
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
-		setDefaultCommand(null); //new Limelight_UpdateZoom()
+		setDefaultCommand(null); 
 	}
 	
 	/** Command Methods *******************************************************/
@@ -55,9 +53,5 @@ public class Limelight extends Subsystem {
 	public double returnValidTarget() {
 		double target = tv.getDouble(0.0);
 		return target;
-	}
-	public double returnCurrentPipeline() {
-		double pipe = pipeline.getDouble(0.0);
-		return pipe;
 	}
 }
