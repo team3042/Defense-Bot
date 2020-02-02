@@ -151,10 +151,13 @@ public class RobotMap {
 	public static final NeutralMode TURRET_BRAKE_MODE = NeutralMode.Brake;
 	public static final int TURRET_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int TURRET_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final double TURRET_SPEED = 0.4;
 	public static final double kP_TURRET = 0.016;
 	public static final double kI_TURRET = 0.004; 
 	public static final double kD_TURRET = 0;
+	public static final double TURRET_MAX_SPEED = 0.4;
+	public static final int TURRET_MAX_ANGLE = 180;
+	public static final double TURRET_UNWRAP_SPEED = 0.6; //The speed at which the turret zips around to the other side when the max angle is reached
+	public static final double TURRET_ANGLE_TOLERANCE = 0.25; //If the angle of error to the target is less than this value the PID Loop will not make any corrections
 
 	/** Turret Encoder Settings **********************************************/
 	public static final boolean HAS_TURRET_ENCODER = HAS_TURRET;

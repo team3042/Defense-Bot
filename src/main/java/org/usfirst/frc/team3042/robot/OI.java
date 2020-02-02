@@ -4,6 +4,7 @@ import org.usfirst.frc.team3042.lib.Log;
 
 import org.usfirst.frc.team3042.robot.commands.PositionControl;
 import org.usfirst.frc.team3042.robot.commands.RotationControl;
+import org.usfirst.frc.team3042.robot.commands.Shoot;
 import org.usfirst.frc.team3042.robot.commands.Turret_Continous;
 import org.usfirst.frc.team3042.robot.commands.Turret_Slow;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
@@ -64,16 +65,18 @@ public class OI {
 		/** PBOT Controls *****************************************************/
 		if (IS_PBOT) {
 			gamepad.Back.whenPressed(new Turret_Continous());
-			gamepad.RB.whileHeld(new Turret_Slow());
+
+			gamepad.POVRight.whileActive(new Turret_Slow(1));
+			gamepad.POVLeft.whileActive(new Turret_Slow(-1));
       
 			gamepad.X.whenPressed(new Drivetrain_GyroStraight(24.0, 24.0));
 			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90));
 
 			gamepad.A.whenPressed(new PositionControl());
 			gamepad.B.whenPressed(new RotationControl());
+
 			gamepad.LB.whileHeld(new Intake_Intake());
-			
-			//gamepad.RB.whileHeld(new Shoot());
+			gamepad.RB.whileHeld(new Shoot());
 
 			joyLeft.button1.whenPressed(new Drivetrain_Scale_Toggle());
 			joyLeft.button1.whenReleased(new Drivetrain_Scale_Toggle());

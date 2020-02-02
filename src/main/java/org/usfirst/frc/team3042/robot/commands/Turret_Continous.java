@@ -20,6 +20,10 @@ public class Turret_Continous extends Command {
 	private static final double kP = RobotMap.kP_TURRET;
 	private static final double kI = RobotMap.kI_TURRET;
 	private static final double kD = RobotMap.kD_TURRET;
+	private static final double tolerance = RobotMap.TURRET_ANGLE_TOLERANCE;
+	private static final double unwrapSpeed = RobotMap.TURRET_UNWRAP_SPEED;
+	private static final double maxSpeed = RobotMap.TURRET_MAX_SPEED;
+	private static final double maxAngle = RobotMap.TURRET_MAX_ANGLE;
 
 	/** Instance Variables ****************************************************/
 	Turret turret = Robot.turret;
@@ -55,19 +59,19 @@ public class Turret_Continous extends Command {
 	 */
 	protected void execute() {
 		error = limelight.returnHorizontalError();
-		if(encoder.countsToDegrees(encoder.getPosition()) + error > 180) {
-			turret.setPower(-.6);
+		if(encoder.countsToDegrees(encoder.getPosition()) + error > maxAngle) {
+			turret.setPower(-1 * unwrapSpeed);
 		}
-		else if(encoder.countsToDegrees(encoder.getPosition()) + error < -180) {
-			turret.setPower(.6);
+		else if(encoder.countsToDegrees(encoder.getPosition()) + error < -1 * maxAngle) {
+			turret.setPower(unwrapSpeed);
 		}
-		else if(Math.abs(error) >= 0.25) {
+		else if(Math.abs(error) > tolerance) {
 			integral += error * 0.2; //Add the current error to the integral
 			derivative = (error - previousError) / .02;
 
 			correction = (kP * error) + (kI * integral) + (kD * derivative);
-			correction = Math.min(0.4, correction);
-			correction = Math.max(-0.4, correction);
+			correction = Math.min(maxSpeed, correction);
+			correction = Math.max(-1 * maxSpeed, correction);
 
 			turret.setPower(correction); 
 			previousError = error; //set the previous error equal to the current error before starting the loop over and getting a new current error
