@@ -16,7 +16,7 @@ import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
 public class Turret_Slow extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;
-	private static final double SPEED = RobotMap.TURRET_MAX_SPEED / 4;
+	private static final double SPEED = RobotMap.TURRET_MAX_SPEED / 2;
 
 	/** Instance Variables ****************************************************/
 	Turret turret = Robot.turret;

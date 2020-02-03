@@ -17,7 +17,7 @@ import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
 public class Turret_Search extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;
-	private static final double UNWRAP_SPEED = RobotMap.TURRET_UNWRAP_SPEED;
+	private static final double SPEED = RobotMap.TURRET_SEARCH_SPEED;
 
 	/** Instance Variables ****************************************************/
 	Limelight limelight = Robot.limelight;
@@ -39,7 +39,7 @@ public class Turret_Search extends Command {
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 		if (limelight.returnValidTarget() == 0) {
-			turret.setPower(UNWRAP_SPEED);
+			turret.setPower(SPEED);
 		}
 	}
 
@@ -48,10 +48,10 @@ public class Turret_Search extends Command {
 	 */
 	protected void execute() {
 		if (encoder.getPosition() >= 180) {
-			turret.setPower(-1 * UNWRAP_SPEED);
+			turret.setPower(-1 * SPEED);
 		}
 		if (encoder.getPosition() <= -180) {
-			turret.setPower(UNWRAP_SPEED);
+			turret.setPower(SPEED);
 		}
 	}
 	

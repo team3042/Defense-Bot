@@ -86,9 +86,6 @@ public class OI {
 		if (IS_DEFENSEBOT) {
 			joyLeft.button1.whenPressed(new Drivetrain_Scale_Toggle());
 			joyLeft.button1.whenReleased(new Drivetrain_Scale_Toggle());
-
-			gamepad.X.whenPressed(new Drivetrain_GyroStraight(24.0, 24.0));
-			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90));
 		}
 	}
 	

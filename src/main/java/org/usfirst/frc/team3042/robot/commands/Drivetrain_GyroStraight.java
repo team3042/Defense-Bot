@@ -91,8 +91,8 @@ public class Drivetrain_GyroStraight extends Command {
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
 	protected boolean isFinished() {
-		boolean leftGoalReached = encoders.getLeftPosition() > goalDistance;
-		boolean rightGoalReached = encoders.getRightPosition() > goalDistance;
+		boolean leftGoalReached = Math.abs(encoders.getLeftPosition()) >= goalDistance;
+		boolean rightGoalReached = Math.abs(encoders.getRightPosition()) >= goalDistance;
 		return leftGoalReached || rightGoalReached;
 	}
 	
