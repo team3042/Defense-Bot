@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousMode extends CommandGroup {
 
   public AutonomousMode() {
+    addSequential(new Turret_Search());
     addSequential(new Drivetrain_GyroBack(60.0, 40.0));
   }
 }
