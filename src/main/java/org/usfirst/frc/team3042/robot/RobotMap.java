@@ -153,7 +153,7 @@ public class RobotMap {
 	public static final int TURRET_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final double kP_TURRET = 0.016;
 	public static final double kI_TURRET = 0.004; 
-	public static final double kD_TURRET = 0;
+	public static final double kD_TURRET = 0.0;
 	public static final double TURRET_MAX_SPEED = 0.4;
 	public static final int TURRET_MAX_ANGLE = 180;
 	public static final double TURRET_SEARCH_SPEED = 0.6; //The speed at which the turret zips around to the other side when the max angle is reached, and also the speed at which it searches for the target if the Limelight loses it

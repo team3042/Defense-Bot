@@ -47,10 +47,10 @@ public class Turret_Search extends Command {
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		if (encoder.getPosition() >= 180) {
+		if (encoder.countsToDegrees(encoder.getPosition()) >= 180 ) {
 			turret.setPower(-1 * SPEED);
 		}
-		if (encoder.getPosition() <= -180) {
+		if (encoder.countsToDegrees(encoder.getPosition()) <= -180) {
 			turret.setPower(SPEED);
 		}
 	}

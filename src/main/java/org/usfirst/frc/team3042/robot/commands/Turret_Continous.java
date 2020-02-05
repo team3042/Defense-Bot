@@ -36,6 +36,8 @@ public class Turret_Continous extends Command {
 	double derivative; //Derivative is the difference of the current error and the previous error
 	double integral = 0; //Integral is the sum of all errors
 	double previousError;
+
+	double power = 0.4;
 	
 	/** Turret Continous ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
@@ -57,34 +59,31 @@ public class Turret_Continous extends Command {
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		if(limelight.returnValidTarget() == 1) { //Limelight can see the target
-			error = limelight.returnHorizontalError();
-			if(encoder.countsToDegrees(encoder.getPosition()) + error > maxAngle) { //Max positive angle of the turret has been reached
-				turret.setPower(-1 * searchSpeed);
-			}
-			else if(encoder.countsToDegrees(encoder.getPosition()) + error < -1 * maxAngle) { //Max negative angle of the turret has been reached
-				turret.setPower(searchSpeed);
-			}
-			else if(Math.abs(error) > tolerance) { //PID Loop for tracking the target
-				integral += error * 0.2; //Add the current error to the integral
-				derivative = (error - previousError) / .02;
+		error = limelight.returnHorizontalError();
+		if(encoder.countsToDegrees(encoder.getPosition()) + error > maxAngle) { //Max positive angle of the turret has been reached
+			turret.setPower(-1 * searchSpeed);
+			power = -1 * searchSpeed;
+		}
+		else if(encoder.countsToDegrees(encoder.getPosition()) + error < -1 * maxAngle) { //Max negative angle of the turret has been reached
+			turret.setPower(searchSpeed);
+			power = searchSpeed;
+		}
+		if (limelight.returnValidTarget() == 0 && previousError == 0) {
+			turret.setPower(power);
+		}
+		else if (limelight.returnValidTarget() == 1) {
+			if(Math.abs(error) > tolerance) { //PID Loop for tracking the target
+			integral += error * 0.2; //Add the current error to the integral
+			derivative = (error - previousError) / .02;
 
-				correction = (kP * error) + (kI * integral) + (kD * derivative);
-				correction = Math.min(maxSpeed, correction);
-				correction = Math.max(-1 * maxSpeed, correction);
+			correction = (kP * error) + (kI * integral) + (kD * derivative);
+			correction = Math.min(maxSpeed, correction);
+			correction = Math.max(-1 * maxSpeed, correction);
 
-				turret.setPower(correction); 
-				previousError = error; //set the previous error equal to the current error before starting the loop over and getting a new current error
+			turret.setPower(correction);
 			}
 		}
-		else if (limelight.returnValidTarget() == 0) { //Limelight can not see the target
-			if (previousError > 0) {
-				turret.setPower(-1 * searchSpeed); //Search for the target in the direction it was last seen
-			}
-			else if (previousError < 0) {
-				turret.setPower(searchSpeed); //Search for the target in the direction it was last seen
-			}
-		}
+		previousError = error; //set the previous error equal to the current error before starting the loop over and getting a new current error
 	}
 	
 	/** isFinished ************************************************************	
