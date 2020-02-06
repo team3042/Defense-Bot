@@ -156,6 +156,7 @@ public class RobotMap {
 	public static final double kD_TURRET = 0.0;
 	public static final double TURRET_MAX_SPEED = 0.4;
 	public static final int TURRET_MAX_ANGLE = 180;
+	public static final int TURRET_MAX_AUTON_ANGLE = 120; //The max angle the turret will search for the target at the start of autonomous mode
 	public static final double TURRET_SEARCH_SPEED = 0.6; //The speed at which the turret zips around to the other side when the max angle is reached, and also the speed at which it searches for the target if the Limelight loses it
 	public static final double TURRET_ANGLE_TOLERANCE = 0.25; //If the angle of error to the target is less than this value the PID Loop will not make any corrections
 

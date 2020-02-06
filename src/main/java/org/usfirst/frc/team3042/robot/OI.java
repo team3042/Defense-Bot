@@ -5,10 +5,10 @@ import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.commands.PositionControl;
 import org.usfirst.frc.team3042.robot.commands.RotationControl;
 import org.usfirst.frc.team3042.robot.commands.Shoot;
+import org.usfirst.frc.team3042.robot.commands.ShooterHood_Toggle;
 import org.usfirst.frc.team3042.robot.commands.Turret_Continous;
-import org.usfirst.frc.team3042.robot.commands.Turret_Slow;
-import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroStraight;
-import org.usfirst.frc.team3042.robot.commands.Drivetrain_GyroTurn;
+import org.usfirst.frc.team3042.robot.commands.Turret_Manual;
+import org.usfirst.frc.team3042.robot.commands.Turret_Toggle;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_Scale_Toggle;
 import org.usfirst.frc.team3042.robot.commands.Intake_Intake;
 
@@ -66,11 +66,11 @@ public class OI {
 		if (IS_PBOT) {
 			gamepad.Back.whenPressed(new Turret_Continous());
 
-			gamepad.POVRight.whileActive(new Turret_Slow(1));
-			gamepad.POVLeft.whileActive(new Turret_Slow(-1));
-      
-			gamepad.X.whenPressed(new Drivetrain_GyroStraight(24.0, 24.0));
-			gamepad.Y.whenPressed(new Drivetrain_GyroTurn(90));
+			gamepad.X.toggleWhenPressed(new Turret_Toggle());
+			gamepad.Y.toggleWhenPressed(new ShooterHood_Toggle());
+
+			gamepad.POVRight.whileActive(new Turret_Manual(1));
+			gamepad.POVLeft.whileActive(new Turret_Manual(-1));
 
 			gamepad.A.whenPressed(new PositionControl());
 			gamepad.B.whenPressed(new RotationControl());

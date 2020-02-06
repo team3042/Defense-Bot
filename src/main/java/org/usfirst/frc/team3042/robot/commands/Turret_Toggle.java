@@ -7,30 +7,24 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
-import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 import org.usfirst.frc.team3042.robot.subsystems.Turret;
-import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
 
-/** Turret Search *******************************************************
- * Command to search for the vision target if we don't see it right away in autonomous mode.
+/** Turret Toggle *******************************************************
+ * Command for toggling tracking of the vision target on and off. (Toggles the Turret_Continious command by interrupting it)
  */
 
-public class Turret_Search extends Command {
+public class Turret_Toggle extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;
-	private static final double SPEED = RobotMap.TURRET_SEARCH_SPEED;
-	private static final int MAXANGLE = RobotMap.TURRET_MAX_AUTON_ANGLE;
 
 	/** Instance Variables ****************************************************/
-	Limelight limelight = Robot.limelight;
 	Turret turret = Robot.turret;
-	TurretEncoder encoder = turret.getEncoder();  
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(turret));
 	
-	/** Turret Search  ***************************************************
+	/** Turret Toggle ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
-	public Turret_Search() {
+	public Turret_Toggle() {
 		log.add("Constructor", Log.Level.TRACE);
 		requires(turret);
 	}
@@ -40,29 +34,21 @@ public class Turret_Search extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
-		SmartDashboard.putString("Turret Status:", "SEARCHING");
-		if (limelight.returnValidTarget() == 0) {
-			turret.setPower(SPEED);
-		}
+		turret.stop();
+		SmartDashboard.putString("Turret Status:", "OFF");
 	}
 
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		if (encoder.countsToDegrees(encoder.getPosition()) >= MAXANGLE) {
-			turret.setPower(-1 * SPEED);
-		}
-		if (encoder.countsToDegrees(encoder.getPosition()) <= -1 * MAXANGLE) {
-			turret.setPower(SPEED);
-		}
 	}
 	
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
 	protected boolean isFinished() {
-		return limelight.returnValidTarget() == 1;
+		return false;
 	}
 	
 	/** end *******************************************************************
@@ -70,7 +56,6 @@ public class Turret_Search extends Command {
 	 */
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
-		turret.stop();
 	}
 
 	/** interrupted ***********************************************************
@@ -79,6 +64,5 @@ public class Turret_Search extends Command {
 	 */
 	protected void interrupted() {
 		log.add("Interrupted", Log.Level.TRACE);
-		turret.stop();
 	}
 }

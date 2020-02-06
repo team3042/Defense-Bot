@@ -2,37 +2,32 @@ package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Limelight;
-import org.usfirst.frc.team3042.robot.subsystems.Turret;
-import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
+import org.usfirst.frc.team3042.robot.subsystems.ShooterHood;
 
-/** Turret Search *******************************************************
- * Command to search for the vision target if we don't see it right away in autonomous mode.
+/** Shooter Hood Toggle *******************************************************
+ * Command for toggling the vertical angle of the shooter hood and the Limelight zoom mode
  */
-
-public class Turret_Search extends Command {
+public class ShooterHood_Toggle extends Command {
 	/** Configuration Constants ***********************************************/
-	private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;
-	private static final double SPEED = RobotMap.TURRET_SEARCH_SPEED;
-	private static final int MAXANGLE = RobotMap.TURRET_MAX_AUTON_ANGLE;
-
-	/** Instance Variables ****************************************************/
-	Limelight limelight = Robot.limelight;
-	Turret turret = Robot.turret;
-	TurretEncoder encoder = turret.getEncoder();  
-	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(turret));
+	private static final Log.Level LOG_LEVEL = RobotMap.LOG_SHOOTER;
 	
-	/** Turret Search  ***************************************************
+	/** Instance Variables ****************************************************/
+	ShooterHood shooterHood = Robot.shooterhood;
+	Limelight limelight = Robot.limelight;
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(shooterHood));
+	
+	/** Shooter ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
-	public Turret_Search() {
+	public ShooterHood_Toggle() {
 		log.add("Constructor", Log.Level.TRACE);
-		requires(turret);
+		
+		requires(shooterHood);
 	}
 
 	/** initialize ************************************************************
@@ -40,29 +35,21 @@ public class Turret_Search extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
-		SmartDashboard.putString("Turret Status:", "SEARCHING");
-		if (limelight.returnValidTarget() == 0) {
-			turret.setPower(SPEED);
-		}
+		limelight.pipeline.setNumber(1);
 	}
 
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		if (encoder.countsToDegrees(encoder.getPosition()) >= MAXANGLE) {
-			turret.setPower(-1 * SPEED);
-		}
-		if (encoder.countsToDegrees(encoder.getPosition()) <= -1 * MAXANGLE) {
-			turret.setPower(SPEED);
-		}
+
 	}
-	
+
 	/** isFinished ************************************************************	
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
 	protected boolean isFinished() {
-		return limelight.returnValidTarget() == 1;
+		return false;
 	}
 	
 	/** end *******************************************************************
@@ -70,7 +57,7 @@ public class Turret_Search extends Command {
 	 */
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
-		turret.stop();
+		limelight.pipeline.setNumber(0);
 	}
 
 	/** interrupted ***********************************************************
@@ -79,6 +66,5 @@ public class Turret_Search extends Command {
 	 */
 	protected void interrupted() {
 		log.add("Interrupted", Log.Level.TRACE);
-		turret.stop();
 	}
 }

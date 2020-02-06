@@ -62,7 +62,7 @@ public class Turret extends Subsystem {
 	 * Set the default command for the subsystem.
 	 */
 	public void initDefaultCommand() {
-		setDefaultCommand(null); 
+		setDefaultCommand(new Turret_Continous()); 
 	}
 	
   	/** Command Methods *******************************************************/

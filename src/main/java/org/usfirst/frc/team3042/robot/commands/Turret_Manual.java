@@ -2,6 +2,7 @@ package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
@@ -9,11 +10,11 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Turret;
 import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
 
-/** Turret Slow *******************************************************
- * Manually move the turret
+/** Turret Manual *******************************************************
+ * Command for manually moving the turret.
  */
 
-public class Turret_Slow extends Command {
+public class Turret_Manual extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;
 	private static final double SPEED = RobotMap.TURRET_MAX_SPEED / 2;
@@ -24,10 +25,10 @@ public class Turret_Slow extends Command {
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(turret));
 	int direction;
 	
-	/** Turret Slow ***************************************************
+	/** Turret Manual ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
-	public Turret_Slow(int direction) {
+	public Turret_Manual(int direction) {
 		log.add("Constructor", Log.Level.TRACE);
 		this.direction = direction;
 		requires(turret);
@@ -38,6 +39,7 @@ public class Turret_Slow extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
+		SmartDashboard.putString("Turret Status:", "MANUAL");
 		turret.setPower(direction * SPEED);
 	}
 
