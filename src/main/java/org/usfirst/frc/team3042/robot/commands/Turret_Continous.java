@@ -59,7 +59,11 @@ public class Turret_Continous extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
+		limelight.led.setNumber(3);
 		SmartDashboard.putString("Turret Status:", "TRACKING");
+		if (limelight.returnValidTarget() == 0) {
+			turret.setPower(searchSpeed);
+		}
 	}
 
 	/** execute ***************************************************************
@@ -76,10 +80,7 @@ public class Turret_Continous extends Command {
 			turret.setPower(searchSpeed);
 			power = searchSpeed;
 		}
-		if (limelight.returnValidTarget() == 0 && drivetrainEncoders.getRightSpeed() != 0) { //Target cannot be found so we want to search for it
-			turret.setPower(power);
-		}
-		else if (limelight.returnValidTarget() == 1 && Math.abs(error) > tolerance) { //PID Loop for tracking the target
+		if (limelight.returnValidTarget() == 1 && Math.abs(error) > tolerance) { //PID Loop for tracking the target
 			integral += error * 0.2; //Add the current error to the integral
 			derivative = (error - previousError) / .02;
 
@@ -105,6 +106,7 @@ public class Turret_Continous extends Command {
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
 		turret.stop();
+		limelight.led.setNumber(0);
 	}
 
 	/** interrupted ***********************************************************
@@ -114,5 +116,6 @@ public class Turret_Continous extends Command {
 	protected void interrupted() {
 		log.add("Interrupted", Log.Level.TRACE);
 		turret.stop();
+		limelight.led.setNumber(0);
 	}
 }

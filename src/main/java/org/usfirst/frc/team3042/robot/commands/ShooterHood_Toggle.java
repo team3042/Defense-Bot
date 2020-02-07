@@ -66,5 +66,6 @@ public class ShooterHood_Toggle extends Command {
 	 */
 	protected void interrupted() {
 		log.add("Interrupted", Log.Level.TRACE);
+		limelight.pipeline.setNumber(0);
 	}
 }

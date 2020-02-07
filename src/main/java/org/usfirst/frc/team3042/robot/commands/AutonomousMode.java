@@ -9,6 +9,8 @@ public class AutonomousMode extends CommandGroup {
 
   public AutonomousMode() {
     addSequential(new Turret_Search());
+    addParallel(new Turret_Continous());
     addSequential(new Drivetrain_GyroStraight(60.0, -40.0));
+    addSequential(new Turret_Stop());
   }
 }

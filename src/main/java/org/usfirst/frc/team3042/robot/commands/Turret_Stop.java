@@ -7,24 +7,26 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
+import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 import org.usfirst.frc.team3042.robot.subsystems.Turret;
 
-/** Turret Toggle *******************************************************
- * Command for toggling tracking of the vision target on and off. (Toggles the Turret_Continious command by interrupting it)
+/** Turret Stop *******************************************************
+ * Command for stopping the turret
  */
 
-public class Turret_Toggle extends Command {
+public class Turret_Stop extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;
 
 	/** Instance Variables ****************************************************/
 	Turret turret = Robot.turret;
+	Limelight limelight = Robot.limelight;
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(turret));
 	
-	/** Turret Toggle ***************************************************
+	/** Turret Stop ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
-	public Turret_Toggle() {
+	public Turret_Stop() {
 		log.add("Constructor", Log.Level.TRACE);
 		requires(turret);
 	}
@@ -34,6 +36,7 @@ public class Turret_Toggle extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
+		limelight.led.setNumber(0);
 		turret.stop();
 		SmartDashboard.putString("Turret Status:", "OFF");
 	}
@@ -48,7 +51,7 @@ public class Turret_Toggle extends Command {
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
 	protected boolean isFinished() {
-		return false;
+		return true;
 	}
 	
 	/** end *******************************************************************

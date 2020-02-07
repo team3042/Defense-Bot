@@ -116,6 +116,8 @@ public class Robot extends TimedRobot {
 		
 		autonomousCommand = chooser.getSelected();
 
+		limelight.pipeline.setNumber(0);
+
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null)
 			autonomousCommand.start();
@@ -132,7 +134,7 @@ public class Robot extends TimedRobot {
 	 * This function is called when first entering teleop mode.
 	 */
 	public void teleopInit() {
-		limelight.led.setNumber(3);
+		limelight.pipeline.setNumber(0);
 		log.add("Teleop Init", Log.Level.TRACE);
 		
 		// This makes sure that the autonomous stops running when
