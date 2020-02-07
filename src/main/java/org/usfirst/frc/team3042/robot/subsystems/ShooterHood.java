@@ -23,12 +23,12 @@ public class ShooterHood extends Subsystem {
 	public ShooterHood() {
 		log.add("Constructor", LOG_LEVEL);
 	}
-	
-	public void entent(){
+
+	public void entent() {
 		shooterHoodSolenid.set(true);
 	}
 
-	public void retract(){
+	public void retract() {
 		shooterHoodSolenid.set(false);
 	}
   
