@@ -17,9 +17,9 @@ public class IntakeDeploy extends Subsystem {
 	private static final int ID2 = RobotMap.INTAKE_DEPLOY_SOLENOID2;
 
 	/** Instance Variables ****************************************************/
-	  Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
-	  Solenoid intakeDeploySolenoid = new Solenoid(ID);
-	  Solenoid intakeDeploySolenoid2 = new Solenoid(ID2);
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
+	Solenoid intakeDeploySolenoid = new Solenoid(ID);
+	Solenoid intakeDeploySolenoid2 = new Solenoid(ID2);
 
 	/** Intake Deploy ******************************************************/
 	public IntakeDeploy() {

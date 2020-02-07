@@ -107,22 +107,22 @@ public class Robot extends TimedRobot {
 	}
 
 	/** autonomousInit ********************************************************
-	 * Run once at the start of autonomous mode.
+	 * Runs once at the start of autonomous mode.
 	 */
 	public void autonomousInit() {
-		limelight.led.setNumber(3);
-
 		log.add("Autonomous Init", Log.Level.TRACE);
-		
-		autonomousCommand = chooser.getSelected();
 
 		limelight.pipeline.setNumber(0);
 
-		// schedule the autonomous command (example)
-		if (autonomousCommand != null)
-			autonomousCommand.start();
+		shooterhood.extend(); //Raise the shooter hood since we start close to the target
+		intakedeploy.activate(); //Deploy the intake
 		
-		intakedeploy.activate();
+		autonomousCommand = chooser.getSelected();
+
+		// schedule the autonomous command (example)
+		if (autonomousCommand != null) {
+			autonomousCommand.start();
+		}
 	}
 
 	/** autonomousPeriodic ****************************************************
@@ -136,15 +136,17 @@ public class Robot extends TimedRobot {
 	 * This function is called when first entering teleop mode.
 	 */
 	public void teleopInit() {
-		limelight.pipeline.setNumber(0);
 		log.add("Teleop Init", Log.Level.TRACE);
+
+		limelight.pipeline.setNumber(0);
 		
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		if (autonomousCommand != null)
+		if (autonomousCommand != null) {
 			autonomousCommand.cancel();
+		}
 	}
 
 	/** teleopPeriodic ********************************************************
@@ -153,6 +155,7 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 
+		//Read the assigned control panel color from the FMS and display it on the dashboard
 		color = DriverStation.getInstance().getGameSpecificMessage();
 		if(color.length() > 0) {
 			switch (color.charAt(0)) {

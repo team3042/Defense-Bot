@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutonomousMode extends CommandGroup {
 
   public AutonomousMode() {
-    addSequential(new Turret_Search());
-    addParallel(new Turret_Continous());
-    addSequential(new Drivetrain_GyroStraight(60.0, -40.0));
-    addSequential(new Turret_Stop());
+    addParallel(new Turret_Continous()); //Search for the target and start tracking it
+    //addSequential(new Shoot()); //Shoot the three pre-loaded power cells
+    addSequential(new Drivetrain_GyroStraight(60.0, -40.0)); //Drive backwards off the initiation line
+    addSequential(new Turret_Stop()); //Stop tracking the target and turn off the Limelight's LEDs
   }
 }

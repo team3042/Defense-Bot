@@ -2,7 +2,6 @@ package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
@@ -36,9 +35,8 @@ public class Turret_Stop extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
-		limelight.led.setNumber(0);
+		limelight.led.setNumber(0); //Turn off the Limelight's LEDs
 		turret.stop();
-		SmartDashboard.putString("Turret Status:", "OFF");
 	}
 
 	/** execute ***************************************************************

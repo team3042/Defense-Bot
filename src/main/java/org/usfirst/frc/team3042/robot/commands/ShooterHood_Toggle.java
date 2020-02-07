@@ -2,6 +2,7 @@ package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
@@ -35,15 +36,15 @@ public class ShooterHood_Toggle extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
-		limelight.pipeline.setNumber(1);
-		shooterHood.retract();
+		limelight.pipeline.setNumber(1); //Zoom in
+		shooterHood.retract(); //Lower the shooter hood
+		SmartDashboard.putString("Shooter Mode", "FAR");
 	}
 
 	/** execute ***************************************************************
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-
 	}
 
 	/** isFinished ************************************************************	
@@ -58,8 +59,9 @@ public class ShooterHood_Toggle extends Command {
 	 */
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
-		limelight.pipeline.setNumber(0);
-		shooterHood.entent();
+		limelight.pipeline.setNumber(0); //Zoom out
+		shooterHood.extend(); //Raise the shooter hood
+		SmartDashboard.putString("Shooter Mode", "CLOSE");
 	}
 
 	/** interrupted ***********************************************************
@@ -68,6 +70,8 @@ public class ShooterHood_Toggle extends Command {
 	 */
 	protected void interrupted() {
 		log.add("Interrupted", Log.Level.TRACE);
-		limelight.pipeline.setNumber(0);
+		limelight.pipeline.setNumber(0); //Zoom out
+		shooterHood.extend(); //Raise the shooter hood
+		SmartDashboard.putString("Shooter Mode", "CLOSE");
 	}
 }

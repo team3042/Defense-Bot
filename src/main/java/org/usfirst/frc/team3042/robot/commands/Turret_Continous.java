@@ -59,8 +59,7 @@ public class Turret_Continous extends Command {
 	 */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
-		limelight.led.setNumber(3);
-		SmartDashboard.putString("Turret Status:", "TRACKING");
+		limelight.led.setNumber(3); //Turn on the Limelight's LEDs
 		if (limelight.returnValidTarget() == 0) {
 			turret.setPower(searchSpeed);
 		}

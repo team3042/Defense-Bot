@@ -6,25 +6,27 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /** Shooter Hood ****************************************************************
  * Subsystem for adjusting the vertical angle of the shooter hood
  */
 public class ShooterHood extends Subsystem {
 	/** Configuration Constants ***********************************************/
-	  private static final Log.Level LOG_LEVEL = RobotMap.LOG_SHOOTER_HOOD;
-	  private static final int ID = RobotMap.SHOOTER_HOOD_SOLENID;
+	private static final Log.Level LOG_LEVEL = RobotMap.LOG_SHOOTER_HOOD;
+	private static final int ID = RobotMap.SHOOTER_HOOD_SOLENID;
 
 	/** Instance Variables ****************************************************/
-	  Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
-	  Solenoid shooterHoodSolenid = new Solenoid(ID);
+	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
+	Solenoid shooterHoodSolenid = new Solenoid(ID);
 
 	/** ShooterHood ******************************************************/
 	public ShooterHood() {
 		log.add("Constructor", LOG_LEVEL);
+		SmartDashboard.putString("Shooter Mode", "CLOSE");
 	}
 
-	public void entent() {
+	public void extend() {
 		shooterHoodSolenid.set(true);
 	}
 
