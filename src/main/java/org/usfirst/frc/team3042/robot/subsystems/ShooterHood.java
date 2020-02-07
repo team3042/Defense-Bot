@@ -3,6 +3,7 @@ package org.usfirst.frc.team3042.robot.subsystems;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
@@ -11,15 +12,25 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
  */
 public class ShooterHood extends Subsystem {
 	/** Configuration Constants ***********************************************/
-  	private static final Log.Level LOG_LEVEL = RobotMap.LOG_SHOOTER_HOOD;
+	  private static final Log.Level LOG_LEVEL = RobotMap.LOG_SHOOTER_HOOD;
+	  private static final int ID = RobotMap.SHOOTER_HOOD_SOLENID;
 
 	/** Instance Variables ****************************************************/
-  	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
+	  Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
+	  Solenoid shooterHoodSolenid = new Solenoid(ID);
 
-	/** Intake ******************************************************/
+	/** ShooterHood ******************************************************/
 	public ShooterHood() {
-    log.add("Constructor", LOG_LEVEL);
-  	}
+		log.add("Constructor", LOG_LEVEL);
+	}
+	
+	public void entent(){
+		shooterHoodSolenid.set(true);
+	}
+
+	public void retract(){
+		shooterHoodSolenid.set(false);
+	}
   
 	/** initDefaultCommand ****************************************************
 	 * Set the default command for the subsystem.
