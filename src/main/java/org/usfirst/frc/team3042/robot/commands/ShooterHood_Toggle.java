@@ -36,6 +36,7 @@ public class ShooterHood_Toggle extends Command {
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 		limelight.pipeline.setNumber(1);
+		shooterHood.retract();
 	}
 
 	/** execute ***************************************************************
@@ -58,6 +59,7 @@ public class ShooterHood_Toggle extends Command {
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
 		limelight.pipeline.setNumber(0);
+		shooterHood.entent();
 	}
 
 	/** interrupted ***********************************************************
