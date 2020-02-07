@@ -49,7 +49,9 @@ public class RobotMap {
 	
 	/** PCM channels **********************************************************/
 
-	public static final int INTAKE_DEPLOY_SOLENOID = 			(IS_PBOT) 	? 9 : 2;	
+	public static final int INTAKE_DEPLOY_SOLENOID =			(IS_PBOT) 	? 9 : 2;
+	public static final int INTAKE_DEPLOY_SOLENOID2 =			(IS_PBOT) 	? 9 : 2;
+	public static final int SHOOTER_HOOD_SOLENID =			(IS_PBOT) 	? 9 : 2;	
 
 	/** SPI ports *************************************************************/
 	//note that the Gyroscope uses the myRIO Expansion Port (MXP) and is defined in the SPI class (edu.wpi.first.wpilibj.SPI)
