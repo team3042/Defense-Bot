@@ -3,7 +3,7 @@ package org.usfirst.frc.team3042.robot.subsystems;
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Solenoid;
+//import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -14,11 +14,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class ShooterHood extends Subsystem {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_SHOOTER_HOOD;
-	private static final int ID = RobotMap.SHOOTER_HOOD_SOLENID;
+	//private static final int ID = RobotMap.SHOOTER_HOOD_SOLENID;
 
 	/** Instance Variables ****************************************************/
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
-	Solenoid shooterHoodSolenid = new Solenoid(ID);
+	//Solenoid shooterHoodSolenid = new Solenoid(ID);
 
 	/** ShooterHood ******************************************************/
 	public ShooterHood() {
@@ -27,11 +27,11 @@ public class ShooterHood extends Subsystem {
 	}
 
 	public void extend() {
-		shooterHoodSolenid.set(true);
+		//shooterHoodSolenid.set(true);
 	}
 
 	public void retract() {
-		shooterHoodSolenid.set(false);
+		//shooterHoodSolenid.set(false);
 	}
   
 	/** initDefaultCommand ****************************************************
