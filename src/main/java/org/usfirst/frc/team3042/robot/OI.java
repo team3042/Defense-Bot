@@ -8,6 +8,7 @@ import org.usfirst.frc.team3042.robot.commands.Shoot;
 import org.usfirst.frc.team3042.robot.commands.ShooterHood_Toggle;
 import org.usfirst.frc.team3042.robot.commands.Turret_Continous;
 import org.usfirst.frc.team3042.robot.commands.Turret_Manual;
+import org.usfirst.frc.team3042.robot.commands.Conveyor_Reverse;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_Scale_Toggle;
 import org.usfirst.frc.team3042.robot.commands.Intake_Intake;
 
@@ -64,6 +65,8 @@ public class OI {
 		/** PBOT Controls *****************************************************/
 		if (IS_PBOT) {
 			gamepad.X.toggleWhenPressed(new ShooterHood_Toggle());
+
+			gamepad.Y.whenPressed(new Conveyor_Reverse());
 
 			gamepad.POVRight.whileActive(new Turret_Manual(1));
 			gamepad.POVLeft.whileActive(new Turret_Manual(-1));

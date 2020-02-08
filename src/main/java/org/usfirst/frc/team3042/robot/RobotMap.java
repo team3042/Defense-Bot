@@ -29,6 +29,10 @@ public class RobotMap {
 	public static final int USB_JOYSTICK_RIGHT 	= 1;
 	public static final int USB_GAMEPAD 		= 2;
 
+	/** DIO channels **********************************************************/
+	public static final int DIO_ULTRASONIC_PING = 8;
+	public static final int DIO_ULTRASONIC_ECHO = 9;
+
 	/** PWM ports *************************************************************/
 	
 	/** CAN ID numbers ********************************************************/
@@ -37,12 +41,12 @@ public class RobotMap {
 	public static final int CAN_LEFT_FOLLOWER = 		IS_PBOT 	? 3 : 17;
 	public static final int CAN_RIGHT_FOLLOWER = 		IS_PBOT 	? 9 : 19;
 	public static final int CAN_CONTROL_PANEL_WHEEL = 	IS_PBOT 	? 0 : 0;
-	public static final int CAN_TURRET = 				IS_PBOT		? 10 : 0; 
+	public static final int CAN_TURRET = 				IS_PBOT		? 0 : 0; 
 	public static final int CAN_INTAKE = 				IS_PBOT 	? 0 : 0;
 	public static final int CAN_SHOOTER = 				IS_PBOT 	? 0 : 0;
 	public static final int CAN_UPPER_CONVEYOR = 		IS_PBOT 	? 0 : 0;
 	public static final int CAN_UPPER_CONVEYOR2 = 		IS_PBOT 	? 0 : 0;
-	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 0 : 0;
+	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 10 : 0;
 	public static final int CAN_LOWER_CONVEYOR2 = 		IS_PBOT 	? 0 : 0;
 	public static final int CAN_CLIMBING_WINCH = 		IS_PBOT 	? 0 : 0;
 	public static final int CAN_CLIMBING_HOOK = 		IS_PBOT 	? 0 : 0;
@@ -181,7 +185,7 @@ public class RobotMap {
 	/** Upper Conveyor Settings ****************************************************/
 	public static final boolean HAS_UPPER_CONVEYOR = true;
 	public static final boolean REVERSE_UPPER_CONVEYOR  = 	(IS_PBOT) ? false : false;
-	public static final boolean REVERSE_UPPER_CONVEYOR2  = 	(IS_PBOT) ? false : false;
+	public static final boolean REVERSE_UPPER_CONVEYOR2  = 	(IS_PBOT) ? true : true;
 	public static final NeutralMode UPPER_CONVEYOR_BRAKE_MODE = NeutralMode.Brake;
 	public static final int UPPER_CONVEYOR_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int UPPER_CONVEYOR_PIDIDX = 0; // used for cascading PID; set to zero
@@ -190,7 +194,7 @@ public class RobotMap {
 	/** Lower Conveyer Settings ****************************************************/
 	public static final boolean HAS_LOWER_CONVEYOR = true;
 	public static final boolean REVERSE_LOWER_CONVEYOR  = 	(IS_PBOT) ? false : false;
-	public static final boolean REVERSE_LOWER_CONVEYOR2  = 	(IS_PBOT) ? false : false;
+	public static final boolean REVERSE_LOWER_CONVEYOR2  = 	(IS_PBOT) ? true : true;
 	public static final NeutralMode LOWER_CONVEYOR_BRAKE_MODE = NeutralMode.Brake;
 	public static final int LOWER_CONVEYOR_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int LOWER_CONVEYOR_PIDIDX = 0; // used for cascading PID; set to zero
@@ -228,8 +232,9 @@ public class RobotMap {
 	/** Intake Deploy Settings ****************************************************/
 	public static final boolean HAS_INTAKE_DEPLOY = true;
 
-	/** Intake Deploy Settings ****************************************************/
+	/** Ultrasonic Sensor Settings ****************************************************/
 	public static final boolean HAS_ULTRASONIC_SENSOR = true;
+	public static final double POWER_CELL_DISTANCE = 6.0;
 	
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";
