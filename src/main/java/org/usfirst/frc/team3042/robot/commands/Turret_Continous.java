@@ -2,12 +2,10 @@ package org.usfirst.frc.team3042.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team3042.lib.Log;
 import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
-import org.usfirst.frc.team3042.robot.subsystems.DrivetrainEncoders;
 import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 import org.usfirst.frc.team3042.robot.subsystems.Turret;
 import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
@@ -33,8 +31,6 @@ public class Turret_Continous extends Command {
 
 	Limelight limelight = Robot.limelight; 
 
-	DrivetrainEncoders drivetrainEncoders = Robot.drivetrain.getEncoders();
-
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(turret));
 	  
 	double error;
@@ -42,8 +38,6 @@ public class Turret_Continous extends Command {
 	double derivative; //Derivative is the difference of the current error and the previous error
 	double integral = 0; //Integral is the sum of all errors
 	double previousError;
-
-	double power = searchSpeed;
 	
 	/** Turret Continous ***************************************************
 	 * Required subsystems will cancel commands when this command is run.
@@ -69,15 +63,12 @@ public class Turret_Continous extends Command {
 	 * Called repeatedly when this Command is scheduled to run
 	 */
 	protected void execute() {
-		SmartDashboard.putNumber("Drivetrain Speed", drivetrainEncoders.getRightSpeed());
 		error = limelight.returnHorizontalError(); //Read the angle of error from the Limelight
 		if(encoder.countsToDegrees(encoder.getPosition()) + error > maxAngle) { //Max positive angle of the turret has been reached
 			turret.setPower(-1 * searchSpeed);
-			power = -1 * searchSpeed;
 		}
 		else if(encoder.countsToDegrees(encoder.getPosition()) + error < -1 * maxAngle) { //Max negative angle of the turret has been reached
 			turret.setPower(searchSpeed);
-			power = searchSpeed;
 		}
 		if (limelight.returnValidTarget() == 1 && Math.abs(error) > tolerance) { //PID Loop for tracking the target
 			integral += error * 0.2; //Add the current error to the integral
