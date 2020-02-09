@@ -22,7 +22,7 @@ public class Drivetrain_GyroStraight extends Command {
 	private static final double kF_LEFT = RobotMap.kF_DRIVE_LEFT;
 	private static final double kF_RIGHT = RobotMap.kF_DRIVE_RIGHT;
 	private static final double CIRCUMFRENCE = RobotMap.WHEEL_DIAMETER * Math.PI;
-	private static final double MAX_CORRECTION = RobotMap.MAX_SPEED_GYRO;
+	private static final double MAX_CORRECTION = RobotMap.MAX_POWER_GYRO;
 	
 	/** Instance Variables ****************************************************/
 	Drivetrain drivetrain = Robot.drivetrain;

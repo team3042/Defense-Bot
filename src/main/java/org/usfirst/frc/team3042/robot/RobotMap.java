@@ -44,7 +44,7 @@ public class RobotMap {
 	public static final int CAN_SHOOTER = 				IS_PBOT 	? 0 : 0;
 	public static final int CAN_UPPER_CONVEYOR = 		IS_PBOT 	? 0 : 0;
 	public static final int CAN_UPPER_CONVEYOR2 = 		IS_PBOT 	? 0 : 0;
-	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 10 : 0;
+	public static final int CAN_LOWER_CONVEYOR = 		IS_PBOT 	? 0 : 0;
 	public static final int CAN_LOWER_CONVEYOR2 = 		IS_PBOT 	? 0 : 0;
 	public static final int CAN_CLIMBING_WINCH = 		IS_PBOT 	? 0 : 0;
 	public static final int CAN_CLIMBING_HOOK = 		IS_PBOT 	? 0 : 0;
@@ -54,11 +54,6 @@ public class RobotMap {
 	//public static final int INTAKE_DEPLOY_SOLENOID2 =			(IS_PBOT) 	? 9 : 2;
 	//public static final int SHOOTER_HOOD_SOLENID =			(IS_PBOT) 	? 9 : 2;	
 
-	/** SPI ports *************************************************************/
-	//note that the Gyroscope uses the myRIO Expansion Port (MXP) and is defined in the SPI class (edu.wpi.first.wpilibj.SPI)
-	//notes for dummies: the MXP is the big boy smack center of the RoboRio (where the gyro ALWAYS goes);
-	//see http://www.ni.com/pdf/manuals/374474a.pdf for additional info on the RoboRio
-	
 	/** OI Settings ***********************************************************/
 	public static final boolean USE_JOYSTICKS = true;
 	public static final double JOYSTICK_DRIVE_SCALE = 0.8;
@@ -66,7 +61,7 @@ public class RobotMap {
 	public static final double TRIGGER_SPINNER_SCALE = 0.1;
 	public static final double JOYSTICK_DEAD_ZONE = 0.0;
 
-	/** Drivetrain Settings ***************************************************/
+	/** Drivetrain Settings *****************************************************/
 	public static final boolean HAS_DRIVETRAIN = true;
 	public static final boolean HAS_FOLLOWERS = true;
 	public static final NeutralMode DRIVETRAIN_BRAKE_MODE = NeutralMode.Brake;
@@ -76,8 +71,7 @@ public class RobotMap {
 	public static final double ACCELERATION_MAX = 1.5;
 	public static final double kF_DRIVE_LEFT = 	(IS_PBOT) 	?  0.1817180616740088  : 0.1817180616740088;
 	public static final double kF_DRIVE_RIGHT = (IS_PBOT) 	?  0.16686239968682717 : 0.16686239968682717;
-	
-	/** Drivetrain Encoder Settings *******************************************/
+	/** Drivetrain Encoder Settings **************************************************/
 	public static final boolean HAS_ENCODERS = true;
 	//Encoder counts per revolution
 	//In quadrature mode, actual counts will be 4x this; e.g., 360 -> 1440
@@ -116,22 +110,19 @@ public class RobotMap {
 	public static final double kI_GYRO = 0.0;
 	public static final double kD_GYRO = 0.0170;
 	public static final double ANGLE_TOLERANCE = 2.0;
-	public static final double MAX_SPEED_GYRO = 0.4;
+	public static final double MAX_POWER_GYRO = 0.4;
 	public static final double kI_GYRO_INTERVAL = 0.0;
-	
 	/** Gyroscope Settings ****************************************************/
 	public static final boolean HAS_GYROSCOPE = true;
-	public static final double GYROSCOPE_SCALE = 1.0;
+	public static final double GYROSCOPE_SCALE = 1.0; //Constant for scaling values returned by the gyroscope, leave at 1.0 by default
 
 	/** Color Sensor Settings ****************************************************/
 	public static final boolean HAS_COLOR_SENSOR = true;
-
-	/** Limelight Settings ****************************************************/
+	/** Limelight Settings *********************************************************/
 	public static final boolean HAS_LIMELIGHT = true;
-	public static final double ZOOM_IN_AREA = 0.959;
-	public static final double ZOOM_OUT_AREA = 4.446;
-	public static final double ZOOM_ZOOM_IN_AREA = 1.246;
-	public static final double ZOOM_ZOOM_OUT_AREA = 3.057;
+	/** Ultrasonic Sensor Settings ****************************************************/
+	public static final boolean HAS_ULTRASONIC_SENSOR = true;
+	public static final double POWER_CELL_DISTANCE = 6.0; //If the ultrasonic sensor returns a distance smaller than this (units is inches) then there is a power cell in front of it
 
 	/** Control Panel Wheel Settings ****************************************************/
 	public static final boolean HAS_CONTROL_PANEL_WHEEL = true;
@@ -140,13 +131,12 @@ public class RobotMap {
 	public static final int CPWHEEL_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int CPWHEEL_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final int CPWHEEL_REVOLUTIONS = 25; //Number of revolutions for wheel to spin when performing rotation control
-	public static final double POSITION_CONTROL_SPEED = .2;
-	public static final double ROTATION_CONTROL_SPEED = .4;
-
+	public static final double POSITION_CONTROL_POWER = .2; //How much power (as a %) to give the Control Panel Wheel when performing position control
+	public static final double ROTATION_CONTROL_POWER = .4; //How much power (as a %) to give the Control Panel Wheel when performing rotation control
 	/** Control Panel Wheel Encoder Settings **********************************************/
 	public static final boolean HAS_CONTROL_PANEL_WHEEL_ENCODER = HAS_CONTROL_PANEL_WHEEL;
 	public static final int CPWHEEL_ENCODER_FRAME_RATE = 10;
-	public static final int CPWHEEL_ENCODER_COUNTS_PER_REV = 1440;
+	public static final int CPWHEEL_ENCODER_COUNTS_PER_REV = 1440; //The number of encoder counts equal to one full revolution of the encoder 
 	public static final boolean REVERSE_CPWHEEL_ENCODER = false;
 	public static final boolean CPWHEEL_SENSOR_PHASE = false;
 
@@ -156,29 +146,31 @@ public class RobotMap {
 	public static final NeutralMode TURRET_BRAKE_MODE = NeutralMode.Brake;
 	public static final int TURRET_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int TURRET_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final double kP_TURRET = 0.016;
-	public static final double kI_TURRET = 0.004; 
-	public static final double kD_TURRET = 0.0;
-	public static final double TURRET_MAX_SPEED = 0.4;
-	public static final int TURRET_MAX_ANGLE = 180;
+	public static final double kP_TURRET = 0.016; //P constant for the target-tracking PID loop
+	public static final double kI_TURRET = 0.004; //I constant for the target-tracking PID loop
+	public static final double kD_TURRET = 0.0; //D constant for the target-tracking PID loop
+	public static final double TURRET_MAX_POWER = 0.4; //The maximum power (as a %) the turret will be given when running the target-tracking PID loop
+	public static final double TURRET_MANUAL_POWER = 0.2; //How much power (as a %) to give the turret when using manual control
+	public static final int TURRET_MAX_ANGLE = 180; //The maximum angle the turret can turn to in either direction (to prevent tangling of wires)
 	public static final int TURRET_MAX_AUTON_ANGLE = 120; //The max angle the turret will search for the target at the start of autonomous mode
-	public static final double TURRET_SEARCH_SPEED = 0.6; //The speed at which the turret zips around to the other side when the max angle is reached, and also the speed at which it searches for the target if the Limelight loses it
+	public static final double TURRET_SEARCH_POWER = 0.6; //The speed at which the turret zips around to the other side when the max angle is reached, and also the speed at which it searches for the target if the Limelight loses it
 	public static final double TURRET_ANGLE_TOLERANCE = 0.25; //If the angle of error to the target is less than this value the PID Loop will not make any corrections
-
 	/** Turret Encoder Settings **********************************************/
 	public static final boolean HAS_TURRET_ENCODER = HAS_TURRET;
 	public static final int TURRET_ENCODER_FRAME_RATE = 10;
-	public static final int TURRET_ENCODER_COUNTS_PER_REV = 1440;
+	public static final int TURRET_ENCODER_COUNTS_PER_REV = 1440; //The number of encoder counts equal to one full revolution of the encoder 
 	public static final boolean REVERSE_TURRET_ENCODER = false;
 	public static final boolean TURRET_SENSOR_PHASE = false;
 
-	/** Intake Settings ****************************************************/
+	/** Intake Settings *******************************************************/
 	public static final boolean HAS_INTAKE = true;
 	public static final boolean REVERSE_INTAKE  = 	(IS_PBOT) ? false : false;
 	public static final NeutralMode INTAKE_BRAKE_MODE = NeutralMode.Brake;
 	public static final int INTAKE_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int INTAKE_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final double INTAKE_POWER = 0.33;
+	public static final double INTAKE_POWER = 0.33; //How much power (as a %) to give the intake
+	/** Intake Deploy Settings ****************************************************/
+	public static final boolean HAS_INTAKE_DEPLOY = true;
 
 	/** Upper Conveyor Settings ****************************************************/
 	public static final boolean HAS_UPPER_CONVEYOR = true;
@@ -187,8 +179,7 @@ public class RobotMap {
 	public static final NeutralMode UPPER_CONVEYOR_BRAKE_MODE = NeutralMode.Brake;
 	public static final int UPPER_CONVEYOR_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int UPPER_CONVEYOR_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final double UPPER_CONVEYOR_POWER = 0.2;
-
+	public static final double UPPER_CONVEYOR_POWER = 0.2; //How much power (as a %) to give the upper conveyor
 	/** Lower Conveyer Settings ****************************************************/
 	public static final boolean HAS_LOWER_CONVEYOR = true;
 	public static final boolean REVERSE_LOWER_CONVEYOR  = 	(IS_PBOT) ? false : false;
@@ -196,7 +187,7 @@ public class RobotMap {
 	public static final NeutralMode LOWER_CONVEYOR_BRAKE_MODE = NeutralMode.Brake;
 	public static final int LOWER_CONVEYOR_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int LOWER_CONVEYOR_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final double LOWER_CONVEYOR_POWER = 0.2;
+	public static final double LOWER_CONVEYOR_POWER = 0.2; //How much power (as a %) to give the lower conveyor
 	public static final double CONVEYOR_ADVANCE_DURATION = 0.5; //How long (in seconds) to run the lower conveyor when a power cell is intaked
 	public static final double CONVEYOR_REVERSE_DURATION = 0.25; //How long (in seconds) to run the lower conveyor forward after the power cells are brought back down to the bottom
 
@@ -207,8 +198,10 @@ public class RobotMap {
 	public static final NeutralMode SHOOTER_BRAKE_MODE = NeutralMode.Brake;
 	public static final int SHOOTER_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int SHOOTER_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final double SHOOTER_POWER = 0.4;
-	public static final int MIN_SHOOTER_SPEED = 5000;
+	public static final double SHOOTER_POWER = 0.4; //How much power (as a %) to give the shooter
+	public static final int MIN_SHOOTER_SPEED = 5000; //Minimum speed (in RPM) the shooter must be spinning at in order to shoot
+	/** Shooter Hood Settings **********************************************/
+	public static final boolean HAS_SHOOTER_HOOD = true;
 
 	/** Climbing Winch Settings ****************************************************/
 	public static final boolean HAS_CLIMBING_WINCH = true;
@@ -216,25 +209,14 @@ public class RobotMap {
 	public static final NeutralMode CLIMBING_WINCH_BRAKE_MODE = NeutralMode.Brake;
 	public static final int CLIMBING_WINCH_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int CLIMBING_WINCH_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final double CLIMBING_WINCH_POWER = 0.33;
-
+	public static final double CLIMBING_WINCH_POWER = 0.33; //How much power (as a %) to give the climbing winch
 	/** Climbing Hook Settings ****************************************************/
 	public static final boolean HAS_CLIMBING_HOOK = true;
 	public static final boolean REVERSE_CLIMBING_HOOK  = 	(IS_PBOT) ? false : false;
-	public static final NeutralMode CLIMBING_HOOK_BRAKE_MODE = NeutralMode.Brake;
+	public static final NeutralMode CLIMBING_HOOK_BRAKE_MODE = NeutralMode.Brake; 
 	public static final int CLIMBING_HOOK_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int CLIMBING_HOOK_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final double CLIMBING_HOOK_POWER = 0.33;
-
-	/** Turret Encoder Settings **********************************************/
-	public static final boolean HAS_SHOOTER_HOOD = true;
-
-	/** Intake Deploy Settings ****************************************************/
-	public static final boolean HAS_INTAKE_DEPLOY = true;
-
-	/** Ultrasonic Sensor Settings ****************************************************/
-	public static final boolean HAS_ULTRASONIC_SENSOR = true;
-	public static final double POWER_CELL_DISTANCE = 6.0;
+	public static final double CLIMBING_HOOK_POWER = 0.33; //How much power (as a %) to give the climbing hook
 	
 	/** Logger Settings *******************************************************/
 	public static final String 		LOG_FILE_FORMAT = "yyyy-MM-dd-hhmmss";

@@ -16,7 +16,7 @@ public class RotationControl extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_CONTROL_PANEL_WHEEL;
 	private static final int REVOLUTIONS = RobotMap.CPWHEEL_REVOLUTIONS;
-	private static final double SPEED = RobotMap.ROTATION_CONTROL_SPEED;
+	private static final double POWER = RobotMap.ROTATION_CONTROL_POWER;
 	
 	/** Instance Variables ****************************************************/
 	ControlPanelWheel cpwheel = Robot.cpwheel;
@@ -38,7 +38,7 @@ public class RotationControl extends Command {
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 		encoder.reset();
-    	cpwheel.setPower(SPEED);
+    	cpwheel.setPower(POWER);
 	}
 
 	/** execute ***************************************************************

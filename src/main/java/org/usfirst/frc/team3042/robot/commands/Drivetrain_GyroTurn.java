@@ -19,7 +19,7 @@ public class Drivetrain_GyroTurn extends Command {
 	private static final double kI = RobotMap.kI_GYRO;
 	private static final double kD = RobotMap.kD_GYRO;
 	private static final double ANGLE_TOLERANCE = RobotMap.ANGLE_TOLERANCE;
-	private static final double MAX_SPEED = RobotMap.MAX_SPEED_GYRO;
+	private static final double MAX_POWER = RobotMap.MAX_POWER_GYRO;
 	
 	/** Instance Variables ****************************************************/
 	Drivetrain drivetrain = Robot.drivetrain;
@@ -70,8 +70,8 @@ public class Drivetrain_GyroTurn extends Command {
 		
 		double correction = Pterm + Iterm + Dterm;
 		
-		correction = Math.min(MAX_SPEED, correction);
-		correction = Math.max(-MAX_SPEED, correction);
+		correction = Math.min(MAX_POWER, correction);
+		correction = Math.max(-MAX_POWER, correction);
 	
 		drivetrain.setPower(correction, -correction);
 		

@@ -20,8 +20,8 @@ public class Turret_Continous extends Command {
 	private static final double kI = RobotMap.kI_TURRET;
 	private static final double kD = RobotMap.kD_TURRET;
 	private static final double tolerance = RobotMap.TURRET_ANGLE_TOLERANCE;
-	private static final double searchSpeed = RobotMap.TURRET_SEARCH_SPEED;
-	private static final double maxSpeed = RobotMap.TURRET_MAX_SPEED;
+	private static final double searchPower = RobotMap.TURRET_SEARCH_POWER;
+	private static final double maxPower = RobotMap.TURRET_MAX_POWER;
 	private static final double maxAngle = RobotMap.TURRET_MAX_ANGLE;
 
 	/** Instance Variables ****************************************************/
@@ -54,7 +54,7 @@ public class Turret_Continous extends Command {
 		log.add("Initialize", Log.Level.TRACE);
 		limelight.led.setNumber(3); //Turn on the Limelight's LEDs
 		if (limelight.returnValidTarget() == 0) {
-			turret.setPower(searchSpeed);
+			turret.setPower(searchPower);
 		}
 	}
 
@@ -64,18 +64,18 @@ public class Turret_Continous extends Command {
 	protected void execute() {
 		error = limelight.returnHorizontalError(); //Read the angle of error from the Limelight
 		if(encoder.countsToDegrees(encoder.getPosition()) + error > maxAngle) { //Max positive angle of the turret has been reached
-			turret.setPower(-1 * searchSpeed);
+			turret.setPower(-1 * searchPower);
 		}
 		else if(encoder.countsToDegrees(encoder.getPosition()) + error < -1 * maxAngle) { //Max negative angle of the turret has been reached
-			turret.setPower(searchSpeed);
+			turret.setPower(searchPower);
 		}
 		if (limelight.returnValidTarget() == 1 && Math.abs(error) > tolerance) { //PID Loop for tracking the target
 			integral += error * 0.2; //Add the current error to the integral
 			derivative = (error - previousError) / .02;
 
 			correction = (kP * error) + (kI * integral) + (kD * derivative);
-			correction = Math.min(maxSpeed, correction);
-			correction = Math.max(-1 * maxSpeed, correction);
+			correction = Math.min(maxPower, correction);
+			correction = Math.max(-1 * maxPower, correction);
 
 			turret.setPower(correction);
 		}

@@ -96,7 +96,7 @@ public class Robot extends TimedRobot {
 	 */
 	public void disabledInit() {
 		log.add("Disabled Init", Log.Level.TRACE);
-		limelight.led.setNumber(1);
+		limelight.led.setNumber(1); //Turn off the Limelight's LEDs
 	}
 
 	/** disabledPeriodic ******************************************************
@@ -112,14 +112,14 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		log.add("Autonomous Init", Log.Level.TRACE);
 
-		limelight.pipeline.setNumber(0);
+		limelight.pipeline.setNumber(0); //Set the Limelight to the default (not zoomed-in) pipeline
 
 		shooterhood.extend(); //Raise the shooter hood since we start close to the target
 		intakedeploy.activate(); //Deploy the intake
 		
 		autonomousCommand = chooser.getSelected();
 
-		// schedule the autonomous command (example)
+		// schedule the autonomous command
 		if (autonomousCommand != null) {
 			autonomousCommand.start();
 		}
@@ -138,7 +138,7 @@ public class Robot extends TimedRobot {
 	public void teleopInit() {
 		log.add("Teleop Init", Log.Level.TRACE);
 
-		limelight.pipeline.setNumber(0);
+		limelight.pipeline.setNumber(0); //Set the Limelight to the default (not zoomed-in) pipeline
 		
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
