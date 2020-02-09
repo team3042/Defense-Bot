@@ -10,7 +10,7 @@ import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 import org.usfirst.frc.team3042.robot.subsystems.Shooter;
 
 /** Shooter *******************************************************
- * Sets power for the shooter spinner
+ * Sets power to the shooter
  */
 public class Shooter_Spin extends Command {
 	/** Configuration Constants ***********************************************/

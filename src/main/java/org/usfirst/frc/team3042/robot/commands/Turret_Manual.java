@@ -12,7 +12,6 @@ import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
 /** Turret Manual *******************************************************
  * Command for manually moving the turret.
  */
-
 public class Turret_Manual extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;

@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.InstantCommand;
  */
 public class Drivetrain_Scale_Toggle extends InstantCommand {
   /**
-   * Scales down the speed of the drivetrain
+   * Scales down the speed of the drivetrain so the driver can make fine adjustments
    */
   public Drivetrain_Scale_Toggle() {
     super();

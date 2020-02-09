@@ -10,7 +10,7 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.ColorSensor;
 
 /** Color Sensor Dashboard *******************************************************
- * Display the detected color on the dashboard
+ * Displays the detected color on the dashboard
  */
 public class ColorSensor_Dashboard extends Command {
 	/** Configuration Constants ***********************************************/

@@ -11,12 +11,13 @@ import org.usfirst.frc.team3042.robot.subsystems.LowerConveyor;
 import org.usfirst.frc.team3042.robot.subsystems.UltrasonicSensor;
 
 /** Advance Lower Conveyor *******************************************************
- * Advances the Lower Conveyor once it recieves a power cell
+ * Advances the Lower Conveyor once it detects a power cell
  */
 public class LowerConveyor_Advance extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_COLOR_SENSOR;
 	private static final double speed = RobotMap.LOWER_CONVEYOR_POWER;
+	private static final double duration = RobotMap.CONVEYOR_ADVANCE_DURATION;
 	
 	/** Instance Variables ****************************************************/
 	UltrasonicSensor sensor = Robot.ultrasonicsensor;
@@ -49,7 +50,7 @@ public class LowerConveyor_Advance extends Command {
 			conveyor.setPower(speed);
 			timer.start();
 		}
-		if(timer.get() >= 0.5){
+		if(timer.get() >= duration){
 			conveyor.stop();
 			timer.stop();
 			timer.reset();

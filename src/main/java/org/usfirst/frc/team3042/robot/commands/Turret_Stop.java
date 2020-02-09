@@ -10,9 +10,8 @@ import org.usfirst.frc.team3042.robot.subsystems.Limelight;
 import org.usfirst.frc.team3042.robot.subsystems.Turret;
 
 /** Turret Stop *******************************************************
- * Command for stopping the turret
+ * Command for stopping the turret at the end of autonomous mode
  */
-
 public class Turret_Stop extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;

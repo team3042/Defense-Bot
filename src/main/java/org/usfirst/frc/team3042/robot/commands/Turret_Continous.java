@@ -13,7 +13,6 @@ import org.usfirst.frc.team3042.robot.subsystems.TurretEncoder;
 /** Turret Continous *******************************************************
  * Command for correcting the reported angle of error with the turret
  */
-
 public class Turret_Continous extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_TURRET;

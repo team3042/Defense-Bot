@@ -32,8 +32,6 @@ public class RobotMap {
 	/** DIO channels **********************************************************/
 	public static final int DIO_ULTRASONIC_PING = 8;
 	public static final int DIO_ULTRASONIC_ECHO = 9;
-
-	/** PWM ports *************************************************************/
 	
 	/** CAN ID numbers ********************************************************/
 	public static final int CAN_LEFT_MOTOR 	= 			IS_PBOT 	? 3 : 15;
@@ -54,7 +52,7 @@ public class RobotMap {
 	/** PCM channels **********************************************************/
 	//public static final int INTAKE_DEPLOY_SOLENOID =			(IS_PBOT) 	? 9 : 2;
 	//public static final int INTAKE_DEPLOY_SOLENOID2 =			(IS_PBOT) 	? 9 : 2;
-	//public static final int SHOOTER_HOOD_SOLENID =			    (IS_PBOT) 	? 9 : 2;	
+	//public static final int SHOOTER_HOOD_SOLENID =			(IS_PBOT) 	? 9 : 2;	
 
 	/** SPI ports *************************************************************/
 	//note that the Gyroscope uses the myRIO Expansion Port (MXP) and is defined in the SPI class (edu.wpi.first.wpilibj.SPI)
@@ -199,6 +197,8 @@ public class RobotMap {
 	public static final int LOWER_CONVEYOR_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int LOWER_CONVEYOR_PIDIDX = 0; // used for cascading PID; set to zero
 	public static final double LOWER_CONVEYOR_POWER = 0.2;
+	public static final double CONVEYOR_ADVANCE_DURATION = 0.5; //How long (in seconds) to run the lower conveyor when a power cell is intaked
+	public static final double CONVEYOR_REVERSE_DURATION = 0.25; //How long (in seconds) to run the lower conveyor forward after the power cells are brought back down to the bottom
 
 	/** Shooter Settings ****************************************************/
 	public static final boolean HAS_SHOOTER = true;

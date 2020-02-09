@@ -9,7 +9,7 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Intake;
 
 /** Intake *******************************************************
- * Sets power for the intake
+ * Sets power to the intake
  */
 public class Intake_Intake extends Command {
 	/** Configuration Constants ***********************************************/

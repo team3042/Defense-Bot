@@ -12,13 +12,14 @@ import org.usfirst.frc.team3042.robot.subsystems.UltrasonicSensor;
 import org.usfirst.frc.team3042.robot.subsystems.UpperConveyor;
 
 /** Conveyor Reverse *******************************************************
- * Reverses the conveyor 
+ * Brings the power cells down to the bottom of the conveyor after shooting 
  */ 
 public class Conveyor_Reverse extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_COLOR_SENSOR;
 	private static final double lowerSpeed = RobotMap.LOWER_CONVEYOR_POWER;
 	private static final double upperSpeed = RobotMap.UPPER_CONVEYOR_POWER;
+	private static final double duration = RobotMap.CONVEYOR_REVERSE_DURATION;
 	
 	/** Instance Variables ****************************************************/
 	UltrasonicSensor sensor = Robot.ultrasonicsensor;
@@ -51,7 +52,7 @@ public class Conveyor_Reverse extends Command {
 	 */
 	protected void execute() {
 		if (sensor.isPowerCellIn()) {
-			upperconveyor.setPower(upperSpeed);
+			upperconveyor.stop();
 			lowerconveyor.setPower(lowerSpeed);
 			timer.start();
 		}
@@ -61,7 +62,7 @@ public class Conveyor_Reverse extends Command {
 	 * Make this return true when this Command no longer needs to run execute()
 	 */
 	protected boolean isFinished() {
-		return timer.get() >= 0.5;
+		return timer.get() >= duration;
 	}
 	
 	/** end *******************************************************************

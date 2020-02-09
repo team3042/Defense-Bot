@@ -10,7 +10,7 @@ import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.UltrasonicSensor;
 
 /** Ultrasonic Sensor Dashboard *******************************************************
- * Display distance to power cell
+ * Displays the distance returned by the ultrasonic sensor on the dashboard
  */
 public class Ultrasonic_Dashboard extends Command {
 	/** Configuration Constants ***********************************************/
