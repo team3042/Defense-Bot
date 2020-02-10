@@ -58,7 +58,7 @@ public class DrivetrainAuton_Drive extends Command {
 		MotionProfileStatus leftStatus = auton.getLeftStatus();
 		MotionProfileStatus rightStatus = auton.getRightStatus();
 		
-		if  ( (leftStatus.btmBufferCnt > BUFFER_TRIGGER) && 
+		if ( (leftStatus.btmBufferCnt > BUFFER_TRIGGER) && 
 				(rightStatus.btmBufferCnt > BUFFER_TRIGGER) ) {
 			auton.enableMotionProfile();
 		}

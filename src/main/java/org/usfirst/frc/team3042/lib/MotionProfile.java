@@ -104,7 +104,7 @@ public class MotionProfile {
 		double[] smooth = new double[length];
 
 		for (int n=0; n<length; n++) {
-			int i0 = Math.max(0,  1+n-box);
+			int i0 = Math.max(0, 1+n-box);
 			for (int i=i0; i<=n; i++) {
 				smooth[n] += unsmooth[i];
 			}

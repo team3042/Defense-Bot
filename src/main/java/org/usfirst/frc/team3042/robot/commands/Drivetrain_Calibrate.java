@@ -75,7 +75,7 @@ public class Drivetrain_Calibrate extends Command {
 		terminate();
 		
 		log.add("Left kF", findF(leftSum), LOG_LEVEL);
-		log.add("Right kF",  findF(rightSum), LOG_LEVEL);
+		log.add("Right kF", findF(rightSum), LOG_LEVEL);
 	}
 	private double findF (double rpmSum) {
 		double rpmAvg = rpmSum / count;

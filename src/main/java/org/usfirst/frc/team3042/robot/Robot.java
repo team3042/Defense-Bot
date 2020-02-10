@@ -24,8 +24,8 @@ public class Robot extends TimedRobot {
 	
 	/** Create Subsystems *****************************************************/
 	private Log log = new Log(LOG_LEVEL, "Robot");
-	public static final Drivetrain 	drivetrain 	   = (HAS_DRIVETRAIN) 			 ? new Drivetrain() 	: null;
-	public static final Gyroscope 	gyroscope 	   = (HAS_GYROSCOPE) 			 ? new Gyroscope() 	: null;
+	public static final Drivetrain 	drivetrain 	 = (HAS_DRIVETRAIN) 			 ? new Drivetrain() 	: null;
+	public static final Gyroscope 	gyroscope 	 = (HAS_GYROSCOPE) 			 ? new Gyroscope() 	: null;
 	public static OI oi;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<Command>();
