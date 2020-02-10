@@ -2,15 +2,7 @@ package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
 
-import org.usfirst.frc.team3042.robot.commands.PositionControl;
-import org.usfirst.frc.team3042.robot.commands.RotationControl;
-import org.usfirst.frc.team3042.robot.commands.Shoot;
-import org.usfirst.frc.team3042.robot.commands.ShooterHood_Toggle;
-import org.usfirst.frc.team3042.robot.commands.Turret_Continous;
-import org.usfirst.frc.team3042.robot.commands.Turret_Manual;
-import org.usfirst.frc.team3042.robot.commands.Conveyor_Reverse;
 import org.usfirst.frc.team3042.robot.commands.Drivetrain_Scale_Toggle;
-import org.usfirst.frc.team3042.robot.commands.Intake_Intake;
 
 /** OI ************************************************************************
  * This class is the glue that binds the controls on the physical operator
@@ -18,8 +10,6 @@ import org.usfirst.frc.team3042.robot.commands.Intake_Intake;
  */
 public class OI {	
 	/** Configuration Constants ***********************************************/
-	private static final boolean IS_PBOT = RobotMap.IS_PBOT;
-	private static final boolean IS_DEFENSEBOT = RobotMap.IS_DEFENSEBOT;
 	private static final int USB_GAMEPAD = RobotMap.USB_GAMEPAD;
 	private static final int USB_JOY_LEFT = RobotMap.USB_JOYSTICK_LEFT;
 	private static final int USB_JOY_RIGHT = RobotMap.USB_JOYSTICK_RIGHT;
@@ -62,31 +52,9 @@ public class OI {
 			driveAxisRight = GAMEPAD_RIGHT_Y_AXIS;
 		}
 		
-		/** PBOT Controls *****************************************************/
-		if (IS_PBOT) {
-			gamepad.X.toggleWhenPressed(new ShooterHood_Toggle());
-
-			gamepad.Y.whenPressed(new Conveyor_Reverse());
-
-			gamepad.POVRight.whileActive(new Turret_Manual(1));
-			gamepad.POVLeft.whileActive(new Turret_Manual(-1));
-
-			gamepad.A.whenPressed(new PositionControl());
-			gamepad.B.whenPressed(new RotationControl());
-
-			gamepad.LB.whileHeld(new Intake_Intake());
-			gamepad.RB.whileHeld(new Shoot());
-			gamepad.RB.whileHeld(new Turret_Continous());
-
-			joyLeft.button1.whenPressed(new Drivetrain_Scale_Toggle());
-			joyLeft.button1.whenReleased(new Drivetrain_Scale_Toggle());
-		}
-		
 		/** Defense Bot Controls **************************************************/
-		if (IS_DEFENSEBOT) {
-			joyLeft.button1.whenPressed(new Drivetrain_Scale_Toggle());
-			joyLeft.button1.whenReleased(new Drivetrain_Scale_Toggle());
-		}
+		joyLeft.button1.whenPressed(new Drivetrain_Scale_Toggle());
+		joyLeft.button1.whenReleased(new Drivetrain_Scale_Toggle());
 	}
 	
 	/** Access to the driving axes values *************************************

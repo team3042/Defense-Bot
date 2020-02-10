@@ -1,30 +1,13 @@
 package org.usfirst.frc.team3042.robot;
 
 import org.usfirst.frc.team3042.lib.Log;
-import org.usfirst.frc.team3042.robot.commands.AutonomousMode;
-import org.usfirst.frc.team3042.robot.subsystems.ClimbingHook;
-import org.usfirst.frc.team3042.robot.subsystems.ClimbingWinch;
-import org.usfirst.frc.team3042.robot.subsystems.ColorSensor;
-import org.usfirst.frc.team3042.robot.subsystems.ControlPanelWheel;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
-import org.usfirst.frc.team3042.robot.subsystems.Intake;
-import org.usfirst.frc.team3042.robot.subsystems.IntakeDeploy;
-import org.usfirst.frc.team3042.robot.subsystems.Limelight;
-import org.usfirst.frc.team3042.robot.subsystems.LowerConveyor;
-import org.usfirst.frc.team3042.robot.subsystems.Shooter;
-import org.usfirst.frc.team3042.robot.subsystems.ShooterHood;
-import org.usfirst.frc.team3042.robot.subsystems.Turret;
-import org.usfirst.frc.team3042.robot.subsystems.UltrasonicSensor;
-import org.usfirst.frc.team3042.robot.subsystems.UpperConveyor;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.DriverStation;
-import edu.wpi.first.wpilibj.PowerDistributionPanel;
 
 /** Robot *********************************************************************
  * The VM is configured to automatically run this class, and to call the
@@ -38,38 +21,11 @@ public class Robot extends TimedRobot {
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_ROBOT;
 	private static final boolean HAS_DRIVETRAIN = RobotMap.HAS_DRIVETRAIN;
 	private static final boolean HAS_GYROSCOPE = RobotMap.HAS_GYROSCOPE;
-	private static final boolean HAS_COLOR_SENSOR = RobotMap.HAS_COLOR_SENSOR;
-	private static final boolean HAS_LIMELIGHT = RobotMap.HAS_LIMELIGHT;
-	private static final boolean HAS_CONTROL_PANEL_WHEEL = RobotMap.HAS_CONTROL_PANEL_WHEEL;
-	private static final boolean HAS_TURRET = RobotMap.HAS_TURRET;
-	private static final boolean HAS_INTAKE = RobotMap.HAS_INTAKE;
-	private static final boolean HAS_SHOOTER = RobotMap.HAS_SHOOTER;
-	private static final boolean HAS_LOWER_CONVEYOR = RobotMap.HAS_LOWER_CONVEYOR;
-	private static final boolean HAS_UPPER_CONVEYOR = RobotMap.HAS_UPPER_CONVEYOR;
-	private static final boolean HAS_CLIMBING_WINCH = RobotMap.HAS_CLIMBING_WINCH;
-	private static final boolean HAS_CLIMBING_HOOK = RobotMap.HAS_CLIMBING_HOOK;
-	private static final boolean HAS_INTAKE_DEPLOY = RobotMap.HAS_INTAKE_DEPLOY;
-	private static final boolean HAS_SHOOTER_HOOD = RobotMap.HAS_SHOOTER_HOOD;
-	private static final boolean HAS_ULTRASONIC_SENSOR = RobotMap.HAS_ULTRASONIC_SENSOR;
-
+	
 	/** Create Subsystems *****************************************************/
 	private Log log = new Log(LOG_LEVEL, "Robot");
 	public static final Drivetrain 	drivetrain 	   = (HAS_DRIVETRAIN) 			 ? new Drivetrain() 	: null;
 	public static final Gyroscope 	gyroscope 	   = (HAS_GYROSCOPE) 			 ? new Gyroscope() 	: null;
-	public static final ColorSensor colorsensor    = (HAS_COLOR_SENSOR)          ? new ColorSensor() : null;
-	public static final ControlPanelWheel cpwheel  = (HAS_CONTROL_PANEL_WHEEL)   ? new ControlPanelWheel() : null;
-	public static final Limelight limelight        = (HAS_LIMELIGHT)             ? new Limelight() : null;
-	public static final Turret turret 			   = (HAS_TURRET)				 ? new Turret()	: null;
-	public static final Intake intake 			   = (HAS_INTAKE)				 ? new Intake()	: null;
-	public static final Shooter shooter			   = (HAS_SHOOTER)				 ? new Shooter()	: null;
-	public static final LowerConveyor lowerconveyor = (HAS_LOWER_CONVEYOR)		 ? new LowerConveyor()	: null;
-  	public static final UpperConveyor upperconveyor = (HAS_UPPER_CONVEYOR)		 ? new UpperConveyor()	: null;
-	public static final PowerDistributionPanel pdp	= new PowerDistributionPanel();
-	public static final ClimbingWinch climbingwinch = (HAS_CLIMBING_WINCH)		 ? new ClimbingWinch()	: null;
-	public static final ClimbingHook climbinghook	= (HAS_CLIMBING_HOOK)		 ? new ClimbingHook()	: null;
-	public static final IntakeDeploy intakedeploy	= (HAS_INTAKE_DEPLOY)		 ? new IntakeDeploy()	: null;
-	public static final ShooterHood shooterhood  	= (HAS_SHOOTER_HOOD)		 ? new ShooterHood()	: null;
-	public static final UltrasonicSensor ultrasonicsensor = (HAS_ULTRASONIC_SENSOR)	 ? new UltrasonicSensor()	: null;
 	public static OI oi;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<Command>();
@@ -84,9 +40,6 @@ public class Robot extends TimedRobot {
 		log.add("Robot Init", Log.Level.TRACE);
 
 		oi = new OI();
-		chooser.setDefaultOption("Default Auto", new AutonomousMode());
-		//chooser.addOption("My Auto", new ExampleCommand());
-		SmartDashboard.putData("Auto Mode", chooser);
 	}
 
 	/** disabledInit **********************************************************
@@ -96,7 +49,6 @@ public class Robot extends TimedRobot {
 	 */
 	public void disabledInit() {
 		log.add("Disabled Init", Log.Level.TRACE);
-		limelight.led.setNumber(1); //Turn off the Limelight's LEDs
 	}
 
 	/** disabledPeriodic ******************************************************
@@ -111,18 +63,6 @@ public class Robot extends TimedRobot {
 	 */
 	public void autonomousInit() {
 		log.add("Autonomous Init", Log.Level.TRACE);
-
-		limelight.pipeline.setNumber(0); //Set the Limelight to the default (not zoomed-in) pipeline
-
-		shooterhood.extend(); //Raise the shooter hood since we start close to the target
-		intakedeploy.activate(); //Deploy the intake
-		
-		autonomousCommand = chooser.getSelected();
-
-		// schedule the autonomous command
-		if (autonomousCommand != null) {
-			autonomousCommand.start();
-		}
 	}
 
 	/** autonomousPeriodic ****************************************************
@@ -137,16 +77,6 @@ public class Robot extends TimedRobot {
 	 */
 	public void teleopInit() {
 		log.add("Teleop Init", Log.Level.TRACE);
-
-		limelight.pipeline.setNumber(0); //Set the Limelight to the default (not zoomed-in) pipeline
-		
-		// This makes sure that the autonomous stops running when
-		// teleop starts running. If you want the autonomous to
-		// continue until interrupted by another command, remove
-		// this line or comment it out.
-		if (autonomousCommand != null) {
-			autonomousCommand.cancel();
-		}
 	}
 
 	/** teleopPeriodic ********************************************************
@@ -154,28 +84,6 @@ public class Robot extends TimedRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-
-		//Read the assigned control panel color from the FMS and display it on the dashboard
-		color = DriverStation.getInstance().getGameSpecificMessage();
-		if(color.length() > 0) {
-			switch (color.charAt(0)) {
-				case 'B' :
-				SmartDashboard.putString("Color:", "Blue");
-				break;
-				case 'G' :
-				SmartDashboard.putString("Color:", "Green");
-				break;
-				case 'R' :
-				SmartDashboard.putString("Color:", "Red");
-				break;
-				case 'Y' :
-				SmartDashboard.putString("Color:", "Yellow");
-				break;
-				default :
-				SmartDashboard.putString("Color:", "ERROR");
-				break;
-			}
-		}
 	} 
 
 	/** testPeriodic **********************************************************
