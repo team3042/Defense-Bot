@@ -44,6 +44,7 @@ public class RobotMap {
 	public static final double ACCELERATION_MAX = 1.5;
 	public static final double kF_DRIVE_LEFT = 0.1817180616740088;
 	public static final double kF_DRIVE_RIGHT = 0.16686239968682717;
+	
 	/** Drivetrain Encoder Settings **************************************************/
 	public static final boolean HAS_ENCODERS = true;
 	//Encoder counts per revolution

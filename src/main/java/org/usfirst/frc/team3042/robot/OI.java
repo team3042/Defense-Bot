@@ -52,7 +52,7 @@ public class OI {
 			driveAxisRight = GAMEPAD_RIGHT_Y_AXIS;
 		}
 		
-		/** Defense Bot Controls **************************************************/
+		/** Scale the drivetrain speed for fine adjustments **************************************************/
 		joyLeft.button1.whenPressed(new Drivetrain_Scale_Toggle());
 		joyLeft.button1.whenReleased(new Drivetrain_Scale_Toggle());
 	}
