@@ -35,8 +35,6 @@ public class RobotMap {
 	public static final double JOYSTICK_DEAD_ZONE = 0.0;
 
 	/** Drivetrain Settings *****************************************************/
-	public static final boolean HAS_DRIVETRAIN = true;
-	public static final boolean HAS_FOLLOWERS = true;
 	public static final NeutralMode DRIVETRAIN_BRAKE_MODE = NeutralMode.Brake;
 	public static final boolean REVERSE_LEFT_MOTOR  = false;
 	public static final boolean REVERSE_RIGHT_MOTOR = true;
@@ -46,7 +44,6 @@ public class RobotMap {
 	public static final double kF_DRIVE_RIGHT = 0.16686239968682717;
 	
 	/** Drivetrain Encoder Settings **************************************************/
-	public static final boolean HAS_ENCODERS = true;
 	//Encoder counts per revolution
 	//In quadrature mode, actual counts will be 4x this; e.g., 360 -> 1440
 	public static final int COUNTS_PER_REVOLUTION = 1440;
@@ -56,7 +53,6 @@ public class RobotMap {
 	public static final boolean SENSOR_PHASE_RIGHT = false;
 	
 	/** Drivetrain Autonomous Settings ****************************************/
-	public static final boolean HAS_AUTON = HAS_ENCODERS;
 	public static final int AUTON_PROFILE = 0;
 	public static final double kP_AUTON = 0.0;
 	public static final double kI_AUTON = 0.0;
@@ -88,7 +84,6 @@ public class RobotMap {
 	public static final double kI_GYRO_INTERVAL = 0.0;
 
 	/** Gyroscope Settings ****************************************************/
-	public static final boolean HAS_GYROSCOPE = true;
 	public static final double GYROSCOPE_SCALE = 1.0; //Constant for scaling values returned by the gyroscope, leave at 1.0 by default
 
 	/** Logger Settings *******************************************************/
