@@ -19,9 +19,6 @@ public class Drivetrain extends Subsystem {
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_DRIVETRAIN;
 	private static final int CAN_LEFT_MOTOR = RobotMap.CAN_LEFT_MOTOR;
 	private static final int CAN_RIGHT_MOTOR = RobotMap.CAN_RIGHT_MOTOR;
-	private static final boolean HAS_FOLLOWERS = RobotMap.HAS_FOLLOWERS;
-	private static final boolean HAS_ENCODERS = RobotMap.HAS_ENCODERS;
-	private static final boolean HAS_AUTON = RobotMap.HAS_AUTON;
 	private static final NeutralMode BRAKE_MODE = RobotMap.DRIVETRAIN_BRAKE_MODE;
 	private static final boolean REVERSE_LEFT_MOTOR = RobotMap.REVERSE_LEFT_MOTOR;
 	private static final boolean REVERSE_RIGHT_MOTOR = RobotMap.REVERSE_RIGHT_MOTOR;	
@@ -40,13 +37,9 @@ public class Drivetrain extends Subsystem {
 	public Drivetrain() {
 		log.add("Constructor", LOG_LEVEL);
 		
-		if (HAS_FOLLOWERS) followers = new DrivetrainFollowers();
-		if (HAS_ENCODERS) {
-			encoders = new DrivetrainEncoders(leftMotor, rightMotor);
-			
-			if (HAS_AUTON) auton = 
-					new DrivetrainAuton(leftMotor, rightMotor, encoders);
-		}
+		followers = new DrivetrainFollowers();
+		encoders = new DrivetrainEncoders(leftMotor, rightMotor);
+		auton = new DrivetrainAuton(leftMotor, rightMotor, encoders);
 		
 		initMotor(leftMotor, REVERSE_LEFT_MOTOR);
 		initMotor(rightMotor, REVERSE_RIGHT_MOTOR);

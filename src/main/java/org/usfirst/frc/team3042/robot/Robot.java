@@ -19,13 +19,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 public class Robot extends TimedRobot { 
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_ROBOT;
-	private static final boolean HAS_DRIVETRAIN = RobotMap.HAS_DRIVETRAIN;
-	private static final boolean HAS_GYROSCOPE = RobotMap.HAS_GYROSCOPE;
 	
 	/** Create Subsystems *****************************************************/
 	private Log log = new Log(LOG_LEVEL, "Robot");
-	public static final Drivetrain 	drivetrain 	 = (HAS_DRIVETRAIN) 	? new Drivetrain() 	: null;
-	public static final Gyroscope 	gyroscope 	 = (HAS_GYROSCOPE) 		? new Gyroscope() 	: null;
+	public static final Drivetrain 	drivetrain 	 = new Drivetrain();
+	public static final Gyroscope 	gyroscope 	 = new Gyroscope();
 	public static OI oi;
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<Command>();
