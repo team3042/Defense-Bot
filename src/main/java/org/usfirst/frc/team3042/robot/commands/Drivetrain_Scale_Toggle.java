@@ -5,12 +5,10 @@ import org.usfirst.frc.team3042.robot.Robot;
 import edu.wpi.first.wpilibj.command.InstantCommand;
 
 /**
- * Drivetrain Scale Toggle
+ * Drivetrain Scale Toggle *****************************************************
  */
 public class Drivetrain_Scale_Toggle extends InstantCommand {
-  /**
-   * Scales down the speed of the drivetrain so the driver can make fine adjustments
-   */
+  // Scales down the speed of the drivetrain so the driver can make fine adjustments
   public Drivetrain_Scale_Toggle() {
     super();
   }

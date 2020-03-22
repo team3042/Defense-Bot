@@ -56,7 +56,7 @@ public class Drivetrain extends Subsystem {
 		setDefaultCommand(new Drivetrain_TankDrive());
 	}
 	
-	/** Methods for setting the motors in Percent Vbus mode ********************/
+	/** Methods for setting the motors in Percent Vbus mode *******************/
 	public void setPower(double leftPower, double rightPower) {
 		leftPower = safetyCheck(leftPower);
 		rightPower = safetyCheck(rightPower);

@@ -27,7 +27,7 @@ public class Drivetrain_GyroTurn extends Command {
 	Gyroscope gyroscope = Robot.gyroscope;
 	double lastError, integralError, goalAngle;
 	
-	/** Drivetrain Gyro Turn *************************************************** 
+	/** Drivetrain Gyro Turn ************************************************** 
 	 * 
 	 * Required subsystems will cancel commands when this command is run.
 	 * 

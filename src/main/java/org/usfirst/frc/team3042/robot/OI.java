@@ -52,7 +52,7 @@ public class OI {
 			driveAxisRight = GAMEPAD_RIGHT_Y_AXIS;
 		}
 		
-		/** Scale the drivetrain speed for fine adjustments **************************************************/
+		/** Scale the drivetrain speed for fine adjustments *******************/
 		joyLeft.button1.whenPressed(new Drivetrain_Scale_Toggle());
 		joyLeft.button1.whenReleased(new Drivetrain_Scale_Toggle());
 	}
@@ -85,7 +85,7 @@ public class OI {
     	isHighScale = false;
     }
     public void toggleScale(){
-    	if (isHighScale){
+    	if (isHighScale) {
     		setLowScale();
     	}
     	else {

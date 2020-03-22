@@ -10,7 +10,7 @@ import org.usfirst.frc.team3042.robot.Robot;
 import org.usfirst.frc.team3042.robot.RobotMap;
 import org.usfirst.frc.team3042.robot.subsystems.Drivetrain;
 
-/** Drivetrain Tank Drive ******************************************************
+/** Drivetrain Tank Drive *****************************************************
  * Use joystick input to drive the robot.
  */
 public class Drivetrain_TankDrive extends Command {
@@ -25,7 +25,7 @@ public class Drivetrain_TankDrive extends Command {
 	double leftPowerOld, rightPowerOld;
 	Timer timer = new Timer();
 	
-	/** Drivetrain Tank Drive **************************************************
+	/** Drivetrain Tank Drive *************************************************
 	 * Required subsystems will cancel commands when this command is run.
 	 */
 	public Drivetrain_TankDrive() {
@@ -67,8 +67,7 @@ public class Drivetrain_TankDrive extends Command {
 	}
 	
 	/** restrictAcceleration **************************************************/
-	private double restrictAcceleration(double goalPower, 
-			double currentPower, double dt) {
+	private double restrictAcceleration(double goalPower, double currentPower, double dt) {
 		double maxDeltaPower = ACCELERATION_MAX * dt;
 		double deltaPower = Math.abs(goalPower - currentPower);
 		double deltaSign = (goalPower < currentPower) ? -1.0 : 1.0;

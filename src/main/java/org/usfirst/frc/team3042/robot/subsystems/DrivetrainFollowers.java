@@ -9,7 +9,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-/** DrivetrainFollowers **********************************************************
+/** DrivetrainFollowers *******************************************************
  * Motor controllers for secondary drivetrain motors
  */
 public class DrivetrainFollowers extends Subsystem {
@@ -27,7 +27,7 @@ public class DrivetrainFollowers extends Subsystem {
 	TalonSRX leftFollower = new TalonSRX(CAN_LEFT_FOLLOWER);
 	TalonSRX rightFollower = new TalonSRX(CAN_RIGHT_FOLLOWER);	
 	
-	/** DrivetrainFollowers **************************************************/
+	/** DrivetrainFollowers ***************************************************/
 	public DrivetrainFollowers() {
 		log.add("Constructor", Log.Level.TRACE);
 		

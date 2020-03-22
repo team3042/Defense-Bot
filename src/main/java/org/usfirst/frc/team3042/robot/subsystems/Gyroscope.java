@@ -19,7 +19,7 @@ public class Gyroscope extends Subsystem {
 	Log log = new Log(LOG_LEVEL, SendableRegistry.getName(this));
 	ADXRS450_Gyro gyroscope = new ADXRS450_Gyro(); 
 	
-	/** Gyroscope ******************************************************/
+	/** Gyroscope *************************************************************/
 	public Gyroscope() {
 		log.add("Constructor", LOG_LEVEL);
 		reset();
