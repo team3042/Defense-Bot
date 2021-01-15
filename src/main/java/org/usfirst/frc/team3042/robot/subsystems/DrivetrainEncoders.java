@@ -10,7 +10,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
-/** DrivetrainEncoders ***********************************************************
+/** DrivetrainEncoders ********************************************************
  * The encoders for the drivetrain.
  */
 public class DrivetrainEncoders extends Subsystem {
@@ -41,10 +41,8 @@ public class DrivetrainEncoders extends Subsystem {
 		reset();
 	}
 	private void initEncoder(TalonSRX encoder, boolean sensorPhase) {
-		encoder.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 
-				PIDIDX, TIMEOUT);
-		encoder.setStatusFramePeriod(StatusFrameEnhanced.Status_2_Feedback0, 
-				FRAME_RATE, TIMEOUT);
+		encoder.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, PIDIDX, TIMEOUT);
+		encoder.setStatusFramePeriod(StatusFrameEnhanced.Status_2_Feedback0, FRAME_RATE, TIMEOUT);
 		encoder.setSensorPhase(sensorPhase); 	// affects closed-loop mode
 	}
 	
@@ -104,13 +102,13 @@ public class DrivetrainEncoders extends Subsystem {
 	 * so F = power * 1023 / speed
 	 */
 	public double rpmToF(double rpm, double power) {
-		//Convert to counts per 100 ms
+		// Convert to counts per 100 ms
 		double speed = rpm * 4.0 * COUNTS_PER_REVOLUTION / 600.0;
 		double kF = power * 1023.0 / speed;
 		return kF;
 	}
 	public double rpmToPower(double rpm, double kF) {
-		//Convert to counts per 100 ms
+		// Convert to counts per 100 ms
 		double speed = rpm * 4.0 * COUNTS_PER_REVOLUTION / 600.0;
 		double power = kF * speed / 1023.0;
 		return power;
