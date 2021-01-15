@@ -55,10 +55,10 @@ public class DrivetrainEncoders extends Subsystem {
 
 	/** reset *****************************************************************/
 	public void reset() {
-		int leftCounts = leftEncoder.getSelectedSensorPosition(PIDIDX);
+		int leftCounts = (int)(leftEncoder.getSelectedSensorPosition(PIDIDX));
 		leftPositionZero = countsToRev(leftCounts);
 		
-		int rightCounts = rightEncoder.getSelectedSensorPosition(PIDIDX);
+		int rightCounts = (int)(rightEncoder.getSelectedSensorPosition(PIDIDX));
 		rightPositionZero = countsToRev(rightCounts);
 	}
 	public void setToZero() {
@@ -71,22 +71,22 @@ public class DrivetrainEncoders extends Subsystem {
 	 * Speed returns counts per 100ms and is converted to RPM
 	 */
 	public double getLeftPosition() {
-		int counts = leftEncoder.getSelectedSensorPosition(PIDIDX);
+		int counts = (int)(leftEncoder.getSelectedSensorPosition(PIDIDX));
 		return countsToRev(counts) - leftPositionZero;
 	}
 	public double getRightPosition() {
-		int counts = rightEncoder.getSelectedSensorPosition(PIDIDX);
+		int counts = (int)(rightEncoder.getSelectedSensorPosition(PIDIDX));
 		return countsToRev(counts) - rightPositionZero;
 	}
 	private double countsToRev(int counts) {
 		return (double)counts / COUNTS_PER_REVOLUTION;
 	}
 	public double getLeftSpeed() {
-		int cp100ms = leftEncoder.getSelectedSensorVelocity(PIDIDX);
+		int cp100ms = (int)(leftEncoder.getSelectedSensorVelocity(PIDIDX));
 		return cp100msToRPM(cp100ms);
 	}
 	public double getRightSpeed() {
-		int cp100ms = rightEncoder.getSelectedSensorVelocity(PIDIDX);
+		int cp100ms = (int)(rightEncoder.getSelectedSensorVelocity(PIDIDX));
 		return cp100msToRPM(cp100ms);
 	}
 	private double cp100msToRPM(int cp100ms) {
