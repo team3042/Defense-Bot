@@ -29,7 +29,6 @@ public class Drivetrain extends Subsystem {
 	TalonSRX rightMotor = new TalonSRX(CAN_RIGHT_MOTOR);
 	DrivetrainFollowers followers;
 	DrivetrainEncoders encoders;
-	DrivetrainAuton auton;
 	
 	/** Drivetrain ************************************************************
 	 * Set up the talons for desired behavior.
@@ -39,7 +38,6 @@ public class Drivetrain extends Subsystem {
 		
 		followers = new DrivetrainFollowers();
 		encoders = new DrivetrainEncoders(leftMotor, rightMotor);
-		auton = new DrivetrainAuton(leftMotor, rightMotor, encoders);
 		
 		initMotor(leftMotor, REVERSE_LEFT_MOTOR);
 		initMotor(rightMotor, REVERSE_RIGHT_MOTOR);
@@ -76,8 +74,5 @@ public class Drivetrain extends Subsystem {
 	/** Provide commands access to the encoders and autonomous ****************/
 	public DrivetrainEncoders getEncoders() {
 		return encoders;
-	}
-	public DrivetrainAuton getAuton() {
-		return auton;
 	}
 }
