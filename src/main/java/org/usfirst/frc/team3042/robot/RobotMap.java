@@ -5,22 +5,20 @@ import org.usfirst.frc.team3042.lib.Log;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 
 /** RobotMap ******************************************************************
- * The robot configuration file.
- */
+ * The robot configuration file. */
 public class RobotMap {
 	/** Robot Size Parameters *************************************************
 	 * The units of the wheel diameter determine the units of the position 
 	 * and speed closed-loop commands. For example, if the diameter is given 
-	 * in inches, position will be in inches and speed in inches per second.
-	 */
+	 * in inches, position will be in inches and speed in inches per second. */
 	public static final double WHEEL_DIAMETER = 6.0;
 	public static final double ROBOT_WIDTH = 27.0;
 	
 	/** CAN ID numbers ********************************************************/
-	public static final int CAN_LEFT_MOTOR = 15;
-	public static final int CAN_RIGHT_MOTOR = 2;
-	public static final int CAN_LEFT_FOLLOWER = 17;
-	public static final int CAN_RIGHT_FOLLOWER = 19;
+	public static final int CAN_LEFT_MOTOR = 15; //TODO: Find the correct value for this CAN ID using Phoenix Tuner!
+	public static final int CAN_RIGHT_MOTOR = 2; //TODO: Find the correct value for this CAN ID using Phoenix Tuner!
+	public static final int CAN_LEFT_FOLLOWER = 17; //TODO: Find the correct value for this CAN ID using Phoenix Tuner!
+	public static final int CAN_RIGHT_FOLLOWER = 19; //TODO: Find the correct value for this CAN ID using Phoenix Tuner!
 	
 	/** Drivetrain Settings ***************************************************/
 	public static final NeutralMode DRIVETRAIN_BRAKE_MODE = NeutralMode.Brake;
@@ -39,29 +37,8 @@ public class RobotMap {
 	public static final int ENCODER_FRAME_RATE = 10;
 	public static final boolean SENSOR_PHASE_LEFT = false;
 	public static final boolean SENSOR_PHASE_RIGHT = false;
-	
-	/** Drivetrain Autonomous Settings ****************************************/
-	public static final int AUTON_PROFILE = 0;
-	public static final double kP_AUTON = 0.0;
-	public static final double kI_AUTON = 0.0;
-	public static final double kD_AUTON = 0.0;
-	public static final int I_ZONE_AUTON = 0;
-	// The rate of pushing motion profile points to the talon, in ms
-	public static final int AUTON_FRAME_RATE = 10;
-	// Parameters for calibrating the F-gain
-	public static final double AUTON_CALIBRATE_POWER = 0.5;
-	public static final double AUTON_CALIBRATE_TIME = 5.0; // seconds
-	public static final int AUTON_COUNT_AVERAGE = 20;
-	// Parameters for motion profile driving
-	public static final int AUTON_DT_MS = 30;
-	public static final double AUTON_DT_SEC = (double)AUTON_DT_MS / 1000.0;
-	public static final double AUTON_ACCEL_TIME = 1.0; // time in sec
-	public static final double AUTON_SMOOTH_TIME = 0.1; // time in sec
-	public static final double AUTON_MAX_ACCEL = 3.0; // rev per sec per sec
-	public static final int AUTON_BUFFER_TRIGGER = 10;
 	public static final int AUTON_TIMEOUT = 0; // timeout in ms; set to zero
 	public static final int AUTON_PIDIDX = 0; // used for cascading PID; set to zero
-	public static final int AUTON_HEADING = 0; // unimplemented feature; set to zero
 	
 	/** Drivetrain Gyro Drive Settings ****************************************/
 	public static final double kP_GYRO = 0.0175;
@@ -102,6 +79,5 @@ public class RobotMap {
 	public static final Log.Level	LOG_DRIVETRAIN						= Log.Level.TRACE;
 	public static final Log.Level	LOG_DRIVETRAIN_FOLLOWERS			= Log.Level.TRACE;
 	public static final Log.Level	LOG_DRIVETRAIN_ENCODERS 			= Log.Level.DEBUG;
-	public static final Log.Level	LOG_DRIVETRAIN_AUTON				= Log.Level.DEBUG;
 	public static final Log.Level	LOG_GYROSCOPE						= Log.Level.DEBUG;
 }
