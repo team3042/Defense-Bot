@@ -15,10 +15,10 @@ public class RobotMap {
 	public static final double ROBOT_WIDTH = 27.0;
 	
 	/** CAN ID numbers ********************************************************/
-	public static final int CAN_LEFT_MOTOR = 15; //TODO: Find the correct value for this CAN ID using Phoenix Tuner!
-	public static final int CAN_RIGHT_MOTOR = 2; //TODO: Find the correct value for this CAN ID using Phoenix Tuner!
-	public static final int CAN_LEFT_FOLLOWER = 17; //TODO: Find the correct value for this CAN ID using Phoenix Tuner!
-	public static final int CAN_RIGHT_FOLLOWER = 19; //TODO: Find the correct value for this CAN ID using Phoenix Tuner!
+	public static final int CAN_LEFT_MOTOR = 33;
+	public static final int CAN_RIGHT_MOTOR = 29;
+	public static final int CAN_LEFT_FOLLOWER = 30;
+	public static final int CAN_RIGHT_FOLLOWER = 28;
 	
 	/** Drivetrain Settings ***************************************************/
 	public static final NeutralMode DRIVETRAIN_BRAKE_MODE = NeutralMode.Brake;
