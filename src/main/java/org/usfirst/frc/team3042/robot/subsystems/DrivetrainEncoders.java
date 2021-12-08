@@ -11,8 +11,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 /** DrivetrainEncoders ********************************************************
- * The encoders for the drivetrain.
- */
+ * The encoders for the drivetrain. */
 public class DrivetrainEncoders extends Subsystem {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_DRIVETRAIN_ENCODERS;
@@ -47,8 +46,7 @@ public class DrivetrainEncoders extends Subsystem {
 	}
 	
 	/** initDefaultCommand ****************************************************
-	 * Set the default command for the subsystem.
-	 */
+	 * Set the default command for the subsystem. */
 	public void initDefaultCommand() {
 		setDefaultCommand(null);
 	}
@@ -68,8 +66,7 @@ public class DrivetrainEncoders extends Subsystem {
 	
 	/** Get the encoder position or speed *************************************
 	 * Position is converted to revolutions
-	 * Speed returns counts per 100ms and is converted to RPM
-	 */
+	 * Speed returns counts per 100ms and is converted to RPM */
 	public double getLeftPosition() {
 		int counts = (int)(leftEncoder.getSelectedSensorPosition(PIDIDX));
 		return countsToRev(counts) - leftPositionZero;
@@ -98,9 +95,7 @@ public class DrivetrainEncoders extends Subsystem {
 	 * Note that 1023 is the native full-forward power of the talons, 
 	 * equivalent to setting the power to 1.0.
 	 * The speed has to be converted from rpm to encoder counts per 100ms
-	 * 
-	 * so F = power * 1023 / speed
-	 */
+	 * so F = power * 1023 / speed */
 	public double rpmToF(double rpm, double power) {
 		// Convert to counts per 100 ms
 		double speed = rpm * 4.0 * COUNTS_PER_REVOLUTION / 600.0;

@@ -10,8 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 /** DrivetrainFollowers *******************************************************
- * Motor controllers for secondary drivetrain motors
- */
+ * Motor controllers for secondary drivetrain motors */
 public class DrivetrainFollowers extends Subsystem {
 	/** Configuration Constants ***********************************************/
 	public static final Log.Level LOG_LEVEL = RobotMap.LOG_DRIVETRAIN_FOLLOWERS;
@@ -38,8 +37,7 @@ public class DrivetrainFollowers extends Subsystem {
 	}
 	
 	/** initDefaultCommand ****************************************************
-	 * Set the default command for the subsystem.
-	 */
+	 * Set the default command for the subsystem. */
 	public void initDefaultCommand() {
 		setDefaultCommand(null);
 	}

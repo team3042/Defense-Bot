@@ -8,8 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 /** Gyroscope *****************************************************************
- * Gyroscope subsystem
- */
+ * Gyroscope subsystem */
 public class Gyroscope extends Subsystem {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_GYROSCOPE;
@@ -27,8 +26,7 @@ public class Gyroscope extends Subsystem {
 	}
 	
 	/** initDefaultCommand ****************************************************
-	 * Set the default command for the subsystem.
-	 */
+	 * Set the default command for the subsystem. */
 	public void initDefaultCommand() {
 		setDefaultCommand(null); //new Gyroscope_Dashboard()
 	}

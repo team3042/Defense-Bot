@@ -12,8 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableRegistry;
 
 /** Drivetrain ****************************************************************
- * The drivetrain subsystem for the robot.
- */
+ * The drivetrain subsystem for the robot. */
 public class Drivetrain extends Subsystem {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_DRIVETRAIN;
@@ -31,8 +30,7 @@ public class Drivetrain extends Subsystem {
 	DrivetrainEncoders encoders;
 	
 	/** Drivetrain ************************************************************
-	 * Set up the talons for desired behavior.
-	 */
+	 * Set up the talons for desired behavior. */
 	public Drivetrain() {
 		log.add("Constructor", LOG_LEVEL);
 		
@@ -48,8 +46,7 @@ public class Drivetrain extends Subsystem {
 	}
 	
 	/** initDefaultCommand ****************************************************
-	 * Set the default command for the subsystem.
-	 */
+	 * Set the default command for the subsystem. */
 	public void initDefaultCommand() {
 		setDefaultCommand(new Drivetrain_TankDrive());
 	}

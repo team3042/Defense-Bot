@@ -6,8 +6,7 @@ import org.usfirst.frc.team3042.robot.commands.Drivetrain_Scale_Toggle;
 
 /** OI ************************************************************************
  * This class is the glue that binds the controls on the physical operator
- * interface to the commands and command groups that allow control of the robot.
- */
+ * interface to the commands and command groups that allow control of the robot. */
 public class OI {	
 	/** Configuration Constants ***********************************************/
 	private static final int USB_GAMEPAD = RobotMap.USB_GAMEPAD;
@@ -58,8 +57,7 @@ public class OI {
 	}
 	
 	/** Access to the driving axes values *************************************
-	 * A negative has been added to make pushing forward positive.
-	 */
+	 * A negative has been added to make pushing forward positive. */
 	public double getDriveLeft() {
 		double joystickValue = joyLeft.getRawAxis(driveAxisLeft);
 		joystickValue = scaleJoystick(joystickValue);

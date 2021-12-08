@@ -11,8 +11,7 @@ import org.usfirst.frc.team3042.robot.subsystems.DrivetrainEncoders;
 import org.usfirst.frc.team3042.robot.subsystems.Gyroscope;
 
 /** Drivetrain Gyro Straight ***************************************************
- * Command for driving straight using gyroscope feedback.
- */
+ * Command for driving straight using gyroscope feedback. */
 public class Drivetrain_GyroStraight extends Command {
 	/** Configuration Constants ***********************************************/
 	private static final Log.Level LOG_LEVEL = RobotMap.LOG_GYROSCOPE;
@@ -33,13 +32,9 @@ public class Drivetrain_GyroStraight extends Command {
 	double goalAngle, goalDistance;
 	
 	/** Drivetrain Gyro Straight ***********************************************
-	 * Required subsystems will cancel commands when this command is run.
-	 * 
 	 * distance is given in physical units matching the wheel diameter unit
-	 * 
 	 * speed is given in physical units per second. The physical units should 
-	 * match that of the Wheel diameter.
-	 */
+	 * match that of the Wheel diameter. */
 	public Drivetrain_GyroStraight(double distance, double speed) {
 		log.add("Constructor", Log.Level.TRACE);
 		requires(drivetrain);
@@ -54,8 +49,7 @@ public class Drivetrain_GyroStraight extends Command {
 	}
 	
 	/** initialize ************************************************************
-	 * Called just before this Command runs the first time
-	 */
+	 * Called just before this Command runs the first time */
 	protected void initialize() {
 		log.add("Initialize", Log.Level.TRACE);
 
@@ -67,8 +61,7 @@ public class Drivetrain_GyroStraight extends Command {
 	}
 
 	/** execute ***************************************************************
-	 * Called repeatedly when this Command is scheduled to run
-	 */
+	 * Called repeatedly when this Command is scheduled to run */
 	protected void execute() {
 		double error = goalAngle - gyroscope.getAngle();
 		integralError += error;
@@ -88,8 +81,7 @@ public class Drivetrain_GyroStraight extends Command {
 	}
 	
 	/** isFinished ************************************************************	
-	 * Make this return true when this Command no longer needs to run execute()
-	 */
+	 * Make this return true when this Command no longer needs to run execute() */
 	protected boolean isFinished() {
 		boolean leftGoalReached = Math.abs(encoders.getLeftPosition()) >= goalDistance;
 		boolean rightGoalReached = Math.abs(encoders.getRightPosition()) >= goalDistance;
@@ -97,8 +89,7 @@ public class Drivetrain_GyroStraight extends Command {
 	}
 	
 	/** end *******************************************************************
-	 * Called once after isFinished returns true
-	 */
+	 * Called once after isFinished returns true */
 	protected void end() {
 		log.add("End", Log.Level.TRACE);
 		terminate();
@@ -106,8 +97,7 @@ public class Drivetrain_GyroStraight extends Command {
 	
 	/** interrupted ***********************************************************
 	 * Called when another command which requires one or more of the same
-	 * subsystems is scheduled to run
-	 */
+	 * subsystems is scheduled to run */
 	protected void interrupted() {
 		log.add("Interrupted", Log.Level.TRACE);
 		terminate();
