@@ -53,10 +53,8 @@ public class RobotMap {
 
 	/** OI Settings ***********************************************************/
 	public static final boolean USE_JOYSTICKS = true;
-	public static final double JOYSTICK_DRIVE_SCALE = 0.75;
-	public static final double JOYSTICK_DRIVE_SCALE_LOW = 1.1;
-	public static final double TRIGGER_SPINNER_SCALE = 0.1;
-	public static final double JOYSTICK_DEAD_ZONE = 0.0;
+	public static final double JOYSTICK_DRIVE_SCALE = 1;
+	public static final double JOYSTICK_DRIVE_SCALE_LOW = 0.25;
 
 	/** USB ports *************************************************************/					
 	public static final int USB_JOYSTICK_LEFT 	= 0;

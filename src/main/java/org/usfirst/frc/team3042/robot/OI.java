@@ -14,13 +14,9 @@ public class OI {
 	private static final int USB_JOY_RIGHT = RobotMap.USB_JOYSTICK_RIGHT;
 	private static final boolean USE_JOYSTICKS = RobotMap.USE_JOYSTICKS;
 	private static final double JOYSTICK_DRIVE_SCALE = RobotMap.JOYSTICK_DRIVE_SCALE;
-	private static final double JOYSTICK_DEAD_ZONE = RobotMap.JOYSTICK_DEAD_ZONE;
-	private static final double TRIGGER_SPINNER_SCALE = RobotMap.TRIGGER_SPINNER_SCALE;
 	private static final int GAMEPAD_LEFT_Y_AXIS = Gamepad.LEFT_JOY_Y_AXIS;
 	private static final int GAMEPAD_RIGHT_Y_AXIS = Gamepad.RIGHT_JOY_Y_AXIS;
 	private static final int JOYSTICK_Y_AXIS = Gamepad.JOY_Y_AXIS;
-	private static final int GAMEPAD_LEFT_TRIGGER = Gamepad.LEFT_TRIGGER;
-	private static final int GAMEPAD_RIGHT_TRIGGER = Gamepad.RIGHT_TRIGGER;
 	private static final double JOYSTICK_DRIVE_SCALE_LOW = RobotMap.JOYSTICK_DRIVE_SCALE_LOW;
 	
 	/** Instance Variables ****************************************************/
@@ -69,7 +65,6 @@ public class OI {
 		return joystickValue;
 	}
 	private double scaleJoystick(double joystickValue) {
-		joystickValue = checkDeadZone(joystickValue);
 		joystickValue *= CURRENT_DRIVE_SCALE;
 		joystickValue *= -1.0;
 		return joystickValue;
@@ -90,20 +85,4 @@ public class OI {
     		setHighScale();
 		}
 	}	
-	private double checkDeadZone(double joystickValue) {
-		if (Math.abs(joystickValue) < JOYSTICK_DEAD_ZONE) joystickValue = 0.0;
-		return joystickValue;
-	}
-	
-	/** Access the POV value **************************************************/
-	public int getPOV() {
-		return gamepad.getPOV();
-	}
-	
-	/** Access the Trigger Values *********************************************/
-	public double getTriggerDifference() {
-		double leftTrigger = gamepad.getRawAxis(GAMEPAD_LEFT_TRIGGER);
-		double rightTrigger = gamepad.getRawAxis(GAMEPAD_RIGHT_TRIGGER);
-		return (rightTrigger - leftTrigger) * TRIGGER_SPINNER_SCALE;
-	}
 }
