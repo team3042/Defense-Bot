@@ -48,10 +48,12 @@ public class OI {
 		}
 		
 		/** Scale the drivetrain speed for fine adjustments *******************/
-		joyLeft.button1.whenPressed(new Drivetrain_Scale_Toggle());
-		joyLeft.button1.whenReleased(new Drivetrain_Scale_Toggle());
+		joyRight.button1.whenPressed(new Drivetrain_Scale_Toggle());
+		joyRight.button1.whenReleased(new Drivetrain_Scale_Toggle());
 	}
 	
+	// (ง ͠° ͟ل͜ ͡°)ง
+
 	/** Access to the driving axes values *************************************
 	 * A negative has been added to make pushing forward positive. */
 	public double getDriveLeft() {

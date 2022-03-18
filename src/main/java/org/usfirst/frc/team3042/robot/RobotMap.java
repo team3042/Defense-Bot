@@ -48,6 +48,8 @@ public class RobotMap {
 	public static final double MAX_POWER_GYRO = 0.4;
 	public static final double kI_GYRO_INTERVAL = 0.0;
 
+	// ༼ つ ◕_◕ ༽つ
+
 	/** Gyroscope Settings ****************************************************/
 	public static final double GYROSCOPE_SCALE = 1.0; // Constant for scaling values returned by the gyroscope, leave at 1.0 by default
 
